@@ -870,5 +870,249 @@
                 "Feladat létrehozva idővonal alapján"
             ]
         ]
+    },
+    {
+        "title": "Munka: app_logger.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:13:18.620708",
+        "end_time": "2025-03-23T12:14:34.635983",
+        "logs": [
+            [
+                "2025-03-23T12:13:18.620708",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:13:19.600624",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:31.604247",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:40.606608",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:43.607499",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:49.610003",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:52.610982",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:55.612303",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:58.613422",
+                "Aktív ablak: Gyorslista – Python 3.12 (64-bit) | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:01.614475",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:14:03.615733",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:14:26.624305",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:30.626461",
+                "Aktív ablak: Heti statisztika | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:32.627892",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:34.635983",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_manager.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:18:09.003298",
+        "end_time": null,
+        "logs": [
+            [
+                "2025-03-23T12:18:09.003298",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:18:09.027299",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:09.029923",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:10.027570",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:25.032572",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:25.036596",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:35.035559",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:35.039405",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:37.036309",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:37.041852",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:43.038761",
+                "Aktív ablak: Feladatjavaslat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:18:43.043377",
+                "Aktív ablak: Feladatjavaslat | Típus: egyéb"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_manager.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:18:48.195723",
+        "end_time": "2025-03-23T12:18:52.380560",
+        "logs": [
+            [
+                "2025-03-23T12:18:48.195723",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:18:48.217255",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:49.042448",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:49.057628",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:49.219144",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:52.380560",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: icon.ico - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:27:04.438231",
+        "end_time": "2025-03-23T12:27:12.646300",
+        "logs": [
+            [
+                "2025-03-23T12:27:04.438231",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:27:04.463515",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:27:05.135576",
+                "Aktív ablak: icon.ico - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:27:05.464108",
+                "Aktív ablak: icon.ico - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:27:10.137633",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:27:10.465916",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:27:12.646300",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:38:47.194220",
+        "end_time": "2025-03-23T12:38:53.882069",
+        "logs": [
+            [
+                "2025-03-23T12:38:47.194220",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:38:47.225178",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:38:47.987036",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:38:48.225980",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:38:53.882069",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: popup_window.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:40:31.872458",
+        "end_time": "2025-03-23T12:40:35.022834",
+        "logs": [
+            [
+                "2025-03-23T12:40:31.872458",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:40:31.892158",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:40:32.893294",
+                "Aktív ablak: popup_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:40:35.022834",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]

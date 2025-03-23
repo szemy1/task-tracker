@@ -22,13 +22,18 @@ class AppLogger(threading.Thread):
                 self.last_window = current_window
                 tag = suggest_tag(current_window)
                 log_msg = f"Aktív ablak: {current_window} | Típus: {tag}"
-                
+                print(f"[AppLogger] Aktív ablak: {current_window} → {tag}")
+
+
                 active_task = self.task_manager.get_active_task()
                 if active_task:
                     active_task.log_event(log_msg)
-                elif tag == 'munka':
-                    # Csak akkor javasolj feladatot, ha nincs aktív feladat és "munka" az ablak típusa
+                elif tag in ('munka', 'fejlesztés', 'adminisztráció'):
                     self.notifier.suggest_task_signal.emit(current_window)
+                    # Ajánlás csak akkor, ha nincs aktív feladat
+                    print(f"[AppLogger] Feladatjavaslat indítása: {current_window}")
+                    self.notifier.suggest_task(current_window)
+
 
             time.sleep(1)
 

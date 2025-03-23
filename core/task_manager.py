@@ -2,10 +2,8 @@
 
 import time
 from datetime import datetime
-from core.app_logger import AppLogger
 from core import storage
 from core.app_logger import AppLogger
-from core.activity_notifier import ActivityNotifier
 
 
 class Task:
@@ -52,9 +50,6 @@ class Task:
         return f"{self.title} - {duration}"
 
 
-from core.app_logger import AppLogger
-from datetime import datetime
-
 class TaskManager:
     def __init__(self):
         self.tasks = []
@@ -73,7 +68,6 @@ class TaskManager:
                 description=data["description"]
             )
             if data.get("start_time"):
-                from datetime import datetime
                 task.start_time = datetime.fromisoformat(data["start_time"])
             if data.get("end_time"):
                 task.end_time = datetime.fromisoformat(data["end_time"])
@@ -88,7 +82,6 @@ class TaskManager:
     def check_auto_archive(self, parent=None):
         return storage.check_archive_needed(self.tasks, ask_user=True, parent=parent)
 
-
     def create_task(self, title: str, description: str = ""):
         task = Task(title, description)
         self.tasks.append(task)
@@ -98,7 +91,7 @@ class TaskManager:
     def start_current_task(self, notifier):
         if self.current_task:
             self.current_task.start()
-            self.logger = AppLogger(self.current_task, notifier) 
+            self.logger = AppLogger(self, notifier)  # ✅ ÁTADJUK A TASKMANAGER-T
             self.logger.start()
 
     def stop_current_task(self):

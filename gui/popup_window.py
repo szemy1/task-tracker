@@ -1,39 +1,21 @@
-from PySide6.QtWidgets import QDialog, QLabel, QVBoxLayout, QPushButton
+from PySide6.QtWidgets import QDialog, QLabel, QVBoxLayout, QPushButton, QHBoxLayout
 from PySide6.QtCore import Qt
 from gui.style import modern_style
-
-class PopupWindow(QDialog):
-    def __init__(self, app_name, on_accept):
-        super().__init__()
-        self.setWindowTitle("Feladatjavaslat")
-        self.setFixedSize(300, 150)
-        
-        layout = QVBoxLayout()
-        label = QLabel(f"Szeretnél feladatot indítani erre?\n\n{app_name}")
-        layout.addWidget(label)
-
-        accept_button = QPushButton("Feladat indítása")
-        accept_button.clicked.connect(lambda: (on_accept(app_name), self.accept()))
-        layout.addWidget(accept_button)
-
-        decline_button = QPushButton("Nem, köszönöm")
-        decline_button.clicked.connect(self.reject)
-        layout.addWidget(decline_button)
-
-        self.setLayout(layout)
-
-
-
 
 class SuggestionPopup(QDialog):
     def __init__(self, suggestion_text, on_accept, on_reject):
         super().__init__()
         self.setWindowTitle("Feladatjavaslat")
         self.setModal(True)
+        self.setStyleSheet(modern_style)
+
+        # Itt jön a lényeg: mindig legfelülre helyezzük
+        self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint | Qt.Popup)
 
         layout = QVBoxLayout()
 
         label = QLabel(suggestion_text)
+        label.setWordWrap(True)
         layout.addWidget(label)
 
         button_layout = QHBoxLayout()
@@ -48,3 +30,7 @@ class SuggestionPopup(QDialog):
 
         layout.addLayout(button_layout)
         self.setLayout(layout)
+
+        # Fókusz ráadás
+        self.activateWindow()
+        self.raise_()

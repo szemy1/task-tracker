@@ -1,8 +1,9 @@
 from PySide6.QtWidgets import (
-    QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, 
-    QLineEdit, QTextEdit, QMessageBox, QDialog, QHBoxLayout, QPushButton
+    QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton,
+    QLineEdit, QTextEdit, QMessageBox, QDialog, QHBoxLayout
 )
 from PySide6.QtCore import Qt, QPoint
+
 from core.task_manager import TaskManager
 from gui.task_list_window import TaskListWindow
 from gui.close_task_dialog import CloseTaskDialog
@@ -11,10 +12,8 @@ from gui.stats_window import StatsWindow
 from gui.analysis_window import AnalysisWindow
 from gui.dashboard_window import DashboardWindow
 from core.predictor import predict_duration
-from gui.popup_window import PopupWindow
 from core.app_logger import AppLogger
 from gui.popup_window import SuggestionPopup
-# gui/main_window.py
 from core.activity_notifier import ActivityNotifier
 
 
@@ -23,13 +22,15 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
         self.setMinimumSize(800, 600)
+        self.popup_shown = False  # Új felugró figyelő változó
+
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         self.layout = QVBoxLayout()
         central_widget.setLayout(self.layout)
 
-        # Kilépés gomb hozzáadása (felül)
+        # Bezáró gomb
         top_bar = QHBoxLayout()
         top_bar.setAlignment(Qt.AlignRight)
 
@@ -41,7 +42,6 @@ class MainWindow(QMainWindow):
         top_bar.addWidget(close_button)
         self.layout.addLayout(top_bar)
 
-        # Ablak mozgatásához
         self.old_position = QPoint()
         self.task_manager = TaskManager()
 
@@ -51,6 +51,7 @@ class MainWindow(QMainWindow):
         title_label.setStyleSheet("font-size: 18pt;")
         self.layout.addWidget(title_label)
 
+        # Beviteli mezők
         self.title_input = QLineEdit()
         self.title_input.setPlaceholderText("Feladat címe")
         self.layout.addWidget(self.title_input)
@@ -71,7 +72,7 @@ class MainWindow(QMainWindow):
         self.status_label = QLabel("🟡 Nincs aktív feladat")
         self.layout.addWidget(self.status_label)
 
-        # Menügombok
+        # Menü gombok
         buttons = [
             ("📋 Feladatlista", self.show_task_list),
             ("📊 Heti statisztika", self.show_stats),
@@ -83,46 +84,15 @@ class MainWindow(QMainWindow):
             btn = QPushButton(text)
             btn.clicked.connect(slot)
             self.layout.addWidget(btn)
-        
+
+        # Értesítési rendszer + logger
         self.activity_notifier = ActivityNotifier()
         self.activity_notifier.suggest_task_signal.connect(self.show_suggestion_popup)
 
         self.app_logger = AppLogger(self.task_manager, self.activity_notifier)
         self.app_logger.start()
 
-        # Stílus betöltése
         self.load_styles()
-
-    def show_suggestion_popup(self, app_name):
-        self.popup = SuggestionPopup(app_name, self.start_suggested_task)
-        self.popup.show()
-
-    def start_suggested_task(self, app_name):
-        self.title_input.setText(app_name)
-        self.start_task()
-
-
-    def show_task_suggestion(self, app_name):
-        if not self.task_manager.get_active_task():
-            popup = PopupWindow(app_name, self.start_suggested_task)
-            popup.exec()
-
-    def start_suggested_task(self, app_name):
-        self.title_input.setText(f"Munka: {app_name}")
-        self.start_task()
-
-    def closeEvent(self, event):
-        self.app_logger.stop()
-        event.accept()
-
-
-    def show_suggestion_popup(self, app_name):
-        popup = PopupWindow(app_name, self.start_suggested_task)
-        popup.exec()
-
-    def start_suggested_task(self, app_name):
-        self.title_input.setText(app_name)
-        self.start_task()
 
     def load_styles(self):
         self.setStyleSheet("""
@@ -147,7 +117,6 @@ class MainWindow(QMainWindow):
             }
         """)
 
-    # Ablak mozgatása egérrel
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.old_position = event.globalPosition().toPoint()
@@ -157,29 +126,34 @@ class MainWindow(QMainWindow):
         self.move(self.pos() + delta)
         self.old_position = event.globalPosition().toPoint()
 
-    def show_dashboard(self):
-        dialog = DashboardWindow(self.task_manager.get_all_tasks())
-        dialog.exec()
+    def show_suggestion_popup(self, app_name):
+        if self.popup_shown:
+            return  # Már van nyitott ablak
 
-    def show_analysis(self):
-        dialog = AnalysisWindow(self.task_manager.get_all_tasks())
-        dialog.exec()
+        self.popup_shown = True  # Jelöljük, hogy felugró megjelent
 
-    def show_stats(self):
-        dialog = StatsWindow(self.task_manager.get_all_tasks())
-        dialog.exec()
+        def on_accept():
+            self.popup_shown = False
+            self.title_input.setText(f"Munka: {app_name}")
+            self.start_task()
 
-    def open_settings(self):
-        dialog = SettingsWindow()
-        dialog.exec()
+        def on_reject():
+            self.popup_shown = False
+            print("Feladatjavaslat elutasítva")
 
-    def show_task_list(self):
-        dialog = TaskListWindow(self.task_manager.get_all_tasks())
-        dialog.exec()
+        popup = SuggestionPopup(
+            f"Úgy tűnik, a(z) „{app_name}” munkához kapcsolódik. Szeretnéd elindítani?",
+            on_accept,
+            on_reject
+        )
+        popup.exec()
+
 
     def start_task(self):
         title = self.title_input.text().strip()
         description = self.description_input.toPlainText().strip()
+        if self.task_manager.get_active_task():
+                self.stop_task()
 
         if not title:
             QMessageBox.warning(self, "⚠️ Hiba", "Kérlek adj meg egy feladatcímet!")
@@ -190,11 +164,10 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "🔮 AI becslés", f"A rendszer szerint kb. {prediction} percet vesz igénybe.")
 
         task = self.task_manager.create_task(title, description)
-        self.task_manager.start_current_task(self.activity_notifier)  # Itt adjuk át
+        self.task_manager.start_current_task(self.activity_notifier)
         self.status_label.setText(f"🟢 Futó feladat: {task.title}")
         self.start_button.setEnabled(False)
         self.stop_button.setEnabled(True)
-
 
     def stop_task(self):
         self.task_manager.stop_current_task()
@@ -205,11 +178,36 @@ class MainWindow(QMainWindow):
         self.stop_button.setEnabled(False)
 
         dialog = CloseTaskDialog()
-        result = dialog.exec()
-
-        if result == QDialog.Accepted:
+        if dialog.exec() == QDialog.Accepted:
             notes = dialog.get_notes()
             if notes:
                 task.log_event(f"Záró megjegyzés: {notes}")
 
         self.task_manager.check_auto_archive(self)
+
+    def show_task_list(self):
+        dialog = TaskListWindow(self.task_manager.get_all_tasks())
+        dialog.exec()
+
+    def show_stats(self):
+        dialog = StatsWindow(self.task_manager.get_all_tasks())
+        dialog.exec()
+
+    def show_analysis(self):
+        dialog = AnalysisWindow(self.task_manager.get_all_tasks())
+        dialog.exec()
+
+    def show_dashboard(self):
+        dialog = DashboardWindow(self.task_manager.get_all_tasks())
+        dialog.exec()
+
+    def open_settings(self):
+        dialog = SettingsWindow()
+        dialog.exec()
+
+    def closeEvent(self, event):
+        if self.app_logger:
+            self.app_logger.stop()
+            self.app_logger.join()  # Fontos! Várjuk meg, míg a thread leáll
+        event.accept()
+
