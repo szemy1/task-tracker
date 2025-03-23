@@ -450,5 +450,25 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Gyorsfeladat",
+        "description": "",
+        "start_time": "2025-03-24T00:13:12.319024",
+        "end_time": "2025-03-24T00:13:16.440440",
+        "logs": [
+            [
+                "2025-03-24T00:13:12.319024",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T00:13:12.320563",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T00:13:16.440440",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]

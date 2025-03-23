@@ -19,6 +19,7 @@ from gui.note_editor_dialog import NoteEditorDialog
 from gui.floating_widget import FloatingWidget
 
 
+
 class MainWindow(QMainWindow):
     instance = None  # <<< EZ KELL
     def __init__(self):

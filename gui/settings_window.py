@@ -5,6 +5,9 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt  # ← Ezt add hozzá!
 from gui.style import modern_style
+from PySide6.QtWidgets import QCheckBox, QFileDialog, QLabel
+from PySide6.QtCore import QSettings
+import os
 
 
 CONFIG_PATH = "config/settings.json"
@@ -66,6 +69,23 @@ class SettingsWindow(QDialog):
         layout.addWidget(save_button)
 
         self.setLayout(layout)  # ← FONTOS! csak ezután lesz self.layout() működőképes
+        # 🔘 Lebegő ablak kapcsoló
+        self.floating_checkbox = QCheckBox("Lebegő ablak megjelenítése")
+        self.floating_checkbox.setChecked(self.settings.get("floating_enabled", True))
+        layout.addWidget(self.floating_checkbox)
+
+        # 🖼️ Logó kiválasztása
+        self.logo_label = QLabel("Logó: nincs kiválasztva")
+        self.logo_path = self.settings.get("logo_path", "")
+        if self.logo_path:
+            self.logo_label.setText(f"Logó: {os.path.basename(self.logo_path)}")
+        layout.addWidget(self.logo_label)
+
+        self.logo_button = QPushButton("Logó kiválasztása")
+        self.logo_button.clicked.connect(self.choose_logo)
+        layout.addWidget(self.logo_button)
+
+
 
 
     def browse_folder(self):
@@ -89,6 +109,8 @@ class SettingsWindow(QDialog):
                 "auto_archive_days": int(self.archive_days_input.text()),
                 "storage_path": self.path_input.text(),
                 "theme": self.theme_input.text().strip(),
+                "floating_enabled": self.floating_checkbox.isChecked(),
+                "logo_path": self.logo_path or "",
                 "inactivity_limit_minutes": int(self.inactivity_input.text())
             }
 
@@ -100,3 +122,9 @@ class SettingsWindow(QDialog):
 
         except Exception as e:
             QMessageBox.critical(self, "Hiba", f"Hibás beviteli érték: {e}")
+
+    def choose_logo(self):
+        file, _ = QFileDialog.getOpenFileName(self, "Logó kiválasztása", "", "Képek (*.png *.ico *.jpg)")
+        if file:
+            self.logo_path = file
+            self.logo_label.setText(f"Logó: {os.path.basename(file)}")
