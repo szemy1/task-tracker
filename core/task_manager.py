@@ -4,7 +4,8 @@ import time
 from datetime import datetime
 from core.app_logger import AppLogger
 from core import storage
-
+from core.app_logger import AppLogger
+from core.activity_notifier import ActivityNotifier
 
 
 class Task:
@@ -94,10 +95,10 @@ class TaskManager:
         self.current_task = task
         return task
 
-    def start_current_task(self):
+    def start_current_task(self, notifier):
         if self.current_task:
             self.current_task.start()
-            self.logger = AppLogger(self.current_task)
+            self.logger = AppLogger(self.current_task, notifier) 
             self.logger.start()
 
     def stop_current_task(self):

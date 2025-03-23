@@ -1,13 +1,15 @@
 # gui/stats_window.py
 
-from PySide6.QtWidgets import QDialog, QVBoxLayout
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QPushButton
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from collections import defaultdict
 import matplotlib.dates as mdates
 import datetime
-
+from PySide6.QtWidgets import QHBoxLayout, QPushButton
+from PySide6.QtCore import Qt
 from core.tag_suggester import suggest_tag
+from gui.style import modern_style
 
 
 class StatsWindow(QDialog):
@@ -15,9 +17,24 @@ class StatsWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Heti statisztika")
         self.resize(800, 500)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         layout = QVBoxLayout()
         self.setLayout(layout)
+
+        top_bar = QHBoxLayout()
+        top_bar.setAlignment(Qt.AlignRight)
+
+        close_button = QPushButton("✖")
+        close_button.setFixedSize(30, 30)
+        close_button.setStyleSheet("border: none; font-size: 16px;")
+        close_button.clicked.connect(self.close)
+
+        top_bar.addWidget(close_button)
+        layout.addLayout(top_bar)
+        self.setLayout(layout)
+        self.setStyleSheet(modern_style)
+
 
         self.figure = Figure()
         self.canvas = FigureCanvas(self.figure)

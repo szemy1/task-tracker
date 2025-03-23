@@ -1,21 +1,37 @@
 # gui/task_log_window.py
 
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QListWidget, QListWidgetItem, QPushButton
+from PySide6.QtWidgets import QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor
 from gui.task_timeline_window import TaskTimelineWindow
 from core.task_manager import Task
 from core.tag_styles import get_tag_style  # 🔥 új: címke-stílus import
+from gui.style import modern_style
 
 class TaskLogWindow(QDialog):
     def __init__(self, task):
         super().__init__()
         self.setWindowTitle(f"Napló: {task.title}")
         self.resize(600, 400)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         layout = QVBoxLayout()
         self.setLayout(layout)
+
+        top_bar = QHBoxLayout()
+        top_bar.setAlignment(Qt.AlignRight)
+
+        close_button = QPushButton("✖")
+        close_button.setFixedSize(30, 30)
+        close_button.setStyleSheet("border: none; font-size: 16px;")
+        close_button.clicked.connect(self.close)
+
+        top_bar.addWidget(close_button)
+        layout.addLayout(top_bar)
         self.task = task
+        self.setStyleSheet(modern_style)
+
 
         layout.addWidget(QLabel(f"Leírás: {task.description}"))
         layout.addWidget(QLabel(f"Kezdés: {task.start_time}"))

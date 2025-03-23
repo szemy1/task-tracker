@@ -1,8 +1,11 @@
 import os
 import json
 from PySide6.QtWidgets import (
-    QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton, QFileDialog, QMessageBox
+    QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton, QFileDialog, QMessageBox, QHBoxLayout
 )
+from PySide6.QtCore import Qt  # ← Ezt add hozzá!
+from gui.style import modern_style
+
 
 CONFIG_PATH = "config/settings.json"
 
@@ -20,10 +23,25 @@ class SettingsWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Beállítások")
         self.resize(400, 250)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         self.settings = self.load_settings()
+        self.setStyleSheet(modern_style)
+
 
         layout = QVBoxLayout()
+        self.setLayout(layout)
+
+        top_bar = QHBoxLayout()
+        top_bar.setAlignment(Qt.AlignRight)
+
+        close_button = QPushButton("✖")
+        close_button.setFixedSize(30, 30)
+        close_button.setStyleSheet("border: none; font-size: 16px;")
+        close_button.clicked.connect(self.close)
+
+        top_bar.addWidget(close_button)
+        layout.addLayout(top_bar)
 
         self.archive_days_input = QLineEdit(str(self.settings["auto_archive_days"]))
         self.path_input = QLineEdit(self.settings["storage_path"])

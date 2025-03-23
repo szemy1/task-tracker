@@ -1,16 +1,14 @@
-# core/app_logger.py
-
 import time
 import threading
 import win32gui
 from datetime import datetime
 from core.tag_suggester import suggest_tag
 
-
 class AppLogger(threading.Thread):
-    def __init__(self, task):
+    def __init__(self, task_manager, notifier):
         super().__init__()
-        self.task = task
+        self.task_manager = task_manager
+        self.notifier = notifier
         self.running = False
         self.last_window = None
 
@@ -19,21 +17,20 @@ class AppLogger(threading.Thread):
 
         while self.running:
             current_window = self.get_active_window_title()
-            timestamp = datetime.now()
 
             if current_window != self.last_window:
                 self.last_window = current_window
-
-                # 🧠 Itt javasolunk címkét
                 tag = suggest_tag(current_window)
                 log_msg = f"Aktív ablak: {current_window} | Típus: {tag}"
-
-                self.task.log_event(log_msg)
+                
+                active_task = self.task_manager.get_active_task()
+                if active_task:
+                    active_task.log_event(log_msg)
+                elif tag == 'munka':
+                    # Csak akkor javasolj feladatot, ha nincs aktív feladat és "munka" az ablak típusa
+                    self.notifier.suggest_task_signal.emit(current_window)
 
             time.sleep(1)
-
-
-
 
     def stop(self):
         self.running = False

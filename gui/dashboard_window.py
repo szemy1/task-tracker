@@ -7,15 +7,32 @@ from matplotlib.figure import Figure
 from collections import defaultdict
 import datetime
 from core.tag_suggester import suggest_tag
+from gui.style import modern_style
+from PySide6.QtWidgets import QHBoxLayout, QPushButton
+from PySide6.QtCore import Qt
 
 class DashboardWindow(QDialog):
     def __init__(self, tasks):
         super().__init__()
         self.setWindowTitle("📊 AI Dashboard")
         self.resize(900, 700)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         layout = QVBoxLayout()
         self.setLayout(layout)
+
+        top_bar = QHBoxLayout()
+        top_bar.setAlignment(Qt.AlignRight)
+
+        close_button = QPushButton("✖")
+        close_button.setFixedSize(30, 30)
+        close_button.setStyleSheet("border: none; font-size: 16px;")
+        close_button.clicked.connect(self.close)
+
+        top_bar.addWidget(close_button)
+        layout.addLayout(top_bar)
+        self.setStyleSheet(modern_style)
+
 
         self.figure = Figure(figsize=(10, 7))
         self.canvas = FigureCanvas(self.figure)

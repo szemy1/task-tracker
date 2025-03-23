@@ -1,9 +1,10 @@
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QPushButton, QMessageBox
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QPushButton, QHBoxLayout, QMessageBox
 from PySide6.QtCore import Qt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from collections import defaultdict
+from gui.style import modern_style
 
 class TaskTimelineWindow(QDialog):
     def __init__(self, task, on_new_task_callback=None):
@@ -12,13 +13,27 @@ class TaskTimelineWindow(QDialog):
         self.resize(1000, 600)
         self.task = task
         self.on_new_task_callback = on_new_task_callback
+        self.setStyleSheet(modern_style)
+        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
+
 
         self.selected_start = None
         self.selected_end = None
         self.selection_patch = None
 
-        self.layout = QVBoxLayout()
-        self.setLayout(self.layout)
+        layout = QVBoxLayout()
+        self.setLayout(layout)
+
+        top_bar = QHBoxLayout()
+        top_bar.setAlignment(Qt.AlignRight)
+
+        close_button = QPushButton("✖")
+        close_button.setFixedSize(30, 30)
+        close_button.setStyleSheet("border: none; font-size: 16px;")
+        close_button.clicked.connect(self.close)
+
+        top_bar.addWidget(close_button)
+        layout.addLayout(top_bar)
 
         self.figure, self.ax = plt.subplots()
         self.canvas = FigureCanvas(self.figure)
