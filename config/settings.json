@@ -1,0 +1,6 @@
+{
+    "auto_archive_days": 7,
+    "storage_path": "./data",
+    "theme": "dark",
+    "inactivity_limit_minutes": 10
+}

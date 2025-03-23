@@ -1,10 +1,11 @@
+# .gitignore
+
+venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.exe
-*.spec
 .env
-dist/
-build/
-*.xlsx
+.DS_Store
+.idea/
+*.log
