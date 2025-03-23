@@ -24,25 +24,27 @@ class PopupWindow(QDialog):
 
 
 
+
 class SuggestionPopup(QDialog):
-    def __init__(self, app_name, on_accept):
+    def __init__(self, suggestion_text, on_accept, on_reject):
         super().__init__()
         self.setWindowTitle("Feladatjavaslat")
-        self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
-        self.resize(300, 100)
+        self.setModal(True)
 
         layout = QVBoxLayout()
-        self.setLayout(layout)
 
-        label = QLabel(f"Szeretnél új feladatot indítani?\n{app_name}")
-        label.setAlignment(Qt.AlignCenter)
-
-        accept_button = QPushButton("Igen")
-        accept_button.clicked.connect(lambda: (on_accept(app_name), self.accept()))
-
-        reject_button = QPushButton("Nem")
-        reject_button.clicked.connect(self.reject)
-
+        label = QLabel(suggestion_text)
         layout.addWidget(label)
-        layout.addWidget(accept_button)
-        layout.addWidget(reject_button)
+
+        button_layout = QHBoxLayout()
+
+        accept_button = QPushButton("Elfogad")
+        accept_button.clicked.connect(lambda: (on_accept(), self.accept()))
+        button_layout.addWidget(accept_button)
+
+        reject_button = QPushButton("Elutasít")
+        reject_button.clicked.connect(lambda: (on_reject(), self.reject()))
+        button_layout.addWidget(reject_button)
+
+        layout.addLayout(button_layout)
+        self.setLayout(layout)
