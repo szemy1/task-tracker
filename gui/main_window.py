@@ -15,14 +15,16 @@ from core.predictor import predict_duration
 from core.app_logger import AppLogger
 from gui.popup_window import SuggestionPopup
 from core.activity_notifier import ActivityNotifier
-
+from gui.note_editor_dialog import NoteEditorDialog
 
 class MainWindow(QMainWindow):
+    instance = None  # <<< EZ KELL
     def __init__(self):
         super().__init__()
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
         self.setMinimumSize(800, 600)
         self.popup_shown = False  # Új felugró figyelő változó
+        MainWindow.instance = self
 
 
         central_widget = QWidget()
@@ -128,25 +130,25 @@ class MainWindow(QMainWindow):
 
     def show_suggestion_popup(self, app_name):
         if self.popup_shown:
-            return  # Már van nyitott ablak
+            return
 
-        self.popup_shown = True  # Jelöljük, hogy felugró megjelent
+        self.popup_shown = True
 
-        def on_accept():
+        def on_accept(title, description):
             self.popup_shown = False
-            self.title_input.setText(f"Munka: {app_name}")
+            self.title_input.setText(title)
+            self.description_input.setPlainText(description)
             self.start_task()
 
         def on_reject():
             self.popup_shown = False
+            self.app_logger.dismiss_window(app_name)  # ✅ ITT hívjuk meg
             print("Feladatjavaslat elutasítva")
 
-        popup = SuggestionPopup(
-            f"Úgy tűnik, a(z) „{app_name}” munkához kapcsolódik. Szeretnéd elindítani?",
-            on_accept,
-            on_reject
-        )
+        popup = SuggestionPopup(app_name, on_accept, on_reject)
         popup.exec()
+
+
 
 
     def start_task(self):
@@ -177,16 +179,14 @@ class MainWindow(QMainWindow):
         self.start_button.setEnabled(True)
         self.stop_button.setEnabled(False)
 
-        dialog = CloseTaskDialog()
+        dialog = NoteEditorDialog(task)
         if dialog.exec() == QDialog.Accepted:
-            notes = dialog.get_notes()
-            if notes:
-                task.log_event(f"Záró megjegyzés: {notes}")
+            print("Jegyzet mentve.")
 
         self.task_manager.check_auto_archive(self)
 
     def show_task_list(self):
-        dialog = TaskListWindow(self.task_manager.get_all_tasks())
+        dialog = TaskListWindow(self.task_manager)
         dialog.exec()
 
     def show_stats(self):

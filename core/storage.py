@@ -65,7 +65,8 @@ def archive_and_clear(tasks):
     archive_path = os.path.join(ARCHIVE_FOLDER, f"tasks_{timestamp}.json")
 
     with open(archive_path, "w", encoding="utf-8") as f:
-        json.dump(tasks, f, indent=4, ensure_ascii=False)
+        json.dump([task.to_dict() for task in tasks], f, indent=4, ensure_ascii=False)
+
 
     # Kiürítjük az aktuális adatbázist
     with open(DATA_FILE, "w", encoding="utf-8") as f:

@@ -1,24 +1,28 @@
-# gui/task_log_window.py
-
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QListWidget, QListWidgetItem, QPushButton
-from PySide6.QtWidgets import QHBoxLayout, QPushButton
+from PySide6.QtWidgets import (
+    QDialog, QVBoxLayout, QLabel, QPushButton, QListWidget, QListWidgetItem, QHBoxLayout
+)
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor
 from gui.task_timeline_window import TaskTimelineWindow
-from core.task_manager import Task
-from core.tag_styles import get_tag_style  # 🔥 új: címke-stílus import
 from gui.style import modern_style
+from gui.note_editor_dialog import NoteEditorDialog
+from core.task_manager import TaskManager
+
 
 class TaskLogWindow(QDialog):
-    def __init__(self, task):
+    def __init__(self, task, task_manager: TaskManager):
         super().__init__()
-        self.setWindowTitle(f"Napló: {task.title}")
-        self.resize(600, 400)
+        self.task = task
+        self.task_manager = task_manager
+
+        self.setWindowTitle(f"📃 Napló: {task.title}")
+        self.resize(600, 500)
+        self.setStyleSheet(modern_style)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         layout = QVBoxLayout()
         self.setLayout(layout)
 
+        # Top bar - bezáró gomb
         top_bar = QHBoxLayout()
         top_bar.setAlignment(Qt.AlignRight)
 
@@ -29,37 +33,35 @@ class TaskLogWindow(QDialog):
 
         top_bar.addWidget(close_button)
         layout.addLayout(top_bar)
-        self.task = task
-        self.setStyleSheet(modern_style)
 
+        # Feladat cím
+        self.label = QLabel(f"📍 Feladat: {task.title}")
+        self.label.setStyleSheet("font-weight: bold; font-size: 16px;")
+        layout.addWidget(self.label)
 
-        layout.addWidget(QLabel(f"Leírás: {task.description}"))
-        layout.addWidget(QLabel(f"Kezdés: {task.start_time}"))
-        layout.addWidget(QLabel(f"Befejezés: {task.end_time}"))
-        layout.addWidget(QLabel("Események:"))
-
+        # Napló lista
         self.log_list = QListWidget()
+        self.refresh_logs()
         layout.addWidget(self.log_list)
 
-        for timestamp, message in task.logs:
-            display_text = f"[{timestamp}] {message}"
-            item = QListWidgetItem(display_text)
+        # Gombok
+        button_layout = QHBoxLayout()
 
-            # 🔍 Ha van címke, akkor színezzük és emoji-t is adunk hozzá
-            if "Típus:" in message:
-                tag = message.split("Típus:")[-1].strip()
-                style = get_tag_style(tag)
-                item.setForeground(QColor(style["color"]))
-                item.setText(f"[{timestamp}] {style['emoji']} {message}")
+        timeline_button = QPushButton("📅 Idővonal megnyitása")
+        timeline_button.clicked.connect(self.open_timeline)
+        button_layout.addWidget(timeline_button)
 
+        note_button = QPushButton("📝 Jegyzet megnyitása")
+        note_button.clicked.connect(self.open_note_editor)
+        button_layout.addWidget(note_button)
+
+        layout.addLayout(button_layout)
+
+    def refresh_logs(self):
+        self.log_list.clear()
+        for timestamp, message in self.task.logs:
+            item = QListWidgetItem(f"[{timestamp.strftime('%H:%M:%S')}] {message}")
             self.log_list.addItem(item)
-
-        self.log_list.setCurrentRow(-1)
-
-        # 🕒 Timeline gomb
-        self.timeline_button = QPushButton("Megtekintés idővonalon")
-        self.timeline_button.clicked.connect(self.open_timeline)
-        layout.addWidget(self.timeline_button)
 
     def open_timeline(self):
         timeline_window = TaskTimelineWindow(self.task, on_new_task_callback=self.create_task_from_logs)
@@ -67,14 +69,14 @@ class TaskLogWindow(QDialog):
 
     def create_task_from_logs(self, title, description, logs):
         from core.task_manager import Task
-        from gui.main_window import MainWindow  # ⚠️ fontos a circular import miatt
-
-        new_task = Task(title, description)
-        for ts, msg in logs:
-            new_task.logs.append((ts, msg))
+        new_task = Task(title=title, description=description)
         new_task.start_time = logs[0][0] if logs else None
         new_task.end_time = logs[-1][0] if logs else None
-        new_task.log_event("Feladat létrehozva idővonal alapján")
+        new_task.logs = logs
+        self.task_manager.tasks.append(new_task)
+        self.task_manager.save()
 
-        MainWindow.instance.task_manager.tasks.append(new_task)
-        MainWindow.instance.task_manager.save()
+    def open_note_editor(self):
+        # Jegyzet szerkesztő megnyitása – automatikus betöltéssel
+        editor = NoteEditorDialog(self.task)
+        editor.exec()

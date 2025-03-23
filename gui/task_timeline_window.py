@@ -1,10 +1,14 @@
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QPushButton, QHBoxLayout, QMessageBox
+#task_timeline_window.py
+from PySide6.QtWidgets import (
+    QDialog, QVBoxLayout, QPushButton, QHBoxLayout, QMessageBox
+)
 from PySide6.QtCore import Qt
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from collections import defaultdict
 from gui.style import modern_style
+plt.rcParams['font.family'] = 'Noto Emoji'
 
 class TaskTimelineWindow(QDialog):
     def __init__(self, task, on_new_task_callback=None):
@@ -16,7 +20,6 @@ class TaskTimelineWindow(QDialog):
         self.setStyleSheet(modern_style)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
-
         self.selected_start = None
         self.selected_end = None
         self.selection_patch = None
@@ -24,24 +27,25 @@ class TaskTimelineWindow(QDialog):
         layout = QVBoxLayout()
         self.setLayout(layout)
 
+        # Bezáró gomb
         top_bar = QHBoxLayout()
         top_bar.setAlignment(Qt.AlignRight)
-
         close_button = QPushButton("✖")
         close_button.setFixedSize(30, 30)
         close_button.setStyleSheet("border: none; font-size: 16px;")
         close_button.clicked.connect(self.close)
-
         top_bar.addWidget(close_button)
         layout.addLayout(top_bar)
 
+        # Matplotlib ábra
         self.figure, self.ax = plt.subplots()
         self.canvas = FigureCanvas(self.figure)
-        self.layout.addWidget(self.canvas)
+        layout.addWidget(self.canvas)
 
-        self.create_button = QPushButton("Új feladat a kijelölésből")
+        # Gomb új feladat létrehozásához
+        self.create_button = QPushButton("➕ Új feladat a kijelölésből")
         self.create_button.clicked.connect(self.create_task_from_selection)
-        self.layout.addWidget(self.create_button)
+        layout.addWidget(self.create_button)
 
         self.canvas.mpl_connect("button_press_event", self.on_click)
         self.plot_timeline()
@@ -57,7 +61,6 @@ class TaskTimelineWindow(QDialog):
         start_time = self.task.start_time
         grouped = defaultdict(list)
 
-        # Csoportosítás ablakcímek szerint
         for timestamp, message in self.task.logs:
             if message.startswith("Aktív ablak:"):
                 title = message.replace("Aktív ablak: ", "").strip()
@@ -89,16 +92,14 @@ class TaskTimelineWindow(QDialog):
         if not event.xdata:
             return
 
-        # Jobb egér: törlés
-        if event.button == 3:
+        if event.button == 3:  # jobb gomb: törlés
             self.selected_start = None
             self.selected_end = None
             self.selection_patch = None
             self.plot_timeline()
             return
 
-        # Bal egér: kijelölés
-        if event.button == 1:
+        if event.button == 1:  # bal gomb: kijelölés
             if self.selected_start is None:
                 self.selected_start = event.xdata
                 self.ax.axvline(self.selected_start, color='orange', linestyle='--')

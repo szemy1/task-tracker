@@ -45,6 +45,15 @@ class Task:
         else:
             return None
 
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "description": self.description,
+            "start_time": self.start_time.isoformat() if self.start_time else None,
+            "end_time": self.end_time.isoformat() if self.end_time else None,
+            "logs": [(ts.isoformat(), msg) for ts, msg in self.logs],
+        }
+
     def __str__(self):
         duration = self.get_duration()
         return f"{self.title} - {duration}"

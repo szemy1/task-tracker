@@ -1,19 +1,19 @@
 from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QTableWidget, QTableWidgetItem,
-    QLabel, QPushButton, QHeaderView
+    QLabel, QPushButton, QHeaderView, QHBoxLayout
 )
 from PySide6.QtCore import Qt
 from gui.task_log_window import TaskLogWindow
 from gui.style import modern_style
-from PySide6.QtWidgets import QHBoxLayout, QPushButton
 
 class TaskListWindow(QDialog):
-    def __init__(self, tasks):
+    def __init__(self, task_manager):
         super().__init__()
         self.setWindowTitle("📋 Feladatlista")
         self.resize(800, 450)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
-        self.tasks = tasks
+        self.task_manager = task_manager
+        self.tasks = task_manager.get_all_tasks()
         self.setStyleSheet(modern_style)
 
         layout = QVBoxLayout()
@@ -34,7 +34,7 @@ class TaskListWindow(QDialog):
         header_label.setStyleSheet("font-size: 18px; font-weight: bold; margin-bottom: 10px;")
         layout.addWidget(header_label)
 
-        if not tasks:
+        if not self.tasks:
             no_task_label = QLabel("ℹ️ Nincs még egyetlen feladat sem.")
             no_task_label.setAlignment(Qt.AlignCenter)
             no_task_label.setStyleSheet("font-size: 16px; margin-top: 20px;")
@@ -45,11 +45,12 @@ class TaskListWindow(QDialog):
         self.table.setColumnCount(4)
         self.table.setHorizontalHeaderLabels(["📌 Cím", "🟢 Kezdés", "🔴 Befejezés", "⏳ Időtartam"])
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        self.table.setRowCount(len(tasks))
+        self.table.setRowCount(len(self.tasks))
         self.table.setAlternatingRowColors(True)
         self.table.setStyleSheet("""
             QTableWidget {
                 background-color: #3c3f41;
+                color: #ffffff;
                 border-radius: 8px;
             }
             QHeaderView::section {
@@ -63,7 +64,7 @@ class TaskListWindow(QDialog):
             }
         """)
 
-        for row, task in enumerate(tasks):
+        for row, task in enumerate(self.tasks):
             self.table.setItem(row, 0, QTableWidgetItem(task.title))
             self.table.setItem(row, 1, QTableWidgetItem(str(task.start_time or "–")))
             self.table.setItem(row, 2, QTableWidgetItem(str(task.end_time or "–")))
@@ -73,12 +74,12 @@ class TaskListWindow(QDialog):
         self.table.cellDoubleClicked.connect(self.open_log_window)
         layout.addWidget(self.table)
 
-        close_button = QPushButton("❌ Bezárás")
-        close_button.clicked.connect(self.accept)
-        layout.addWidget(close_button)
+        bottom_close = QPushButton("❌ Bezárás")
+        bottom_close.clicked.connect(self.accept)
+        layout.addWidget(bottom_close)
 
     def open_log_window(self, row, _column):
         if 0 <= row < len(self.tasks):
             task = self.tasks[row]
-            dialog = TaskLogWindow(task)
+            dialog = TaskLogWindow(task, self.task_manager)
             dialog.exec()

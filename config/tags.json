@@ -1,0 +1,9 @@
+{
+    "adminisztráció": ["jira", "confluence", "outlook", "teams"],
+    "fejlesztés": ["visual studio", "pycharm", "vscode", "code"],
+    "szünet": ["youtube", "spotify", "netflix", "discord", "steam"],
+    "verziókezelés": ["github", "gitlab"],
+    "egyéb": [],
+    "inaktivitás": [""]
+  }
+  

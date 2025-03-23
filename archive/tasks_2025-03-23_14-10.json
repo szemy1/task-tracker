@@ -1,0 +1,1874 @@
+[
+    {
+        "title": "Teszt 01",
+        "description": "Teszt 01 leírás",
+        "start_time": "2025-03-23T01:29:31.740214",
+        "end_time": "2025-03-23T01:29:47.673419",
+        "logs": [
+            [
+                "2025-03-23T01:29:31.740214",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:29:31.741218",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:29:33.742164",
+                "Aktív ablak: task_manager.py - task-tracker - Visual Studio Code"
+            ],
+            [
+                "2025-03-23T01:29:34.742372",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:29:35.742560",
+                "Aktív ablak: task_manager.py - task-tracker - Visual Studio Code"
+            ],
+            [
+                "2025-03-23T01:29:37.743416",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:29:38.677478",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:29:47.673419",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:29:47.674463",
+                "Záró megjegyzés: Teszt 01 megjegyzés"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 01",
+        "description": "Teszt 01 leírás",
+        "start_time": "2025-03-23T01:29:52.211175",
+        "end_time": "2025-03-23T01:29:56.096706",
+        "logs": [
+            [
+                "2025-03-23T01:29:52.211175",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:29:52.211686",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:29:54.501434",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:29:56.096706",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 02",
+        "description": "Teszt 02 leírás",
+        "start_time": "2025-03-23T01:30:04.662272",
+        "end_time": "2025-03-23T01:30:16.934342",
+        "logs": [
+            [
+                "2025-03-23T01:30:04.662272",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:30:04.662272",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:30:06.664253",
+                "Aktív ablak: Netflix – Személyes"
+            ],
+            [
+                "2025-03-23T01:30:08.664945",
+                "Aktív ablak: "
+            ],
+            [
+                "2025-03-23T01:30:09.665082",
+                "Aktív ablak: Netflix – Személyes"
+            ],
+            [
+                "2025-03-23T01:30:11.667476",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:30:11.743747",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:30:16.934342",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Test 06",
+        "description": "Test 06 leírás",
+        "start_time": "2025-03-23T01:34:08.649025",
+        "end_time": "2025-03-23T01:34:18.665614",
+        "logs": [
+            [
+                "2025-03-23T01:34:08.649025",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:34:08.650550",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:34:11.651922",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:34:12.652378",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:34:13.772989",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:34:18.665614",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 07",
+        "description": "Teszt 07 leiras",
+        "start_time": "2025-03-23T01:38:25.294747",
+        "end_time": "2025-03-23T01:38:37.849261",
+        "logs": [
+            [
+                "2025-03-23T01:38:25.295295",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:38:25.296843",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:38:28.298372",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:38:29.299081",
+                "Aktív ablak: Steam"
+            ],
+            [
+                "2025-03-23T01:38:31.299921",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:38:32.811529",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:38:37.849261",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Tezst 08",
+        "description": "Tezst 08 Leirasd",
+        "start_time": "2025-03-23T01:39:47.524679",
+        "end_time": "2025-03-23T01:39:56.156000",
+        "logs": [
+            [
+                "2025-03-23T01:39:47.524679",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:39:47.526198",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:39:49.527171",
+                "Aktív ablak: Steam"
+            ],
+            [
+                "2025-03-23T01:39:50.527341",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge"
+            ],
+            [
+                "2025-03-23T01:39:51.527868",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:39:52.528532",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:39:53.187330",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:39:56.156000",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Tezst 09",
+        "description": "Teszt 09 leírás",
+        "start_time": "2025-03-23T01:45:58.838800",
+        "end_time": "2025-03-23T01:46:11.360392",
+        "logs": [
+            [
+                "2025-03-23T01:45:58.838800",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:45:58.840335",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:46:01.841954",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:46:03.842939",
+                "Aktív ablak: Steam"
+            ],
+            [
+                "2025-03-23T01:46:04.843900",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:46:06.589873",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:46:11.360392",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Test 10",
+        "description": "Test 10 leírás",
+        "start_time": "2025-03-23T01:48:01.333212",
+        "end_time": "2025-03-23T01:48:12.375265",
+        "logs": [
+            [
+                "2025-03-23T01:48:01.333212",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:48:01.333212",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:48:05.335709",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge"
+            ],
+            [
+                "2025-03-23T01:48:06.336101",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:48:08.098296",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:48:12.375265",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 11",
+        "description": "Teszt 11 leírás",
+        "start_time": "2025-03-23T01:54:23.506239",
+        "end_time": "2025-03-23T01:54:31.377054",
+        "logs": [
+            [
+                "2025-03-23T01:54:23.506239",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:54:23.507264",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:54:27.432647",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:54:31.377054",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 12",
+        "description": "Teszt 12 leírás",
+        "start_time": "2025-03-23T01:56:40.386892",
+        "end_time": "2025-03-23T01:56:50.533876",
+        "logs": [
+            [
+                "2025-03-23T01:56:40.386892",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:56:40.388414",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:56:43.390409",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T01:56:45.390797",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:56:45.831640",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:56:50.533876",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:56:50.534906",
+                "Záró megjegyzés: jegyzet"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 13",
+        "description": "Teszt 13 leírás",
+        "start_time": "2025-03-23T01:58:04.803830",
+        "end_time": "2025-03-23T01:58:18.722027",
+        "logs": [
+            [
+                "2025-03-23T01:58:04.803830",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T01:58:04.804334",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:58:06.805395",
+                "Aktív ablak: "
+            ],
+            [
+                "2025-03-23T01:58:07.805876",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:58:08.806165",
+                "Aktív ablak: Logitech G HUB"
+            ],
+            [
+                "2025-03-23T01:58:09.806443",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:58:10.807294",
+                "Aktív ablak: "
+            ],
+            [
+                "2025-03-23T01:58:11.807693",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T01:58:15.538809",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T01:58:18.722027",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Task 13",
+        "description": "Task 13 Leírás",
+        "start_time": "2025-03-23T02:02:28.117041",
+        "end_time": "2025-03-23T02:02:48.711730",
+        "logs": [
+            [
+                "2025-03-23T02:02:28.117041",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:02:28.118551",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:02:31.120241",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge"
+            ],
+            [
+                "2025-03-23T02:02:33.120999",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:02:34.121523",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T02:02:39.122819",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat"
+            ],
+            [
+                "2025-03-23T02:02:42.124057",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T02:02:43.124545",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:02:44.401924",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:02:48.711730",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Tezst 14",
+        "description": "Tezst 14  Leírás",
+        "start_time": "2025-03-23T02:05:00.892729",
+        "end_time": "2025-03-23T02:05:12.231736",
+        "logs": [
+            [
+                "2025-03-23T02:05:00.892729",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:05:00.894053",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:05:03.894941",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat"
+            ],
+            [
+                "2025-03-23T02:05:04.895568",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:05:05.896119",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T02:05:06.896287",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:05:07.896710",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge"
+            ],
+            [
+                "2025-03-23T02:05:08.896849",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:05:09.661581",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:05:12.231736",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 15",
+        "description": "Teszt 15 leírás",
+        "start_time": "2025-03-23T02:07:42.093713",
+        "end_time": "2025-03-23T02:07:54.263993",
+        "logs": [
+            [
+                "2025-03-23T02:07:42.093713",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:07:42.095240",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:44.097209",
+                "Aktív ablak: EA"
+            ],
+            [
+                "2025-03-23T02:07:46.098139",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:47.098540",
+                "Aktív ablak: "
+            ],
+            [
+                "2025-03-23T02:07:48.099129",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:50.100563",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T02:07:51.100806",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:51.890059",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:07:54.263993",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:07:54.267586",
+                "Záró megjegyzés: sdfsf"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Teszt 15",
+        "description": "Létrehozva idővonal alapján (02:07 - 02:08)",
+        "start_time": "2025-03-23T02:07:46.098139",
+        "end_time": "2025-03-23T02:07:54.267586",
+        "logs": [
+            [
+                "2025-03-23T02:07:46.098139",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:47.098540",
+                "Aktív ablak: "
+            ],
+            [
+                "2025-03-23T02:07:48.099129",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:50.100563",
+                "Aktív ablak: #random-képek | Lilycrian - Discord"
+            ],
+            [
+                "2025-03-23T02:07:51.100806",
+                "Aktív ablak: Task Tracker"
+            ],
+            [
+                "2025-03-23T02:07:51.890059",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:07:54.263993",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:07:54.267586",
+                "Záró megjegyzés: sdfsf"
+            ],
+            [
+                "2025-03-23T02:08:02.731128",
+                "Feladat létrehozva idővonal alapján"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 16",
+        "description": "Teszt 16 leírás",
+        "start_time": "2025-03-23T02:32:58.317669",
+        "end_time": "2025-03-23T02:33:16.713894",
+        "logs": [
+            [
+                "2025-03-23T02:32:58.317669",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:32:58.318173",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:04.322249",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T02:33:05.322381",
+                "Aktív ablak: .gitignore - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T02:33:07.323354",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:08.323654",
+                "Aktív ablak: #random-képek | Lilycrian - Discord | Típus: szünet"
+            ],
+            [
+                "2025-03-23T02:33:10.324518",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:12.325235",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:14.325694",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:16.713894",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:33:19.828215",
+                "Záró megjegyzés: dfgdfg"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Teszt 16",
+        "description": "Létrehozva idővonal alapján (02:33 - 02:33)",
+        "start_time": "2025-03-23T02:33:05.322381",
+        "end_time": "2025-03-23T02:33:19.828215",
+        "logs": [
+            [
+                "2025-03-23T02:33:05.322381",
+                "Aktív ablak: .gitignore - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T02:33:07.323354",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:08.323654",
+                "Aktív ablak: #random-képek | Lilycrian - Discord | Típus: szünet"
+            ],
+            [
+                "2025-03-23T02:33:10.324518",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:12.325235",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:14.325694",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:33:16.713894",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:33:19.828215",
+                "Záró megjegyzés: dfgdfg"
+            ],
+            [
+                "2025-03-23T02:33:34.497704",
+                "Feladat létrehozva idővonal alapján"
+            ]
+        ]
+    },
+    {
+        "title": "Tezst 17",
+        "description": "Teszt 17 leírás",
+        "start_time": "2025-03-23T02:44:58.939135",
+        "end_time": "2025-03-23T02:45:05.710809",
+        "logs": [
+            [
+                "2025-03-23T02:44:58.939135",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:44:58.940712",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:45:01.942394",
+                "Aktív ablak: #random-képek | Lilycrian - Discord | Típus: szünet"
+            ],
+            [
+                "2025-03-23T02:45:02.942705",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:45:03.943458",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge | Típus: adminisztráció"
+            ],
+            [
+                "2025-03-23T02:45:04.943996",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:45:05.710809",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:45:09.639363",
+                "Záró megjegyzés: leírás"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Tezst 17",
+        "description": "Létrehozva idővonal alapján (02:44 - 02:45)",
+        "start_time": "2025-03-23T02:45:01.942394",
+        "end_time": "2025-03-23T02:45:09.639363",
+        "logs": [
+            [
+                "2025-03-23T02:45:01.942394",
+                "Aktív ablak: #random-képek | Lilycrian - Discord | Típus: szünet"
+            ],
+            [
+                "2025-03-23T02:45:02.942705",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:45:03.943458",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge | Típus: adminisztráció"
+            ],
+            [
+                "2025-03-23T02:45:04.943996",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:45:05.710809",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:45:09.639363",
+                "Záró megjegyzés: leírás"
+            ],
+            [
+                "2025-03-23T02:45:30.546193",
+                "Feladat létrehozva idővonal alapján"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 18",
+        "description": "Teszt 18 leírás",
+        "start_time": "2025-03-23T02:49:10.698025",
+        "end_time": "2025-03-23T02:49:14.610480",
+        "logs": [
+            [
+                "2025-03-23T02:49:10.698025",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:49:10.699586",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:49:14.610480",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:49:16.993466",
+                "Záró megjegyzés: sdfdsf"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 18",
+        "description": "Teszt 18 leírás",
+        "start_time": "2025-03-23T02:49:21.219217",
+        "end_time": "2025-03-23T02:49:28.428787",
+        "logs": [
+            [
+                "2025-03-23T02:49:21.219217",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:49:21.220750",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:49:28.428787",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 19",
+        "description": "Teszt 19 leírás",
+        "start_time": "2025-03-23T02:50:47.408375",
+        "end_time": "2025-03-23T02:51:06.408392",
+        "logs": [
+            [
+                "2025-03-23T02:50:47.408375",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T02:50:47.409925",
+                "Aktív ablak: Task Tracker | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:50:54.412937",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T02:50:55.413094",
+                "Aktív ablak: #random-képek | Lilycrian - Discord | Típus: szünet"
+            ],
+            [
+                "2025-03-23T02:51:00.414328",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:51:03.415685",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge | Típus: adminisztráció"
+            ],
+            [
+                "2025-03-23T02:51:04.416436",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:51:06.408897",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:51:07.948704",
+                "Záró megjegyzés: asdas"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Teszt 19",
+        "description": "Létrehozva idővonal alapján (02:51 - 02:51)",
+        "start_time": "2025-03-23T02:51:03.415685",
+        "end_time": "2025-03-23T02:51:07.948704",
+        "logs": [
+            [
+                "2025-03-23T02:51:03.415685",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge | Típus: adminisztráció"
+            ],
+            [
+                "2025-03-23T02:51:04.416436",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T02:51:06.408897",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T02:51:07.948704",
+                "Záró megjegyzés: asdas"
+            ],
+            [
+                "2025-03-23T02:51:45.609781",
+                "Feladat létrehozva idővonal alapján"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: app_logger.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:13:18.620708",
+        "end_time": "2025-03-23T12:14:34.635983",
+        "logs": [
+            [
+                "2025-03-23T12:13:18.620708",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:13:19.600624",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:31.604247",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:40.606608",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:43.607499",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:49.610003",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:52.610982",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:13:55.612303",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:13:58.613422",
+                "Aktív ablak: Gyorslista – Python 3.12 (64-bit) | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:01.614475",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:14:03.615733",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:14:26.624305",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:30.626461",
+                "Aktív ablak: Heti statisztika | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:32.627892",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:14:34.635983",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_manager.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:18:09.003298",
+        "end_time": null,
+        "logs": [
+            [
+                "2025-03-23T12:18:09.003298",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:18:09.027299",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:09.029923",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:10.027570",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:25.032572",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:25.036596",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:35.035559",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:35.039405",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:37.036309",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:37.041852",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:43.038761",
+                "Aktív ablak: Feladatjavaslat | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:18:43.043377",
+                "Aktív ablak: Feladatjavaslat | Típus: egyéb"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_manager.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:18:48.195723",
+        "end_time": "2025-03-23T12:18:52.380560",
+        "logs": [
+            [
+                "2025-03-23T12:18:48.195723",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:18:48.217255",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:18:49.042448",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:49.057628",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:49.219144",
+                "Aktív ablak: task_manager.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:18:52.380560",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: icon.ico - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:27:04.438231",
+        "end_time": "2025-03-23T12:27:12.646300",
+        "logs": [
+            [
+                "2025-03-23T12:27:04.438231",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:27:04.463515",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:27:05.135576",
+                "Aktív ablak: icon.ico - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:27:05.464108",
+                "Aktív ablak: icon.ico - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:27:10.137633",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:27:10.465916",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:27:12.646300",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:38:47.194220",
+        "end_time": "2025-03-23T12:38:53.882069",
+        "logs": [
+            [
+                "2025-03-23T12:38:47.194220",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:38:47.225178",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:38:47.987036",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:38:48.225980",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:38:53.882069",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: popup_window.py - TimeMeter - Visual Studio Code",
+        "description": "",
+        "start_time": "2025-03-23T12:40:31.872458",
+        "end_time": "2025-03-23T12:40:35.022834",
+        "logs": [
+            [
+                "2025-03-23T12:40:31.872458",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:40:31.892158",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:40:32.893294",
+                "Aktív ablak: popup_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:40:35.022834",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Teszt 01 Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "sdfsdf",
+        "start_time": "2025-03-23T12:43:26.925836",
+        "end_time": "2025-03-23T12:43:31.753735",
+        "logs": [
+            [
+                "2025-03-23T12:43:26.925836",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:43:26.950142",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:43:27.698823",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:43:27.950651",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:43:31.701439",
+                "Aktív ablak: python | Típus: egyéb"
+            ],
+            [
+                "2025-03-23T12:43:31.753735",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: tags.json - TimeMeter - Visual Studio Code",
+        "description": "sdf",
+        "start_time": "2025-03-23T12:46:06.562599",
+        "end_time": "2025-03-23T12:46:09.618060",
+        "logs": [
+            [
+                "2025-03-23T12:46:06.562599",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:46:06.583442",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:46:06.930648",
+                "Aktív ablak: tags.json - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:46:07.584658",
+                "Aktív ablak: tags.json - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:46:09.585854",
+                "Aktív ablak: python | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:46:09.618060",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_editor_dialog.py - TimeMeter - Visual Studio Code",
+        "description": "sdfsdf",
+        "start_time": "2025-03-23T12:51:21.415432",
+        "end_time": "2025-03-23T12:51:24.591102",
+        "logs": [
+            [
+                "2025-03-23T12:51:21.415432",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:51:21.434930",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:51:21.593783",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:51:22.435980",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:51:24.591102",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_editor_dialog.py - TimeMeter - Visual Studio Code",
+        "description": "fgdfg",
+        "start_time": "2025-03-23T12:55:52.344049",
+        "end_time": "2025-03-23T12:55:55.883520",
+        "logs": [
+            [
+                "2025-03-23T12:55:52.344049",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:55:52.367028",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:55:52.561778",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:55:53.367710",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:55:55.883520",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: style.py - TimeMeter - Visual Studio Code",
+        "description": "fdsdfsd",
+        "start_time": "2025-03-23T12:58:10.316782",
+        "end_time": "2025-03-23T12:58:12.533472",
+        "logs": [
+            [
+                "2025-03-23T12:58:10.316782",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T12:58:10.337078",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T12:58:10.719857",
+                "Aktív ablak: style.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:58:11.337943",
+                "Aktív ablak: style.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T12:58:12.533472",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_timeline_window.py - TimeMeter - Visual Studio Code",
+        "description": "dfgdfg",
+        "start_time": "2025-03-23T13:02:03.863939",
+        "end_time": "2025-03-23T13:02:06.131277",
+        "logs": [
+            [
+                "2025-03-23T13:02:03.863939",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:02:03.882026",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:02:04.251338",
+                "Aktív ablak: task_timeline_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:02:04.882735",
+                "Aktív ablak: task_timeline_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:02:06.131277",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "sdfs",
+        "start_time": "2025-03-23T13:03:44.982353",
+        "end_time": "2025-03-23T13:03:49.503785",
+        "logs": [
+            [
+                "2025-03-23T13:03:44.982353",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:03:45.003464",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:03:45.482392",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:03:46.004590",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:03:49.483991",
+                "Aktív ablak: python | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:03:49.503785",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_log_window.py - TimeMeter - Visual Studio Code",
+        "description": "sdfdsf",
+        "start_time": "2025-03-23T13:07:52.126494",
+        "end_time": "2025-03-23T13:07:53.805849",
+        "logs": [
+            [
+                "2025-03-23T13:07:52.126494",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:07:52.147845",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:07:53.096128",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:07:53.148301",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:07:53.805849",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "sdfsdf",
+        "start_time": "2025-03-23T13:12:58.273626",
+        "end_time": "2025-03-23T13:12:59.554514",
+        "logs": [
+            [
+                "2025-03-23T13:12:58.273626",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:12:58.293261",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:12:58.331095",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:12:59.293537",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:12:59.554514",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T13:13:00.332528",
+                "Aktív ablak: 📝 Feladatjegyzet | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:13:02.564579",
+                "Záró jegyzet:\n## Megjegyzések a(z) Munka: main_window.py - TimeMeter - Visual Studio Code feladathoz\n\n- Kategória: N/A\n- Lezárva: 2025-03-23 13:12:59.554514\n\n### Tartalom\nsdfsdf\n(Add ide a részletes jegyzetedet...)\n"
+            ],
+            [
+                "2025-03-23T13:13:03.334405",
+                "Aktív ablak: python | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:13:05.336054",
+                "Aktív ablak: 📋 Feladatlista | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:13:07.337761",
+                "Aktív ablak: Napló: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:13:12.340727",
+                "Aktív ablak: 📝 Feladatjegyzet | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:13:17.342844",
+                "Aktív ablak: Napló: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:13:19.343645",
+                "Aktív ablak: Idővonal: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "Létrehozva idővonal alapján (13:13 - 13:13)",
+        "start_time": null,
+        "end_time": null,
+        "logs": [
+            [
+                "2025-03-23T13:13:07.337761",
+                "Aktív ablak: Napló: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:13:12.340727",
+                "Aktív ablak: 📝 Feladatjegyzet | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:13:17.342844",
+                "Aktív ablak: Napló: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:13:19.343645",
+                "Aktív ablak: Idővonal: Munka: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_log_window.py - TimeMeter - Visual Studio Code",
+        "description": "dfg",
+        "start_time": "2025-03-23T13:20:27.175893",
+        "end_time": "2025-03-23T13:20:31.429100",
+        "logs": [
+            [
+                "2025-03-23T13:20:27.175893",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:20:27.195760",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:20:27.265004",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:20:28.196341",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:20:31.429100",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: task_log_window.py - TimeMeter - Visual Studio Code",
+        "description": "asdasd",
+        "start_time": "2025-03-23T13:26:33.087346",
+        "end_time": "2025-03-23T13:26:35.937537",
+        "logs": [
+            [
+                "2025-03-23T13:26:33.087346",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:26:33.114578",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:26:33.463545",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:26:34.115278",
+                "Aktív ablak: task_log_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:26:35.937537",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_template.md - TimeMeter - Visual Studio Code",
+        "description": "fgdfg",
+        "start_time": "2025-03-23T13:30:06.783007",
+        "end_time": "2025-03-23T13:30:09.902872",
+        "logs": [
+            [
+                "2025-03-23T13:30:06.783007",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:30:06.805018",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:30:07.600449",
+                "Aktív ablak: note_template.md - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:30:07.805652",
+                "Aktív ablak: note_template.md - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:30:09.806546",
+                "Aktív ablak: python | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:30:09.902872",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_editor_dialog.py - TimeMeter - Visual Studio Code",
+        "description": "dfgdfg",
+        "start_time": "2025-03-23T13:32:39.835854",
+        "end_time": "2025-03-23T13:32:41.152733",
+        "logs": [
+            [
+                "2025-03-23T13:32:39.835854",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:32:39.855488",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:32:40.533641",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:32:40.855964",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:32:41.152733",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_template.md - TimeMeter - Visual Studio Code",
+        "description": "fghfgh",
+        "start_time": "2025-03-23T13:34:16.505711",
+        "end_time": "2025-03-23T13:34:17.993810",
+        "logs": [
+            [
+                "2025-03-23T13:34:16.505711",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:34:16.531202",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:34:17.280314",
+                "Aktív ablak: popup_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:34:17.532480",
+                "Aktív ablak: popup_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:34:17.993810",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_editor_dialog.py - TimeMeter - Visual Studio Code",
+        "description": "SDFSDF",
+        "start_time": "2025-03-23T13:37:06.040102",
+        "end_time": "2025-03-23T13:37:08.514684",
+        "logs": [
+            [
+                "2025-03-23T13:37:06.040102",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:37:06.062727",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:37:06.122990",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:37:07.063766",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:37:08.514684",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: note_editor_dialog.py - TimeMeter - Visual Studio Code",
+        "description": "fdgdfg",
+        "start_time": "2025-03-23T13:40:38.851605",
+        "end_time": "2025-03-23T13:40:41.111933",
+        "logs": [
+            [
+                "2025-03-23T13:40:38.851605",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:40:38.874960",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:40:38.987346",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:40:39.875925",
+                "Aktív ablak: note_editor_dialog.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:40:41.111933",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "gdfg",
+        "start_time": "2025-03-23T13:57:46.300010",
+        "end_time": "2025-03-23T13:57:48.578114",
+        "logs": [
+            [
+                "2025-03-23T13:57:46.300010",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T13:57:46.321526",
+                "Aktív ablak:  | Típus: inaktivitás"
+            ],
+            [
+                "2025-03-23T13:57:47.238790",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:57:47.323168",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code | Típus: fejlesztés"
+            ],
+            [
+                "2025-03-23T13:57:48.578114",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "dfgdfg",
+        "start_time": "2025-03-23T14:02:19.980596",
+        "end_time": "2025-03-23T14:02:22.649392",
+        "logs": [
+            [
+                "2025-03-23T14:02:19.980596",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T14:02:19.999170",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:20.684512",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:20.999781",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:22.649392",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T14:02:22.942658",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:23.943306",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:41.952793",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:45.954140",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:47.955380",
+                "Aktív ablak: 📃 Napló: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:48.955971",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:51.957756",
+                "Aktív ablak: 📃 Napló: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:52.958114",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:53.958339",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:55.959224",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:03:00.961042",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:03:01.961325",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:03:03.962812",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:03:04.963600",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:03:05.964225",
+                "Aktív ablak: 📃 Napló: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:03:07.964893",
+                "Aktív ablak: Idővonal: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "Létrehozva idővonal alapján (14:02 - 14:02)",
+        "start_time": "2025-03-23T14:02:22.649392",
+        "end_time": "2025-03-23T14:02:53.958339",
+        "logs": [
+            [
+                "2025-03-23T14:02:22.649392",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T14:02:22.942658",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:23.943306",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:41.952793",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:45.954140",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:47.955380",
+                "Aktív ablak: 📃 Napló: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:48.955971",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:51.957756",
+                "Aktív ablak: 📃 Napló: Munka: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:02:52.958114",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:02:53.958339",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: app_logger.py - TimeMeter - Visual Studio Code",
+        "description": "rtrt",
+        "start_time": "2025-03-23T14:07:50.146306",
+        "end_time": "2025-03-23T14:07:51.906278",
+        "logs": [
+            [
+                "2025-03-23T14:07:50.147320",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T14:07:50.170475",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:07:50.263761",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:07:51.171273",
+                "Aktív ablak: app_logger.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:07:51.906278",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: storage.py - TimeMeter - Visual Studio Code",
+        "description": "asdasd",
+        "start_time": "2025-03-23T14:10:43.399714",
+        "end_time": "2025-03-23T14:10:45.194288",
+        "logs": [
+            [
+                "2025-03-23T14:10:43.399714",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T14:10:43.418949",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:10:43.607783",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:10:44.419793",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:10:45.194288",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T14:10:45.608085",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:10:48.676481",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:10:49.676716",
+                "Aktív ablak: Archiválás szükséges → inaktivitás"
+            ]
+        ]
+    }
+]
