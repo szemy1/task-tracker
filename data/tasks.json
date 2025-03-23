@@ -90,5 +90,133 @@
                 "Aktív ablak: Idővonal: Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
             ]
         ]
+    },
+    {
+        "title": "Munka: main.spec - TimeMeter - Visual Studio Code",
+        "description": "teszt02",
+        "start_time": "2025-03-23T15:29:17.816261",
+        "end_time": "2025-03-23T15:29:32.208825",
+        "logs": [
+            [
+                "2025-03-23T15:29:17.816261",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T15:29:17.835110",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:18.588043",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:18.835824",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:24.590218",
+                "Aktív ablak: @Haru - Discord → szünet"
+            ],
+            [
+                "2025-03-23T15:29:24.838778",
+                "Aktív ablak: @Haru - Discord → szünet"
+            ],
+            [
+                "2025-03-23T15:29:25.590792",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:25.839397",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:26.591446",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge → adminisztráció"
+            ],
+            [
+                "2025-03-23T15:29:26.840016",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge → adminisztráció"
+            ],
+            [
+                "2025-03-23T15:29:27.591680",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:27.840222",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:28.592231",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:28.840529",
+                "Aktív ablak: 192.168.100.145 - Távoli asztali kapcsolat → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:29.592448",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:29.840799",
+                "Aktív ablak: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:32.208825",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T15:29:32.799373",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:33.799862",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:40.802904",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:42.803686",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:45.805418",
+                "Aktív ablak: 📃 Napló: Munka: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:47.806422",
+                "Aktív ablak: Idővonal: Munka: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Munka: main.spec - TimeMeter - Visual Studio Code",
+        "description": "Létrehozva idővonal alapján (15:29 - 15:30)",
+        "start_time": "2025-03-23T15:29:33.799862",
+        "end_time": "2025-03-23T15:29:47.806422",
+        "logs": [
+            [
+                "2025-03-23T15:29:33.799862",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:40.802904",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:42.803686",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T15:29:45.805418",
+                "Aktív ablak: 📃 Napló: Munka: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T15:29:47.806422",
+                "Aktív ablak: Idővonal: Munka: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
     }
 ]
