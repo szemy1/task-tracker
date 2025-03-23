@@ -1,6 +1,9 @@
 # .gitignore
 
 venv/
+data/
+archive/
+exports/
 __pycache__/
 *.pyc
 *.pyo
