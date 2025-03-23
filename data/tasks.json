@@ -1,1 +1,94 @@
-[]
+[
+    {
+        "title": "Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code",
+        "description": "lírás teszt 01 -hez",
+        "start_time": "2025-03-23T14:21:41.596518",
+        "end_time": "2025-03-23T14:21:53.337477",
+        "logs": [
+            [
+                "2025-03-23T14:21:41.596518",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T14:21:41.616062",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:21:41.875645",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:21:42.616722",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:21:48.878951",
+                "Aktív ablak: @Haru - Discord → szünet"
+            ],
+            [
+                "2025-03-23T14:21:49.619751",
+                "Aktív ablak: @Haru - Discord → szünet"
+            ],
+            [
+                "2025-03-23T14:21:49.879704",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:21:50.620101",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:21:50.879854",
+                "Aktív ablak: Csevegés | JUHÁSZ Gergely (Ön) | Microsoft Teams és 17 további lap – Ingressus – Microsoft​ Edge → adminisztráció"
+            ],
+            [
+                "2025-03-23T14:21:51.880290",
+                "Aktív ablak: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:21:53.337477",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-23T14:21:53.882196",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:22:02.886740",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:22:04.887923",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:22:06.889612",
+                "Aktív ablak: 📃 Napló: Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:22:14.893247",
+                "Aktív ablak: Idővonal: Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code",
+        "description": "Létrehozva idővonal alapján (14:22 - 14:22)",
+        "start_time": "2025-03-23T14:22:04.887923",
+        "end_time": "2025-03-23T14:22:14.893247",
+        "logs": [
+            [
+                "2025-03-23T14:22:04.887923",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-23T14:22:06.889612",
+                "Aktív ablak: 📃 Napló: Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T14:22:14.893247",
+                "Aktív ablak: Idővonal: Teszt 01 Munka: storage.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
+    }
+]
