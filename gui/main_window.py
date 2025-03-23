@@ -16,6 +16,8 @@ from core.app_logger import AppLogger
 from gui.popup_window import SuggestionPopup
 from core.activity_notifier import ActivityNotifier
 from gui.note_editor_dialog import NoteEditorDialog
+from gui.floating_widget import FloatingWidget
+
 
 class MainWindow(QMainWindow):
     instance = None  # <<< EZ KELL
@@ -95,6 +97,8 @@ class MainWindow(QMainWindow):
         self.app_logger.start()
 
         self.load_styles()
+        self.floating_widget = FloatingWidget(self.task_manager)
+        self.floating_widget.show()
 
     def load_styles(self):
         self.setStyleSheet("""

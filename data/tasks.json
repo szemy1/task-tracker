@@ -390,5 +390,65 @@
                 "Aktív ablak: Idővonal: Teszt 003 Munka: main.spec - TimeMeter - Visual Studio Code → fejlesztés"
             ]
         ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "teszt",
+        "start_time": "2025-03-23T23:54:12.215821",
+        "end_time": "2025-03-23T23:54:28.792799",
+        "logs": [
+            [
+                "2025-03-23T23:54:12.215821",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-23T23:54:12.232040",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:12.470060",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T23:54:13.233608",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-23T23:54:22.236726",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:22.473608",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:23.475257",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:24.237394",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:25.237968",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:25.476282",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:27.239586",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:27.476921",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-23T23:54:28.792799",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
