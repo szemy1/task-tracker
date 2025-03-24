@@ -116,3 +116,8 @@ class TaskManager:
 
     def get_all_tasks(self):
         return self.tasks
+    
+    def clear_current_task(self):
+        """A már nem aktív feladatot eltávolítja a memóriából."""
+        self.current_task = None
+

@@ -24,6 +24,8 @@ from PySide6.QtGui import QIcon, QAction, QCursor
 import os
 from PySide6.QtCore import QEvent
 from gui.style import get_theme_style
+from core.task_signals import task_signals
+from datetime import datetime
 
 
 
@@ -171,11 +173,11 @@ class MainWindow(QMainWindow):
 
 
 
+
     def start_task(self, title=None, description=None):
         if self.task_manager.get_active_task():
             self.stop_task()
 
-        # Ha nincs paraméter, olvassuk be a GUI-ból
         if title is None:
             title = self.title_input.text().strip()
         if description is None:
@@ -191,9 +193,24 @@ class MainWindow(QMainWindow):
 
         task = self.task_manager.create_task(title, description)
         self.task_manager.start_current_task(self.activity_notifier)
+
         self.status_label.setText(f"🟢 Futó feladat: {task.title}")
         self.start_button.setEnabled(False)
         self.stop_button.setEnabled(True)
+
+        # 🔁 KIEGÉSZÍTÉS: floating widget + tray viselkedés stabilizálása
+        task_signals.task_started.emit({
+            "name": task.title,
+            "description": task.description,
+            "start_time": task.start_time
+        })
+
+        self.show()
+        self.raise_()
+        self.activateWindow()
+
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.show()
 
 
     def start_task_from_floating(self, title=None, description=None):
@@ -269,7 +286,7 @@ class MainWindow(QMainWindow):
         self.tray_menu.addAction(quit_action)
 
         self.tray_icon.setContextMenu(self.tray_menu)
-        self.tray_icon.activated.connect(self.on_tray_icon_activated)  # ✅ Fontos!
+        self.tray_icon.activated.connect(self.on_tray_activated) # ✅ Fontos!
 
         if icon.isNull():
             print("[TRAY] ❌ Ikon nincs betöltve!")
@@ -289,7 +306,12 @@ class MainWindow(QMainWindow):
         if hasattr(self, "floating_widget") and self.floating_widget:
             self.floating_widget.show()
 
-    def on_tray_icon_activated(self, reason):
+    def on_tray_activated(self, reason):
+        if reason == QSystemTrayIcon.DoubleClick:
+            self.show()
+            self.raise_()
+            self.activateWindow()
+
         print(f"[TRAY DEBUG] Aktiválva: {reason}")
         if reason in (QSystemTrayIcon.Trigger, QSystemTrayIcon.DoubleClick):
             self.show_from_tray()

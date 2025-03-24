@@ -2,8 +2,45 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEd
 from PySide6.QtCore import Qt, QTimer, QSettings, QPoint
 import datetime
 import json
+
 from gui.note_editor_dialog import NoteEditorDialog
 from gui.style import get_theme_style
+from core.task_signals import task_signals
+
+
+class TaskDetailsDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Gyors feladat indítása")
+        self.setMinimumWidth(300)
+        settings = QSettings("TimeMeter", "TaskTracker")
+        theme = settings.value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
+        layout = QVBoxLayout()
+
+        layout.addWidget(QLabel("Feladat címe:"))
+        self.title_input = QLineEdit("Gyors feladat")
+        layout.addWidget(self.title_input)
+
+        layout.addWidget(QLabel("Leírás:"))
+        self.desc_input = QTextEdit()
+        layout.addWidget(self.desc_input)
+
+        button_layout = QHBoxLayout()
+        self.start_button = QPushButton("Indítás")
+        self.cancel_button = QPushButton("Mégsem")
+        button_layout.addWidget(self.start_button)
+        button_layout.addWidget(self.cancel_button)
+
+        layout.addLayout(button_layout)
+        self.setLayout(layout)
+
+        self.start_button.clicked.connect(self.accept)
+        self.cancel_button.clicked.connect(self.reject)
+
+    def get_details(self):
+        return self.title_input.text().strip(), self.desc_input.toPlainText().strip()
 
 
 class FloatingWidget(QWidget):
@@ -39,24 +76,45 @@ class FloatingWidget(QWidget):
         self.timer.start(1000)
 
         # Beállítások betöltése
-        with open("config/settings.json", "r", encoding="utf-8") as f:
-            self.settings = json.load(f)
+        try:
+            with open("config/settings.json", "r", encoding="utf-8") as f:
+                self.settings = json.load(f)
+        except Exception:
+            self.settings = {}
 
         self.restore_position()
 
+        # 🔄 Globális task jelek figyelése
+        task_signals.task_started.connect(self.on_external_task_started)
+        task_signals.task_stopped.connect(self.on_external_task_stopped)
+
+
     def toggle_task(self):
         task = self.task_manager.get_active_task()
-        if task:
+        if task and not task.is_active:
+            self.task_manager.clear_current_task()  # <<< ezt vezessük be, ha nincs
+            task = None
+
+        # 🔒 Csak akkor állítsuk le, ha a task valóban aktív
+        if task and task.is_active:
             self.task_manager.stop_current_task()
             self.button.setText("Start")
             dialog = NoteEditorDialog(task)
             dialog.exec()
-        else:
+
+        # 🟢 Ha nincs aktív task, akkor indítás
+        elif not task or not task.is_active:
             dialog = TaskDetailsDialog()
             if dialog.exec() == QDialog.Accepted:
                 title, description = dialog.get_details()
-                self.start_task_callback(title, description)
+                if self.start_task_callback:
+                    self.start_task_callback(title, description)
                 self.button.setText("Stop")
+
+    def clear_current_task(self):
+        self._current_task = None
+
+
 
     def update_ui(self):
         task = self.task_manager.get_active_task()
@@ -70,6 +128,17 @@ class FloatingWidget(QWidget):
             self.time_label.setText("00:00:00")
             self.button.setText("Start")
 
+    def restore_position(self):
+        if "floating_widget_pos" in self.settings:
+            pos = self.settings["floating_widget_pos"]
+            self.move(QPoint(pos[0], pos[1]))
+
+    def closeEvent(self, event):
+        self.settings["floating_widget_pos"] = [self.x(), self.y()]
+        with open("config/settings.json", "w", encoding="utf-8") as f:
+            json.dump(self.settings, f, indent=2)
+        event.accept()
+
     def mousePressEvent(self, event):
         self.drag_pos = event.globalPosition().toPoint()
 
@@ -78,45 +147,9 @@ class FloatingWidget(QWidget):
             self.move(self.pos() + event.globalPosition().toPoint() - self.drag_pos)
             self.drag_pos = event.globalPosition().toPoint()
 
-    def closeEvent(self, event):
-        self.settings["pos"] = [self.pos().x(), self.pos().y()]
-        with open("config/settings.json", "w", encoding="utf-8") as f:
-            json.dump(self.settings, f, indent=4)
-        super().closeEvent(event)
+    def on_external_task_started(self, task_data):
+        self.update_ui()
+        self.show()
 
-    def restore_position(self):
-        pos = self.settings.get("pos")
-        if isinstance(pos, list) and len(pos) == 2:
-            self.move(QPoint(pos[0], pos[1]))
-
-
-class TaskDetailsDialog(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Gyors feladat indítása")
-        self.setMinimumWidth(300)
-
-        layout = QVBoxLayout()
-
-        layout.addWidget(QLabel("Feladat címe:"))
-        self.title_input = QLineEdit("Gyors feladat")
-        layout.addWidget(self.title_input)
-
-        layout.addWidget(QLabel("Leírás:"))
-        self.desc_input = QTextEdit()
-        layout.addWidget(self.desc_input)
-
-        button_layout = QHBoxLayout()
-        self.start_button = QPushButton("Indítás")
-        self.cancel_button = QPushButton("Mégsem")
-        button_layout.addWidget(self.start_button)
-        button_layout.addWidget(self.cancel_button)
-
-        layout.addLayout(button_layout)
-        self.setLayout(layout)
-
-        self.start_button.clicked.connect(self.accept)
-        self.cancel_button.clicked.connect(self.reject)
-
-    def get_details(self):
-        return self.title_input.text().strip(), self.desc_input.toPlainText().strip()
+    def on_external_task_stopped(self):
+        self.update_ui()

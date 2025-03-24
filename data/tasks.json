@@ -550,5 +550,457 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "0001 Gyors feladat",
+        "description": "asdasd",
+        "start_time": "2025-03-24T09:13:06.386266",
+        "end_time": "2025-03-24T09:13:14.462624",
+        "logs": [
+            [
+                "2025-03-24T09:13:06.386266",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T09:13:06.390380",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:07.162851",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:08.163489",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:08.392128",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:09.163813",
+                "Aktív ablak: settings.json - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-24T09:13:09.392635",
+                "Aktív ablak: settings.json - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-24T09:13:12.165216",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:12.394048",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:14.462624",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: settings.json - TimeMeter - Visual Studio Code",
+        "description": "dfgfd",
+        "start_time": "2025-03-24T09:13:45.521897",
+        "end_time": "2025-03-24T09:14:29.947000",
+        "logs": [
+            [
+                "2025-03-24T09:13:45.521897",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T09:13:45.527120",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:45.546156",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:46.527927",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:48.981420",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T09:13:49.548461",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:51.549689",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:13:55.551356",
+                "Aktív ablak: A rendszertálca túlcsordulási ablaka. → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:03.553873",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:11.632809",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T09:14:12.562453",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:17.564951",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:26.134588",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T09:14:26.569127",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:28.570248",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T09:14:29.947000",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "000 Gyors feladat",
+        "description": "sdfsd",
+        "start_time": "2025-03-24T12:16:22.055447",
+        "end_time": "2025-03-24T12:16:33.206157",
+        "logs": [
+            [
+                "2025-03-24T12:16:22.055447",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:16:22.057034",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:16:22.078296",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:16:27.142497",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:16:28.082232",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:16:30.083373",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:16:33.206157",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "00000 Gyors feladat",
+        "description": "asdasd",
+        "start_time": "2025-03-24T12:29:14.701241",
+        "end_time": "2025-03-24T12:29:21.973567",
+        "logs": [
+            [
+                "2025-03-24T12:29:14.701241",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:29:14.709365",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:29:15.310166",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:29:16.479828",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:29:17.310892",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:29:18.311399",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:29:21.973567",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "123 Gyors feladat",
+        "description": "sdfsdf",
+        "start_time": "2025-03-24T12:33:12.105205",
+        "end_time": "2025-03-24T12:33:25.662497",
+        "logs": [
+            [
+                "2025-03-24T12:33:12.105205",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:33:12.110933",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:12.180290",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:14.242651",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:33:15.181114",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:17.181664",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:21.182810",
+                "Aktív ablak: Gyors feladat indítása → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:25.662497",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:33:26.185539",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "1234 Gyors feladat",
+        "description": "dfs",
+        "start_time": "2025-03-24T12:33:28.580380",
+        "end_time": "2025-03-24T12:33:46.904333",
+        "logs": [
+            [
+                "2025-03-24T12:33:28.580380",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:33:28.602695",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:29.186785",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:35.662553",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:33:36.190621",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:37.191230",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:42.193657",
+                "Aktív ablak: Gyors feladat indítása → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:46.904333",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:33:47.195909",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "001112 Gyors feladat",
+        "description": "asd",
+        "start_time": "2025-03-24T12:33:51.555627",
+        "end_time": "2025-03-24T12:33:54.793841",
+        "logs": [
+            [
+                "2025-03-24T12:33:51.555627",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:33:51.575175",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:52.199445",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:33:54.793841",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "444 Gyors feladat",
+        "description": "sdffd",
+        "start_time": "2025-03-24T12:38:05.569210",
+        "end_time": "2025-03-24T12:38:15.261068",
+        "logs": [
+            [
+                "2025-03-24T12:38:05.569210",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:38:05.576521",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:06.384069",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:07.818604",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:38:08.384998",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:09.385536",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:11.387065",
+                "Aktív ablak: Gyors feladat indítása → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:15.261068",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T12:38:15.398188",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "555 Gyors feladat",
+        "description": "sdfsdf",
+        "start_time": "2025-03-24T12:38:20.212604",
+        "end_time": "2025-03-24T12:38:22.252495",
+        "logs": [
+            [
+                "2025-03-24T12:38:20.212604",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:38:20.239066",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:20.401497",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:38:22.252495",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "777 Gyors feladat",
+        "description": "dfgdfg",
+        "start_time": "2025-03-24T12:44:20.834143",
+        "end_time": "2025-03-24T12:44:23.275514",
+        "logs": [
+            [
+                "2025-03-24T12:44:20.834143",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T12:44:20.841292",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:44:21.359204",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T12:44:23.275514",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "1212 Gyors feladat",
+        "description": "asda",
+        "start_time": "2025-03-24T13:03:39.884308",
+        "end_time": "2025-03-24T13:03:44.531758",
+        "logs": [
+            [
+                "2025-03-24T13:03:39.884308",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T13:03:39.893701",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T13:03:40.281937",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T13:03:44.531758",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-24T13:03:45.284637",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-24T13:03:46.285396",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "000122 Gyors feladat",
+        "description": "asdads",
+        "start_time": "2025-03-24T13:03:55.962053",
+        "end_time": "2025-03-24T13:04:00.176414",
+        "logs": [
+            [
+                "2025-03-24T13:03:55.962053",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T13:03:55.974936",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T13:03:56.299299",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T13:04:00.176414",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
