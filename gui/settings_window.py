@@ -66,7 +66,7 @@ class SettingsWindow(QDialog):
         layout.addWidget(self.inactivity_input)
         layout.addWidget(QLabel("Téma (light / dark):"))         # ← a hibás sor
         layout.addWidget(self.theme_input)                       # ← új mező
-        layout.addWidget(save_button)
+
 
         self.setLayout(layout)  # ← FONTOS! csak ezután lesz self.layout() működőképes
         # 🔘 Lebegő ablak kapcsoló
@@ -84,7 +84,7 @@ class SettingsWindow(QDialog):
         self.logo_button = QPushButton("Logó kiválasztása")
         self.logo_button.clicked.connect(self.choose_logo)
         layout.addWidget(self.logo_button)
-
+        layout.addWidget(save_button)
 
 
 
@@ -102,6 +102,13 @@ class SettingsWindow(QDialog):
 
         with open(CONFIG_PATH, "r") as f:
             return json.load(f)
+
+
+    def choose_logo(self):
+        file, _ = QFileDialog.getOpenFileName(self, "Logó kiválasztása", "", "Képek (*.png *.ico *.jpg)")
+        if file:
+            self.logo_path = file
+            self.logo_label.setText(f"Logó: {os.path.basename(file)}")
 
     def save(self):
         try:
@@ -123,8 +130,3 @@ class SettingsWindow(QDialog):
         except Exception as e:
             QMessageBox.critical(self, "Hiba", f"Hibás beviteli érték: {e}")
 
-    def choose_logo(self):
-        file, _ = QFileDialog.getOpenFileName(self, "Logó kiválasztása", "", "Képek (*.png *.ico *.jpg)")
-        if file:
-            self.logo_path = file
-            self.logo_label.setText(f"Logó: {os.path.basename(file)}")

@@ -2,5 +2,7 @@
     "auto_archive_days": 7,
     "storage_path": "./data",
     "theme": "dark",
+    "floating_enabled": false,
+    "logo_path": "C:/Users/szemy/Downloads/icon.ico",
     "inactivity_limit_minutes": 10
 }

@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout
 from PySide6.QtCore import Qt, QTimer, QSettings, QPoint
 import datetime
-
+import json
 
 class FloatingWidget(QWidget):
     def __init__(self, task_manager, parent=None):
@@ -40,7 +40,10 @@ class FloatingWidget(QWidget):
         self.timer.timeout.connect(self.update_ui)
         self.timer.start(1000)
 
-        self.settings = QSettings("TimeMeter", "FloatingWidget")
+        with open("config/settings.json", "r", encoding="utf-8") as f:
+            self.settings = json.load(f)
+
+
         self.restore_position()
 
     def toggle_task(self):

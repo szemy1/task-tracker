@@ -17,7 +17,8 @@ from gui.popup_window import SuggestionPopup
 from core.activity_notifier import ActivityNotifier
 from gui.note_editor_dialog import NoteEditorDialog
 from gui.floating_widget import FloatingWidget
-
+from PySide6.QtCore import QSettings
+import json
 
 
 class MainWindow(QMainWindow):
@@ -28,6 +29,12 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(800, 600)
         self.popup_shown = False  # Új felugró figyelő változó
         MainWindow.instance = self
+        
+
+        # __init__ elején:
+        with open("config/settings.json", "r", encoding="utf-8") as f:
+            self.settings = json.load(f)
+
 
 
         central_widget = QWidget()
@@ -98,8 +105,18 @@ class MainWindow(QMainWindow):
         self.app_logger.start()
 
         self.load_styles()
-        self.floating_widget = FloatingWidget(self.task_manager)
-        self.floating_widget.show()
+        # 💡 Lebegő ablak beállítás alapján
+        floating = self.settings.get("floating_enabled", True)
+        print(f"[DEBUG] Floating enabled setting: {floating}")
+        if self.settings.get("floating_enabled", True):
+            self.floating_widget = FloatingWidget(self.task_manager)
+            self.floating_widget.show()
+        else:
+            self.floating_widget = None
+
+
+
+
 
     def load_styles(self):
         self.setStyleSheet("""
