@@ -19,6 +19,11 @@ from gui.note_editor_dialog import NoteEditorDialog
 from gui.floating_widget import FloatingWidget
 from PySide6.QtCore import QSettings
 import json
+from PySide6.QtWidgets import QSystemTrayIcon, QMenu, QApplication
+from PySide6.QtGui import QIcon, QAction, QCursor
+import os
+from PySide6.QtCore import QEvent
+
 
 
 class MainWindow(QMainWindow):
@@ -109,11 +114,12 @@ class MainWindow(QMainWindow):
         floating = self.settings.get("floating_enabled", True)
         print(f"[DEBUG] Floating enabled setting: {floating}")
         if self.settings.get("floating_enabled", True):
-            self.floating_widget = FloatingWidget(self.task_manager, self.start_task)
+            self.floating_widget = FloatingWidget(self.task_manager, self.start_task, parent=None)
             self.floating_widget.show()
         else:
             self.floating_widget = None
 
+        self.setup_tray_icon()
 
 
 
@@ -248,8 +254,84 @@ class MainWindow(QMainWindow):
         dialog.exec()
 
     def closeEvent(self, event):
+        event.ignore()  # Ne zárja be az appot
+        self.hide()
+        if hasattr(self, "tray_icon") and self.tray_icon:
+            self.tray_icon.showMessage("TimeMeter", "Az alkalmazás a tálcára lett minimalizálva.")
+
+    def setup_tray_icon(self):
+        icon_path = os.path.join(os.path.dirname(__file__), "..", "icon.ico")
+        icon_path = os.path.abspath(icon_path)
+
+        self.tray_icon = QSystemTrayIcon(self)
+        self.tray_icon.setIcon(QIcon(icon_path))
+
+        self.tray_menu = QMenu(self)
+        self.tray_icon.setToolTip("Kattints jobb gombbal a menü megnyitásához")
+        show_action = QAction("🟢 Megnyitás")
+        show_action.triggered.connect(self.show_from_tray)
+        self.tray_menu.addAction(show_action)
+
+        quit_action = QAction("❌ Kilépés")
+        quit_action.triggered.connect(self.exit_app)
+        self.tray_menu.addAction(quit_action)
+
+        self.tray_icon.setContextMenu(self.tray_menu)
+
+        # Debug ikon ellenőrzés
+        if self.tray_icon.icon().isNull():
+            print("[TRAY] ❌ Ikon nincs betöltve!")
+        else:
+            print("[TRAY] ✅ Ikon sikeresen betöltve.")
+
+        self.tray_icon.setVisible(True)  # fontos
+        self.tray_icon.show()
+
+        self.tray_icon.installEventFilter(self)
+        print(f"[TRAY DEBUG] Menüelemek száma: {self.tray_menu.actions().__len__()}")
+
+
+
+    def show_normal(self):
+        self.showNormal()
+        self.raise_()
+        self.activateWindow()
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.show()
+
+    def on_tray_icon_activated(self, reason):
+        print(f"[TRAY DEBUG] Aktiválva: {reason}")
+        if reason in (QSystemTrayIcon.Trigger, QSystemTrayIcon.DoubleClick):
+            self.show_from_tray()
+        elif reason == QSystemTrayIcon.Context:
+            print("[TRAY DEBUG] Jobb klikk")
+            self.tray_menu.exec(QCursor.pos())
+
+        
+
+    def show_from_tray(self):
+        self.showNormal()
+        self.raise_()
+        self.activateWindow()
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.show()
+
+
+    def exit_app(self):
         if self.app_logger:
             self.app_logger.stop()
-            self.app_logger.join()  # Fontos! Várjuk meg, míg a thread leáll
-        event.accept()
+            self.app_logger.join()
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.close()
+        if hasattr(self, "tray_icon"):
+            self.tray_icon.hide()
+        QApplication.quit()
 
+    # Adj hozzá ezt a metódust a MainWindow-hoz:
+
+    def eventFilter(self, source, event):
+        if source is self.tray_icon and event.type() == QEvent.ContextMenu:
+            print("[TRAY] Jobb klikk filterből!")
+            self.tray_menu.exec(QCursor.pos())
+            return True
+        return super().eventFilter(source, event)
