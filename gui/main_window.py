@@ -120,6 +120,15 @@ class MainWindow(QMainWindow):
             self.floating_widget = None
 
         self.setup_tray_icon()
+        # Kilépő gomb (valódi kilépés, nem csak minimalizálás)
+        exit_button = QPushButton("🛑")
+        exit_button.setFixedSize(30, 30)
+        exit_button.setStyleSheet("border: none; font-size: 16px;")
+        exit_button.setToolTip("Kilépés az alkalmazásból")
+        exit_button.clicked.connect(self.exit_app)  # <- ez hívja a valódi kilépő metódust
+
+        top_bar.addWidget(exit_button)
+
 
 
 
@@ -260,14 +269,14 @@ class MainWindow(QMainWindow):
             self.tray_icon.showMessage("TimeMeter", "Az alkalmazás a tálcára lett minimalizálva.")
 
     def setup_tray_icon(self):
-        icon_path = os.path.join(os.path.dirname(__file__), "..", "icon.ico")
-        icon_path = os.path.abspath(icon_path)
-
+        icon_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "icon.ico"))
         self.tray_icon = QSystemTrayIcon(self)
-        self.tray_icon.setIcon(QIcon(icon_path))
+        icon = QIcon(icon_path)
+        self.tray_icon.setIcon(icon)
 
         self.tray_menu = QMenu(self)
         self.tray_icon.setToolTip("Kattints jobb gombbal a menü megnyitásához")
+
         show_action = QAction("🟢 Megnyitás")
         show_action.triggered.connect(self.show_from_tray)
         self.tray_menu.addAction(show_action)
@@ -277,18 +286,16 @@ class MainWindow(QMainWindow):
         self.tray_menu.addAction(quit_action)
 
         self.tray_icon.setContextMenu(self.tray_menu)
+        self.tray_icon.activated.connect(self.on_tray_icon_activated)  # ✅ Fontos!
 
-        # Debug ikon ellenőrzés
-        if self.tray_icon.icon().isNull():
+        if icon.isNull():
             print("[TRAY] ❌ Ikon nincs betöltve!")
         else:
             print("[TRAY] ✅ Ikon sikeresen betöltve.")
 
-        self.tray_icon.setVisible(True)  # fontos
+        self.tray_icon.setVisible(True)
         self.tray_icon.show()
 
-        self.tray_icon.installEventFilter(self)
-        print(f"[TRAY DEBUG] Menüelemek száma: {self.tray_menu.actions().__len__()}")
 
 
 
@@ -304,10 +311,17 @@ class MainWindow(QMainWindow):
         if reason in (QSystemTrayIcon.Trigger, QSystemTrayIcon.DoubleClick):
             self.show_from_tray()
         elif reason == QSystemTrayIcon.Context:
-            print("[TRAY DEBUG] Jobb klikk")
-            self.tray_menu.exec(QCursor.pos())
+            print("[TRAY DEBUG] Jobb klikk (popup megjelenítés próbálkozás)")
 
-        
+            # Biztonságosabb, natívabb menü megjelenítés
+            pos = QCursor.pos()
+            action = self.tray_menu.exec(pos)
+            if action:
+                print(f"[TRAY DEBUG] Menü választás: {action.text()}")
+            else:
+                print("[TRAY DEBUG] Menü bezárva választás nélkül.")
+
+
 
     def show_from_tray(self):
         self.showNormal()
@@ -315,7 +329,6 @@ class MainWindow(QMainWindow):
         self.activateWindow()
         if hasattr(self, "floating_widget") and self.floating_widget:
             self.floating_widget.show()
-
 
     def exit_app(self):
         if self.app_logger:
@@ -327,11 +340,4 @@ class MainWindow(QMainWindow):
             self.tray_icon.hide()
         QApplication.quit()
 
-    # Adj hozzá ezt a metódust a MainWindow-hoz:
 
-    def eventFilter(self, source, event):
-        if source is self.tray_icon and event.type() == QEvent.ContextMenu:
-            print("[TRAY] Jobb klikk filterből!")
-            self.tray_menu.exec(QCursor.pos())
-            return True
-        return super().eventFilter(source, event)

@@ -498,5 +498,33 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "asdas",
+        "start_time": "2025-03-24T02:52:06.919998",
+        "end_time": "2025-03-24T02:52:13.245121",
+        "logs": [
+            [
+                "2025-03-24T02:52:06.919998",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T02:52:06.945068",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-24T02:52:07.080171",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-24T02:52:07.945806",
+                "Aktív ablak: main_window.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-24T02:52:13.245121",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
