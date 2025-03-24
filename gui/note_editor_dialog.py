@@ -130,7 +130,7 @@ class NoteEditorDialog(QDialog):
             print(f"[EXPORT] Jegyzet mentve ide: {path}")
 
     def update_preview(self):
-        html = markdown(self.editor.toPlainText(), extensions=["tables", "fenced_code"])
+        html = markdown.markdown(self.editor.toPlainText(), extensions=["tables", "fenced_code"])
         self.preview.setHtml(html)
 
     def toggle_layout(self):

@@ -92,7 +92,7 @@ class FloatingWidget(QWidget):
         task_signals.task_stopped.connect(self.on_external_task_stopped)
     
     
-    def resource_path(relative_path):
+    def resource_path(self, relative_path):
         """Adott fájl elérési útja – működik PyInstaller alatt is."""
         if hasattr(sys, '_MEIPASS'):
             return os.path.join(sys._MEIPASS, relative_path)

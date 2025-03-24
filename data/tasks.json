@@ -1002,5 +1002,29 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Gyors feladatfgh",
+        "description": "fghfgh",
+        "start_time": "2025-03-24T15:06:14.969861",
+        "end_time": "2025-03-24T15:06:16.648954",
+        "logs": [
+            [
+                "2025-03-24T15:06:14.969861",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T15:06:14.975790",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T15:06:15.771514",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T15:06:16.648954",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
