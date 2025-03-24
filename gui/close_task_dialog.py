@@ -1,10 +1,10 @@
 # gui/close_task_dialog.py
 
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QPushButton, QLabel
-from gui.style import modern_style
+from gui.style import get_theme_style
 from PySide6.QtWidgets import QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
-
+from PySide6.QtCore import QSettings
 
 class CloseTaskDialog(QDialog):
     def __init__(self):
@@ -12,7 +12,10 @@ class CloseTaskDialog(QDialog):
         self.setWindowTitle("Feladat lezárása – dokumentáció")
         self.resize(500, 300)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
 
         layout = QVBoxLayout()
         self.setLayout(layout)

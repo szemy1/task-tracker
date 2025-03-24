@@ -4,9 +4,10 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit
 from collections import defaultdict
 import datetime
 from core.tag_suggester import suggest_tag
-from gui.style import modern_style
+from gui.style import get_theme_style
 from PySide6.QtWidgets import QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
+from PySide6.QtCore import QSettings
 
 class AnalysisWindow(QDialog):
     def __init__(self, tasks):
@@ -14,7 +15,9 @@ class AnalysisWindow(QDialog):
         self.setWindowTitle("📊 AI-alapú feladatelemzés")
         self.resize(600, 400)
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
 
         layout = QVBoxLayout()
         self.setLayout(layout)

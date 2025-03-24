@@ -23,6 +23,7 @@ from PySide6.QtWidgets import QSystemTrayIcon, QMenu, QApplication
 from PySide6.QtGui import QIcon, QAction, QCursor
 import os
 from PySide6.QtCore import QEvent
+from gui.style import get_theme_style
 
 
 
@@ -134,27 +135,9 @@ class MainWindow(QMainWindow):
 
 
     def load_styles(self):
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #282c34;
-                color: #ffffff;
-                font-family: 'Segoe UI';
-                font-size: 11pt;
-            }
-            QPushButton {
-                background-color: #61afef;
-                border-radius: 8px;
-                padding: 6px;
-            }
-            QPushButton:hover {
-                background-color: #5090c4;
-            }
-            QLineEdit, QTextEdit {
-                background-color: #3c4048;
-                border-radius: 6px;
-                padding: 6px;
-            }
-        """)
+        theme = self.settings.get("theme", "dark").lower()
+        self.setStyleSheet(get_theme_style(theme))
+
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:

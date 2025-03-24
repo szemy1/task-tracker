@@ -4,7 +4,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from gui.task_log_window import TaskLogWindow
-from gui.style import modern_style
+from gui.style import get_theme_style
+from PySide6.QtCore import QSettings
 
 class TaskListWindow(QDialog):
     def __init__(self, task_manager):
@@ -14,7 +15,10 @@ class TaskListWindow(QDialog):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
         self.task_manager = task_manager
         self.tasks = task_manager.get_all_tasks()
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
 
         layout = QVBoxLayout()
         self.setLayout(layout)

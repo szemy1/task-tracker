@@ -7,9 +7,11 @@ from matplotlib.figure import Figure
 from collections import defaultdict
 import datetime
 from core.tag_suggester import suggest_tag
-from gui.style import modern_style
+from gui.style import get_theme_style
 from PySide6.QtWidgets import QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
+from PySide6.QtCore import QSettings
+
 
 class DashboardWindow(QDialog):
     def __init__(self, tasks):
@@ -31,7 +33,10 @@ class DashboardWindow(QDialog):
 
         top_bar.addWidget(close_button)
         layout.addLayout(top_bar)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
 
 
         self.figure = Figure(figsize=(10, 7))

@@ -9,8 +9,8 @@ import datetime
 from PySide6.QtWidgets import QHBoxLayout, QPushButton
 from PySide6.QtCore import Qt
 from core.tag_suggester import suggest_tag
-from gui.style import modern_style
-
+from gui.style import get_theme_style
+from PySide6.QtCore import QSettings
 
 class StatsWindow(QDialog):
     def __init__(self, tasks):
@@ -33,7 +33,10 @@ class StatsWindow(QDialog):
         top_bar.addWidget(close_button)
         layout.addLayout(top_bar)
         self.setLayout(layout)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
 
 
         self.figure = Figure()

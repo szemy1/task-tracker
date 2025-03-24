@@ -2,14 +2,17 @@ from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit, QTextEdit
 )
 from PySide6.QtCore import Qt
-from gui.style import modern_style
-
+from gui.style import get_theme_style
+from PySide6.QtCore import QSettings
 class SuggestionPopup(QDialog):
     def __init__(self, app_name, on_accept, on_reject):
         super().__init__()
         self.setWindowTitle("Feladatjavaslat")
         self.setModal(True)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
         self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint | Qt.Popup)
 
         self.on_accept = on_accept

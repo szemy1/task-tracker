@@ -3,10 +3,10 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from gui.task_timeline_window import TaskTimelineWindow
-from gui.style import modern_style
+from gui.style import get_theme_style
 from gui.note_editor_dialog import NoteEditorDialog
 from core.task_manager import TaskManager
-
+from PySide6.QtCore import QSettings
 
 class TaskLogWindow(QDialog):
     def __init__(self, task, task_manager: TaskManager):
@@ -16,7 +16,10 @@ class TaskLogWindow(QDialog):
 
         self.setWindowTitle(f"📃 Napló: {task.title}")
         self.resize(600, 500)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         layout = QVBoxLayout()

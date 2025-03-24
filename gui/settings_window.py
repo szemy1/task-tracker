@@ -4,7 +4,7 @@ from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton, QFileDialog, QMessageBox, QHBoxLayout
 )
 from PySide6.QtCore import Qt  # ← Ezt add hozzá!
-from gui.style import modern_style
+from gui.style import get_theme_style
 from PySide6.QtWidgets import QCheckBox, QFileDialog, QLabel
 from PySide6.QtCore import QSettings
 import os
@@ -29,7 +29,10 @@ class SettingsWindow(QDialog):
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         self.settings = self.load_settings()
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
 
 
         layout = QVBoxLayout()

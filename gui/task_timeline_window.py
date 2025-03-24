@@ -7,7 +7,8 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 from collections import defaultdict
-from gui.style import modern_style
+from gui.style import get_theme_style
+from PySide6.QtCore import QSettings
 plt.rcParams['font.family'] = 'Noto Emoji'
 
 class TaskTimelineWindow(QDialog):
@@ -17,7 +18,10 @@ class TaskTimelineWindow(QDialog):
         self.resize(1000, 600)
         self.task = task
         self.on_new_task_callback = on_new_task_callback
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.Window)
 
         self.selected_start = None

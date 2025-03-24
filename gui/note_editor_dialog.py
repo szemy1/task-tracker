@@ -7,15 +7,18 @@ from PySide6.QtWebEngineWidgets import QWebEngineView
 from markdown import markdown
 import os
 from datetime import datetime
-from gui.style import modern_style
-
+from gui.style import get_theme_style
+from PySide6.QtCore import QSettings
 
 class NoteEditorDialog(QDialog):
     def __init__(self, task):
         super().__init__()
         self.setWindowTitle("📝 Feladatjegyzet")
         self.setMinimumSize(800, 600)
-        self.setStyleSheet(modern_style)
+        
+        theme = QSettings().value("theme", "dark")
+        self.setStyleSheet(get_theme_style(theme))
+
         self.setWindowFlags(Qt.Window)
 
         self.task = task
