@@ -14,3 +14,7 @@ __pycache__/
 *.log
 dist/
 build/
+dist_installer/
+archive/
+export/
+notes/
