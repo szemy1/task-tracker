@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
         floating = self.settings.get("floating_enabled", True)
         print(f"[DEBUG] Floating enabled setting: {floating}")
         if self.settings.get("floating_enabled", True):
-            self.floating_widget = FloatingWidget(self.task_manager)
+            self.floating_widget = FloatingWidget(self.task_manager, self.start_task)
             self.floating_widget.show()
         else:
             self.floating_widget = None
@@ -173,11 +173,15 @@ class MainWindow(QMainWindow):
 
 
 
-    def start_task(self):
-        title = self.title_input.text().strip()
-        description = self.description_input.toPlainText().strip()
+    def start_task(self, title=None, description=None):
         if self.task_manager.get_active_task():
-                self.stop_task()
+            self.stop_task()
+
+        # Ha nincs paraméter, olvassuk be a GUI-ból
+        if title is None:
+            title = self.title_input.text().strip()
+        if description is None:
+            description = self.description_input.toPlainText().strip()
 
         if not title:
             QMessageBox.warning(self, "⚠️ Hiba", "Kérlek adj meg egy feladatcímet!")
@@ -192,6 +196,22 @@ class MainWindow(QMainWindow):
         self.status_label.setText(f"🟢 Futó feladat: {task.title}")
         self.start_button.setEnabled(False)
         self.stop_button.setEnabled(True)
+
+
+    def start_task_from_floating(self, title=None, description=None):
+        if self.task_manager.get_active_task():
+            self.stop_task()
+
+        if not title:
+            title = "Gyors feladat"
+
+        task = self.task_manager.create_task(title, description)
+        self.task_manager.start_current_task(self.activity_notifier)
+
+        self.status_label.setText(f"🟢 Futó feladat: {task.title}")
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+
 
     def stop_task(self):
         self.task_manager.stop_current_task()

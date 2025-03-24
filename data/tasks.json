@@ -470,5 +470,33 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "asdasd",
+        "start_time": "2025-03-24T01:36:03.701127",
+        "end_time": "2025-03-24T01:36:09.090113",
+        "logs": [
+            [
+                "2025-03-24T01:36:03.701127",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T01:36:03.701127",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-24T01:36:03.706885",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T01:36:04.702007",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T01:36:09.090113",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]

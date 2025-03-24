@@ -1,12 +1,16 @@
-from PySide6.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QTextEdit, QPushButton, QWidget
 from PySide6.QtCore import Qt, QTimer, QSettings, QPoint
 import datetime
 import json
+from gui.note_editor_dialog import NoteEditorDialog
+
+
 
 class FloatingWidget(QWidget):
-    def __init__(self, task_manager, parent=None):
+    def __init__(self, task_manager, start_task_callback, parent=None):
         super().__init__(parent)
         self.task_manager = task_manager
+        self.start_task_callback = start_task_callback
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Tool)
         self.setFixedSize(300, 120)
         self.setStyleSheet("""
@@ -50,10 +54,18 @@ class FloatingWidget(QWidget):
         task = self.task_manager.get_active_task()
         if task:
             self.task_manager.stop_current_task()
+            self.button.setText("Start")
+            # Jegyzet ablak nyitása is jöhet ide, ha szeretnéd
+            dialog = NoteEditorDialog(task)
+            dialog.exec()
         else:
-            self.task_manager.create_task("Gyorsfeladat")
-            self.task_manager.start_current_task(None)
-        self.update_ui()
+            dialog = TaskDetailsDialog()
+            if dialog.exec() == QDialog.Accepted:
+                title, description = dialog.get_details()
+                self.start_task_callback(title, description)
+                self.button.setText("Stop")
+
+
 
     def update_ui(self):
         task = self.task_manager.get_active_task()
@@ -76,10 +88,44 @@ class FloatingWidget(QWidget):
             self.drag_pos = event.globalPosition().toPoint()
 
     def closeEvent(self, event):
-        self.settings.setValue("pos", self.pos())
+        self.settings["pos"] = [self.pos().x(), self.pos().y()]
+        with open("config/settings.json", "w", encoding="utf-8") as f:
+            json.dump(self.settings, f, indent=4)
+
         super().closeEvent(event)
 
     def restore_position(self):
-        pos = self.settings.value("pos")
+        pos = self.settings.get("pos")
         if isinstance(pos, QPoint):
             self.move(pos)
+
+class TaskDetailsDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Gyors feladat indítása")
+        self.setMinimumWidth(300)
+
+        layout = QVBoxLayout()
+
+        layout.addWidget(QLabel("Feladat címe:"))
+        self.title_input = QLineEdit("Gyors feladat")
+        layout.addWidget(self.title_input)
+
+        layout.addWidget(QLabel("Leírás:"))
+        self.desc_input = QTextEdit()
+        layout.addWidget(self.desc_input)
+
+        button_layout = QHBoxLayout()
+        self.start_button = QPushButton("Indítás")
+        self.cancel_button = QPushButton("Mégsem")
+        button_layout.addWidget(self.start_button)
+        button_layout.addWidget(self.cancel_button)
+
+        layout.addLayout(button_layout)
+        self.setLayout(layout)
+
+        self.start_button.clicked.connect(self.accept)
+        self.cancel_button.clicked.connect(self.reject)
+
+    def get_details(self):
+        return self.title_input.text().strip(), self.desc_input.toPlainText().strip()
