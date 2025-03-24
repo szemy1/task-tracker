@@ -3,7 +3,7 @@ from PySide6.QtCore import Qt, QTimer, QSettings, QPoint
 import datetime
 import json
 from gui.note_editor_dialog import NoteEditorDialog
-
+from gui.style import get_theme_style
 
 
 class FloatingWidget(QWidget):
@@ -13,21 +13,14 @@ class FloatingWidget(QWidget):
         self.start_task_callback = start_task_callback
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Tool)
         self.setFixedSize(300, 120)
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #2b2b2b;
-                color: white;
-                border: 2px solid #4a90e2;
-                border-radius: 10px;
-            }
-            QPushButton {
-                background-color: #4a90e2;
-                border: none;
-                padding: 5px 10px;
-                border-radius: 6px;
-                color: white;
-            }
-        """)
+
+        # 🔧 Objektum név stílushoz
+        self.setObjectName("FloatingWidget")
+
+        # 🎨 Téma alkalmazása
+        settings_store = QSettings("TimeMeter", "TaskTracker")
+        theme = settings_store.value("theme", "dark").lower()
+        self.setStyleSheet(get_theme_style(theme, is_floating=True))
 
         self.title_label = QLabel("⏳ Nincs aktív feladat")
         self.time_label = QLabel("00:00:00")
@@ -40,13 +33,14 @@ class FloatingWidget(QWidget):
         self.setLayout(layout)
 
         self.button.clicked.connect(self.toggle_task)
+
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_ui)
         self.timer.start(1000)
 
+        # Beállítások betöltése
         with open("config/settings.json", "r", encoding="utf-8") as f:
             self.settings = json.load(f)
-
 
         self.restore_position()
 
@@ -55,7 +49,6 @@ class FloatingWidget(QWidget):
         if task:
             self.task_manager.stop_current_task()
             self.button.setText("Start")
-            # Jegyzet ablak nyitása is jöhet ide, ha szeretnéd
             dialog = NoteEditorDialog(task)
             dialog.exec()
         else:
@@ -64,8 +57,6 @@ class FloatingWidget(QWidget):
                 title, description = dialog.get_details()
                 self.start_task_callback(title, description)
                 self.button.setText("Stop")
-
-
 
     def update_ui(self):
         task = self.task_manager.get_active_task()
@@ -91,13 +82,13 @@ class FloatingWidget(QWidget):
         self.settings["pos"] = [self.pos().x(), self.pos().y()]
         with open("config/settings.json", "w", encoding="utf-8") as f:
             json.dump(self.settings, f, indent=4)
-
         super().closeEvent(event)
 
     def restore_position(self):
         pos = self.settings.get("pos")
-        if isinstance(pos, QPoint):
-            self.move(pos)
+        if isinstance(pos, list) and len(pos) == 2:
+            self.move(QPoint(pos[0], pos[1]))
+
 
 class TaskDetailsDialog(QDialog):
     def __init__(self):

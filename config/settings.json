@@ -1,12 +1,12 @@
 {
     "auto_archive_days": 7,
     "storage_path": "./data",
-    "theme": "light",
+    "theme": "dark",
     "floating_enabled": true,
     "logo_path": "C:/Users/szemy/Downloads/icon.ico",
     "inactivity_limit_minutes": 10,
     "pos": [
-        1841,
-        739
+        2490,
+        89
     ]
 }

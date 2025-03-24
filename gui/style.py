@@ -116,3 +116,30 @@ def get_theme_style(theme: str) -> str:
     if theme.lower() == "light":
         return LIGHT_STYLE
     return DARK_STYLE
+
+
+FLOATING_STYLE = """
+#FloatingWidget {
+    background-color: transparent;
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+}
+#FloatingWidget QLabel {
+    font-weight: bold;
+}
+#FloatingWidget QPushButton {
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+#FloatingWidget QPushButton:hover {
+    background-color: #357ABD;
+}
+"""
+
+
+def get_theme_style(theme: str, is_floating=False) -> str:
+    base = LIGHT_STYLE if theme == "light" else DARK_STYLE
+    return base + FLOATING_STYLE if is_floating else base
+

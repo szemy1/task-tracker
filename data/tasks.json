@@ -526,5 +526,29 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "teszt Gyors feladat",
+        "description": "sdfsdf",
+        "start_time": "2025-03-24T03:31:48.297686",
+        "end_time": "2025-03-24T03:31:59.593772",
+        "logs": [
+            [
+                "2025-03-24T03:31:48.297686",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-24T03:31:48.299737",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T03:31:48.608298",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-24T03:31:59.593772",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
