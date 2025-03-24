@@ -1,9 +1,6 @@
 # .gitignore
 
 venv/
-data/
-archive/
-exports/
 __pycache__/
 *.pyc
 *.pyo
@@ -14,8 +11,8 @@ __pycache__/
 *.log
 dist/
 build/
-dist_installer/
+data/
 archive/
-export/
-notes/
-dist_installer/TimeMeter_Installer.exe
+exports/
+dist_installer/
+
