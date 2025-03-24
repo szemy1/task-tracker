@@ -26,7 +26,8 @@ from PySide6.QtCore import QEvent
 from gui.style import get_theme_style
 from core.task_signals import task_signals
 from datetime import datetime
-
+import sys
+import os
 
 
 class MainWindow(QMainWindow):
@@ -40,7 +41,8 @@ class MainWindow(QMainWindow):
         
 
         # __init__ elején:
-        with open("config/settings.json", "r", encoding="utf-8") as f:
+        with open(self.resource_path("config/settings.json"), "r", encoding="utf-8") as f:
+
             self.settings = json.load(f)
 
 
@@ -133,7 +135,11 @@ class MainWindow(QMainWindow):
         top_bar.addWidget(exit_button)
 
 
-
+    def resource_path(relative_path):
+        """Adott fájl elérési útja – működik PyInstaller alatt is."""
+        if hasattr(sys, '_MEIPASS'):
+            return os.path.join(sys._MEIPASS, relative_path)
+        return os.path.join(os.path.abspath("."), relative_path)
 
 
     def load_styles(self):

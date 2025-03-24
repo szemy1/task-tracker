@@ -6,6 +6,9 @@ from PySide6.QtCore import Qt, QTimer
 from gui.main_window import MainWindow
 #from core.settings import load_settings, save_settings
 import os
+import markdown
+import html.parser
+
 
 def main():
     app = QApplication(sys.argv)

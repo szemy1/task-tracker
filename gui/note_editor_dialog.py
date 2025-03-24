@@ -9,6 +9,9 @@ import os
 from datetime import datetime
 from gui.style import get_theme_style
 from PySide6.QtCore import QSettings
+import markdown
+import html.parser
+
 
 class NoteEditorDialog(QDialog):
     def __init__(self, task):

@@ -2,7 +2,8 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEd
 from PySide6.QtCore import Qt, QTimer, QSettings, QPoint
 import datetime
 import json
-
+import sys
+import os
 from gui.note_editor_dialog import NoteEditorDialog
 from gui.style import get_theme_style
 from core.task_signals import task_signals
@@ -75,9 +76,11 @@ class FloatingWidget(QWidget):
         self.timer.timeout.connect(self.update_ui)
         self.timer.start(1000)
 
+
         # Beállítások betöltése
         try:
-            with open("config/settings.json", "r", encoding="utf-8") as f:
+            with open(self.resource_path("config/settings.json"), "r", encoding="utf-8") as f:
+
                 self.settings = json.load(f)
         except Exception:
             self.settings = {}
@@ -87,6 +90,14 @@ class FloatingWidget(QWidget):
         # 🔄 Globális task jelek figyelése
         task_signals.task_started.connect(self.on_external_task_started)
         task_signals.task_stopped.connect(self.on_external_task_stopped)
+    
+    
+    def resource_path(relative_path):
+        """Adott fájl elérési útja – működik PyInstaller alatt is."""
+        if hasattr(sys, '_MEIPASS'):
+            return os.path.join(sys._MEIPASS, relative_path)
+        return os.path.join(os.path.abspath("."), relative_path)
+
 
 
     def toggle_task(self):
@@ -135,7 +146,7 @@ class FloatingWidget(QWidget):
 
     def closeEvent(self, event):
         self.settings["floating_widget_pos"] = [self.x(), self.y()]
-        with open("config/settings.json", "w", encoding="utf-8") as f:
+        with open(self.resource_path("config/settings.json"), "w", encoding="utf-8") as f:
             json.dump(self.settings, f, indent=2)
         event.accept()
 

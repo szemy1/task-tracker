@@ -1,5 +1,10 @@
-# main.spec
+import os
+from PyInstaller.utils.hooks import collect_submodules
+
 block_cipher = None
+
+# 🔥 KÉZZEL megadott elérési út a venv-es markdown mappához
+markdown_path = os.path.abspath('venv/Lib/site-packages/markdown')
 
 a = Analysis(
     ['main.py'],
@@ -8,18 +13,10 @@ a = Analysis(
     datas=[
         ('config/*', 'config'),
         ('icons/*', 'icons'),
-        ('fonts/*', 'fonts')
+        ('fonts/*', 'fonts'),
+        (markdown_path, 'markdown')  # 🔥 TELJES KÖNYVTÁR MÁSOLÁSA
     ],
-    hiddenimports=[
-    'markdown',
-    'markdown.extensions',
-    'markdown.extensions.extra',
-    'markdown.extensions.codehilite',
-    'markdown.extensions.meta',
-    'markdown.extensions.tables',
-    'markdown.extensions.toc'
-    ],
-
+    hiddenimports=collect_submodules('markdown'),
     hookspath=[],
     runtime_hooks=[],
     excludes=[],
@@ -40,7 +37,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=False,  # legyen GUI app
+    console=False,
     icon='icon.ico'
 )
 
