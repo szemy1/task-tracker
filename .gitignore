@@ -1,9 +1,6 @@
 # .gitignore
 
 venv/
-data/
-archive/
-exports/
 __pycache__/
 *.pyc
 *.pyo
@@ -14,3 +11,7 @@ __pycache__/
 *.log
 dist/
 build/
+data/
+archive/
+exports/
+dist_installer/
