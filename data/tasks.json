@@ -1270,5 +1270,85 @@
                 "Aktív ablak: Idővonal: Munka: main.py - TimeMeter - Visual Studio Code → fejlesztés"
             ]
         ]
+    },
+    {
+        "title": "Munka: main_window.py - TimeMeter - Visual Studio Code",
+        "description": "teszt",
+        "start_time": "2025-03-28T17:58:32.865984",
+        "end_time": "2025-03-28T17:58:42.315709",
+        "logs": [
+            [
+                "2025-03-28T17:58:32.865984",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T17:58:32.892874",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:58:33.026485",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:58:33.893549",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:58:37.021373",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:58:40.168731",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:58:41.754422",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:58:42.315709",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: floating_widget.py - TimeMeter - Visual Studio Code",
+        "description": "fdgdfg",
+        "start_time": "2025-03-28T18:02:08.059585",
+        "end_time": "2025-03-28T18:02:20.027535",
+        "logs": [
+            [
+                "2025-03-28T18:02:08.059585",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T18:02:08.075151",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-28T18:02:09.033655",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T18:02:09.075970",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T18:02:10.210309",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T18:02:11.034512",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T18:02:13.035969",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T18:02:20.029055",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]

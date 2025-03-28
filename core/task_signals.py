@@ -1,10 +1,9 @@
 # core/task_signals.py
 
-from PySide6.QtCore import QObject, Signal
+from PySide6.QtCore import Signal, QObject
 
 class TaskSignals(QObject):
-    task_started = Signal(dict)  # {"name": ..., "start_time": ...}
-    task_stopped = Signal()
+    task_started = Signal(object)
+    task_stopped = Signal(object)  # itt adjuk hozzá az object paramétert!
 
-# Singleton példány
 task_signals = TaskSignals()

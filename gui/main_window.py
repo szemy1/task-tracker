@@ -26,6 +26,7 @@ from PySide6.QtCore import QEvent
 from gui.style import get_theme_style
 from core.task_signals import task_signals
 from datetime import datetime
+from core.task_signals import task_signals
 import sys
 import os
 
@@ -133,6 +134,10 @@ class MainWindow(QMainWindow):
         exit_button.clicked.connect(self.exit_app)  # <- ez hívja a valódi kilépő metódust
 
         top_bar.addWidget(exit_button)
+        # Feladat jelzések összekapcsolása GUI frissítéshez
+        task_signals.task_started.connect(self.on_task_started)
+        task_signals.task_stopped.connect(self.on_task_stopped)
+
 
 
     def resource_path(self, relative_path):
@@ -205,11 +210,8 @@ class MainWindow(QMainWindow):
         self.stop_button.setEnabled(True)
 
         # 🔁 KIEGÉSZÍTÉS: floating widget + tray viselkedés stabilizálása
-        task_signals.task_started.emit({
-            "name": task.title,
-            "description": task.description,
-            "start_time": task.start_time
-        })
+        task_signals.task_started.emit(task)
+
 
         self.show()
         self.raise_()
@@ -235,8 +237,9 @@ class MainWindow(QMainWindow):
 
 
     def stop_task(self):
-        self.task_manager.stop_current_task()
         task = self.task_manager.get_active_task()
+        self.task_manager.stop_current_task()
+        task_signals.task_stopped.emit(task)  # <<-- hozzáadva
         duration = task.get_duration()
         self.status_label.setText(f"🔴 Feladat lezárva: {task.title} ({duration})")
         self.start_button.setEnabled(True)
@@ -247,6 +250,7 @@ class MainWindow(QMainWindow):
             print("Jegyzet mentve.")
 
         self.task_manager.check_auto_archive(self)
+
 
     def show_task_list(self):
         dialog = TaskListWindow(self.task_manager)
@@ -351,4 +355,17 @@ class MainWindow(QMainWindow):
             self.tray_icon.hide()
         QApplication.quit()
 
+    def on_task_started(self, task):
+        self.status_label.setText(f"🟢 Futó feladat: {task.title}")
+        self.start_button.setEnabled(False)
+        self.stop_button.setEnabled(True)
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.update_ui()
+
+    def on_task_stopped(self, task):
+        self.status_label.setText(f"🔴 Feladat lezárva: {task.title}")
+        self.start_button.setEnabled(True)
+        self.stop_button.setEnabled(False)
+        if hasattr(self, "floating_widget") and self.floating_widget:
+            self.floating_widget.update_ui()
 

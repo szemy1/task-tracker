@@ -109,9 +109,11 @@ class FloatingWidget(QWidget):
         # 🔒 Csak akkor állítsuk le, ha a task valóban aktív
         if task and task.is_active:
             self.task_manager.stop_current_task()
+            task_signals.task_stopped.emit(task)
             self.button.setText("Start")
             dialog = NoteEditorDialog(task)
             dialog.exec()
+
 
         # 🟢 Ha nincs aktív task, akkor indítás
         elif not task or not task.is_active:
@@ -119,7 +121,9 @@ class FloatingWidget(QWidget):
             if dialog.exec() == QDialog.Accepted:
                 title, description = dialog.get_details()
                 if self.start_task_callback:
-                    self.start_task_callback(title, description)
+                    self.task_manager.start_task(title, description)
+                    task_signals.task_started.emit(self.task_manager.get_active_task())
+
                 self.button.setText("Stop")
 
     def clear_current_task(self):
