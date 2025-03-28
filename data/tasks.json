@@ -1126,5 +1126,149 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "000 Gyors feladat",
+        "description": "ddf",
+        "start_time": "2025-03-28T17:09:55.247012",
+        "end_time": "2025-03-28T17:10:05.807463",
+        "logs": [
+            [
+                "2025-03-28T17:09:55.247012",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T17:09:55.256039",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:09:56.143014",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:01.153661",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:10:02.146936",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:04.147447",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:05.807463",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:10:06.148120",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:07.148482",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:09.149391",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:11.150795",
+                "Aktív ablak: 📃 Napló: 000 Gyors feladat → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:10:14.254102",
+                "Aktív ablak: Idővonal: 000 Gyors feladat → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – 000 Gyors feladat",
+        "description": "Létrehozva idővonal alapján (17:10 - 17:10)",
+        "start_time": "2025-03-28T17:10:14.254102",
+        "end_time": "2025-03-28T17:10:14.254102",
+        "logs": [
+            [
+                "2025-03-28T17:10:14.254102",
+                "Aktív ablak: Idővonal: 000 Gyors feladat → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "asdasdsa",
+        "start_time": "2025-03-28T17:16:55.775291",
+        "end_time": "2025-03-28T17:17:47.869703",
+        "logs": [
+            [
+                "2025-03-28T17:16:55.775291",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T17:16:55.803531",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:16:56.625280",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:16:56.804123",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:02.955377",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:17:03.633291",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:45.692555",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:47.869703",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T17:17:48.694630",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:52.697517",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:53.700152",
+                "Aktív ablak: 📋 Feladatlista → inaktivitás"
+            ],
+            [
+                "2025-03-28T17:17:57.702251",
+                "Aktív ablak: 📃 Napló: Munka: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-28T17:18:03.706022",
+                "Aktív ablak: Idővonal: Munka: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
+    },
+    {
+        "title": "Részfeladat – Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "Létrehozva idővonal alapján (17:17 - 17:18)",
+        "start_time": "2025-03-28T17:17:57.702251",
+        "end_time": "2025-03-28T17:18:03.706022",
+        "logs": [
+            [
+                "2025-03-28T17:17:57.702251",
+                "Aktív ablak: 📃 Napló: Munka: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-28T17:18:03.706022",
+                "Aktív ablak: Idővonal: Munka: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ]
+        ]
     }
 ]
