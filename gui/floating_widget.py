@@ -39,18 +39,20 @@ class TaskDetailsDialog(QDialog):
 
         self.start_button.clicked.connect(self.accept)
         self.cancel_button.clicked.connect(self.reject)
+        
 
     def get_details(self):
         return self.title_input.text().strip(), self.desc_input.toPlainText().strip()
 
 
 class FloatingWidget(QWidget):
-    def __init__(self, task_manager, start_task_callback, parent=None):
+    def __init__(self, task_manager, activity_notifier, parent=None):
         super().__init__(parent)
         self.task_manager = task_manager
-        self.start_task_callback = start_task_callback
+        self.activity_notifier = activity_notifier
         self.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Tool)
         self.setFixedSize(300, 120)
+
 
         # 🔧 Objektum név stílushoz
         self.setObjectName("FloatingWidget")
@@ -103,7 +105,6 @@ class FloatingWidget(QWidget):
     def toggle_task(self):
         task = self.task_manager.get_active_task()
 
-        # Ha van aktív task, akkor állítsuk le
         if task and task.is_active:
             self.task_manager.stop_current_task()
             task_signals.task_stopped.emit(task)
@@ -111,16 +112,16 @@ class FloatingWidget(QWidget):
             dialog.exec()
             self.button.setText("Start")
         else:
-            # Új task indítása dialoggal
             dialog = TaskDetailsDialog()
             if dialog.exec() == QDialog.Accepted:
                 title, description = dialog.get_details()
-                self.task_manager.start_task(title, description)
-                new_task = self.task_manager.get_active_task()
-                task_signals.task_started.emit(new_task)
+                task = self.task_manager.create_task(title, description)
+                self.task_manager.start_current_task(self.activity_notifier)
+                task_signals.task_started.emit(task)
                 self.button.setText("Stop")
 
         self.update_ui()
+
 
 
     def clear_current_task(self):

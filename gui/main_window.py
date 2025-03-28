@@ -120,10 +120,11 @@ class MainWindow(QMainWindow):
         floating = self.settings.get("floating_enabled", True)
         print(f"[DEBUG] Floating enabled setting: {floating}")
         if self.settings.get("floating_enabled", True):
-            self.floating_widget = FloatingWidget(self.task_manager, self.start_task, parent=None)
+            self.floating_widget = FloatingWidget(self.task_manager, self.activity_notifier, parent=None)
             self.floating_widget.show()
         else:
             self.floating_widget = None
+
 
         self.setup_tray_icon()
         # Kilépő gomb (valódi kilépés, nem csak minimalizálás)

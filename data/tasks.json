@@ -1434,5 +1434,97 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "asdsa",
+        "start_time": "2025-03-28T19:26:49.190525",
+        "end_time": "2025-03-28T19:26:53.932046",
+        "logs": [
+            [
+                "2025-03-28T19:26:49.190525",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:26:49.204539",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:26:49.270787",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:26:50.204838",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:26:53.932046",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T19:26:55.429608",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:26:56.430061",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code112",
+        "description": "asdsaasdasd",
+        "start_time": "2025-03-28T19:27:02.000964",
+        "end_time": "2025-03-28T19:27:05.441655",
+        "logs": [
+            [
+                "2025-03-28T19:27:02.000964",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:27:02.002499",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:27:05.441655",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T19:27:06.433980",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:27:07.434428",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:27:10.436403",
+                "Aktív ablak: Gyors feladat indítása → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "0000 Gyors feladat",
+        "description": "2233",
+        "start_time": "2025-03-28T19:27:13.838922",
+        "end_time": "2025-03-28T19:27:19.552339",
+        "logs": [
+            [
+                "2025-03-28T19:27:13.838922",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:27:13.842026",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:27:14.438641",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:27:19.552339",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
