@@ -178,16 +178,18 @@ class MainWindow(QMainWindow):
         if hasattr(sys, '_MEIPASS'):
             return os.path.join(sys._MEIPASS, relative_path)
         return os.path.join(os.path.abspath("."), relative_path)
-
+        
 
     def load_styles(self):
         theme = self.settings.get("theme", "dark").lower()
         self.setStyleSheet(get_theme_style(theme))
+        
 
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.old_position = event.globalPosition().toPoint()
+           
 
     def mouseMoveEvent(self, event):
         delta = event.globalPosition().toPoint() - self.old_position

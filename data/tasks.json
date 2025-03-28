@@ -1550,5 +1550,57 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sf",
+        "start_time": "2025-03-28T21:02:06.387896",
+        "end_time": "2025-03-28T21:02:12.792433",
+        "logs": [
+            [
+                "2025-03-28T21:02:06.387896",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T21:02:06.397047",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T21:02:06.937874",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T21:02:12.792433",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T21:02:14.498667",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T21:02:15.499352",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "cvxcvxcv",
+        "description": "xcvxcvxcv",
+        "start_time": "2025-03-28T21:02:27.668702",
+        "end_time": "2025-03-28T21:02:30.145163",
+        "logs": [
+            [
+                "2025-03-28T21:02:27.668702",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T21:02:27.672029",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T21:02:30.145677",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
