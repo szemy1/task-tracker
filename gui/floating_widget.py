@@ -102,29 +102,26 @@ class FloatingWidget(QWidget):
 
     def toggle_task(self):
         task = self.task_manager.get_active_task()
-        if task and not task.is_active:
-            self.task_manager.clear_current_task()  # <<< ezt vezessük be, ha nincs
-            task = None
 
-        # 🔒 Csak akkor állítsuk le, ha a task valóban aktív
+        # Ha van aktív task, akkor állítsuk le
         if task and task.is_active:
             self.task_manager.stop_current_task()
             task_signals.task_stopped.emit(task)
-            self.button.setText("Start")
             dialog = NoteEditorDialog(task)
             dialog.exec()
-
-
-        # 🟢 Ha nincs aktív task, akkor indítás
-        elif not task or not task.is_active:
+            self.button.setText("Start")
+        else:
+            # Új task indítása dialoggal
             dialog = TaskDetailsDialog()
             if dialog.exec() == QDialog.Accepted:
                 title, description = dialog.get_details()
-                if self.start_task_callback:
-                    self.task_manager.start_task(title, description)
-                    task_signals.task_started.emit(self.task_manager.get_active_task())
-
+                self.task_manager.start_task(title, description)
+                new_task = self.task_manager.get_active_task()
+                task_signals.task_started.emit(new_task)
                 self.button.setText("Stop")
+
+        self.update_ui()
+
 
     def clear_current_task(self):
         self._current_task = None

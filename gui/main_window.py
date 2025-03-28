@@ -186,39 +186,38 @@ class MainWindow(QMainWindow):
 
 
     def start_task(self, title=None, description=None):
+    # Ha van aktív feladat, állítsuk le előbb:
         if self.task_manager.get_active_task():
             self.stop_task()
 
-        if title is None:
-            title = self.title_input.text().strip()
-        if description is None:
-            description = self.description_input.toPlainText().strip()
+        # Ha nincs megadva cím és leírás, akkor a GUI-ból szedjük
+        title = title or self.title_input.text().strip()
+        description = description or self.description_input.toPlainText().strip()
 
         if not title:
             QMessageBox.warning(self, "⚠️ Hiba", "Kérlek adj meg egy feladatcímet!")
             return
 
-        prediction = predict_duration(title, description, self.task_manager.get_all_tasks())
-        if prediction:
-            QMessageBox.information(self, "🔮 AI becslés", f"A rendszer szerint kb. {prediction} percet vesz igénybe.")
-
+        # Feladat létrehozása és indítása
         task = self.task_manager.create_task(title, description)
         self.task_manager.start_current_task(self.activity_notifier)
 
+        # GUI frissítése
         self.status_label.setText(f"🟢 Futó feladat: {task.title}")
         self.start_button.setEnabled(False)
         self.stop_button.setEnabled(True)
 
-        # 🔁 KIEGÉSZÍTÉS: floating widget + tray viselkedés stabilizálása
+        # Signal küldése (teljes task objektum)
         task_signals.task_started.emit(task)
 
-
+        # Ablak előtérbe hozása
         self.show()
         self.raise_()
         self.activateWindow()
 
+        # Floating widget frissítése, ha van
         if hasattr(self, "floating_widget") and self.floating_widget:
-            self.floating_widget.show()
+            self.floating_widget.update_ui()
 
 
     def start_task_from_floating(self, title=None, description=None):
@@ -238,18 +237,28 @@ class MainWindow(QMainWindow):
 
     def stop_task(self):
         task = self.task_manager.get_active_task()
-        self.task_manager.stop_current_task()
-        task_signals.task_stopped.emit(task)  # <<-- hozzáadva
-        duration = task.get_duration()
-        self.status_label.setText(f"🔴 Feladat lezárva: {task.title} ({duration})")
-        self.start_button.setEnabled(True)
-        self.stop_button.setEnabled(False)
+        if task and task.is_active:
+            self.task_manager.stop_current_task()
 
-        dialog = NoteEditorDialog(task)
-        if dialog.exec() == QDialog.Accepted:
-            print("Jegyzet mentve.")
+            # Signal küldése
+            task_signals.task_stopped.emit(task)
 
-        self.task_manager.check_auto_archive(self)
+            # Jegyzet hozzáadás dialog megnyitása
+            dialog = NoteEditorDialog(task)
+            dialog.exec()
+
+            # GUI frissítése
+            duration = task.get_duration()
+            self.status_label.setText(f"🔴 Feladat lezárva: {task.title} ({duration})")
+            self.start_button.setEnabled(True)
+            self.stop_button.setEnabled(False)
+
+            self.task_manager.check_auto_archive(self)
+
+            # Floating widget frissítése, ha van
+            if hasattr(self, "floating_widget") and self.floating_widget:
+                self.floating_widget.update_ui()
+
 
 
     def show_task_list(self):

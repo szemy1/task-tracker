@@ -1350,5 +1350,89 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "asdasd",
+        "description": "asdasd",
+        "start_time": "2025-03-28T19:07:11.974974",
+        "end_time": "2025-03-28T19:07:15.556952",
+        "logs": [
+            [
+                "2025-03-28T19:07:11.974974",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:07:11.976505",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:15.556952",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T19:07:16.258717",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:18.259652",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "asdasdasda",
+        "description": "asdasdasd",
+        "start_time": "2025-03-28T19:07:23.812263",
+        "end_time": "2025-03-28T19:07:27.104025",
+        "logs": [
+            [
+                "2025-03-28T19:07:23.812263",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:07:23.815335",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:27.104025",
+                "Feladat lezárva"
+            ],
+            [
+                "2025-03-28T19:07:27.264762",
+                "Aktív ablak: 📝 Feladatjegyzet → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:29.266248",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:31.267481",
+                "Aktív ablak: Gyors feladat indítása → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:34.268275",
+                "Aktív ablak: python → inaktivitás"
+            ]
+        ]
+    },
+    {
+        "title": "asdasdasda12",
+        "description": "asdasdasd12",
+        "start_time": "2025-03-28T19:07:42.220385",
+        "end_time": "2025-03-28T19:07:44.692520",
+        "logs": [
+            [
+                "2025-03-28T19:07:42.220385",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-28T19:07:42.221958",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-28T19:07:44.692520",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
