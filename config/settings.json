@@ -5,6 +5,7 @@
   "floating_enabled": true,
   "logo_path": "C:/Users/szemy/Downloads/icon.ico",
   "inactivity_limit_minutes": 10,
+  "debug_mode": true,
   "pos": [
     2491,
     89

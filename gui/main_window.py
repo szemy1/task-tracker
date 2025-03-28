@@ -29,7 +29,8 @@ from datetime import datetime
 from core.task_signals import task_signals
 import sys
 import os
-
+from PySide6.QtWidgets import QPlainTextEdit, QSplitter
+from core.debug_logger import DebugLogger
 
 class MainWindow(QMainWindow):
     instance = None  # <<< EZ KELL
@@ -140,6 +141,37 @@ class MainWindow(QMainWindow):
         task_signals.task_stopped.connect(self.on_task_stopped)
 
 
+        
+        # Debug terminál inicializálása
+        self.debug_terminal = QPlainTextEdit()
+        self.debug_terminal.setReadOnly(True)
+        self.debug_terminal.setPlaceholderText("Debug információk itt jelennek meg...")
+        self.debug_terminal.setMaximumHeight(200)
+
+        # Splitter hozzáadása
+        self.splitter = QSplitter(Qt.Vertical)
+        self.main_content_widget = QWidget()
+        self.main_content_widget.setLayout(self.layout)
+
+        self.splitter.addWidget(self.main_content_widget)
+        self.splitter.addWidget(self.debug_terminal)
+
+        # Új layout central widgethez
+        new_main_layout = QVBoxLayout()
+        new_main_layout.addWidget(self.splitter)
+        central_widget = QWidget()
+        central_widget.setLayout(new_main_layout)
+        self.setCentralWidget(central_widget)
+
+        # Terminál láthatóságának inicializálása (settingsből)
+        debug_mode = self.settings.get("debug_mode", False)
+        self.debug_terminal.setVisible(debug_mode)
+
+        # DebugLogger inicializációja (EZ ITT FONTOS!)
+        DebugLogger.initialize(self.debug_terminal, debug_mode)
+        DebugLogger.log("[MainWindow] Debug terminál inicializálva.")
+
+
 
     def resource_path(self, relative_path):
         """Adott fájl elérési útja – működik PyInstaller alatt is."""
@@ -181,6 +213,7 @@ class MainWindow(QMainWindow):
 
         popup = SuggestionPopup(app_name, on_accept, on_reject)
         popup.exec()
+
 
 
 
