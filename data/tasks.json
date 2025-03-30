@@ -1602,5 +1602,1001 @@
                 "Feladat lezárva"
             ]
         ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "asdas",
+        "start_time": "2025-03-29T00:06:11.261908",
+        "end_time": "2025-03-29T00:06:20.955356",
+        "logs": [
+            [
+                "2025-03-29T00:06:11.261908",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T00:06:11.281166",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:11.736730",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:12.281812",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:15.738846",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:16.283746",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:18.284202",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:06:18.739963",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:06:19.284974",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:06:20.955356",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "23423rer",
+        "start_time": "2025-03-29T00:07:32.740798",
+        "end_time": "2025-03-29T00:07:41.509099",
+        "logs": [
+            [
+                "2025-03-29T00:07:32.740798",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T00:07:32.757799",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:07:33.129236",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:07:33.758436",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:07:36.759647",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:07:37.131488",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:07:38.760696",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:07:39.131917",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:07:41.509099",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "asdasdas",
+        "start_time": "2025-03-29T00:56:15.480457",
+        "end_time": "2025-03-29T00:56:23.666770",
+        "logs": [
+            [
+                "2025-03-29T00:56:15.480457",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T00:56:15.496156",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:16.359059",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:16.496937",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:17.359551",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:56:17.497623",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:56:18.360148",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:18.498010",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:19.360378",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:19.498806",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:56:22.361655",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:56:22.500489",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:56:23.666770",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sds",
+        "start_time": "2025-03-29T00:58:05.122407",
+        "end_time": "2025-03-29T00:58:10.883411",
+        "logs": [
+            [
+                "2025-03-29T00:58:05.122407",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T00:58:05.126748",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:05.533207",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:06.534310",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T00:58:07.127964",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:07.534838",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:09.128744",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:09.535572",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T00:58:10.883411",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "34rf34re",
+        "start_time": "2025-03-29T01:01:33.759633",
+        "end_time": "2025-03-29T01:01:39.236182",
+        "logs": [
+            [
+                "2025-03-29T01:01:33.759633",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:01:33.763450",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:01:34.226645",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:01:35.764411",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:01:36.766006",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:01:37.766220",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:01:38.228711",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:01:39.229085",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:01:39.236182",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "2342sdfsd",
+        "start_time": "2025-03-29T01:03:44.814222",
+        "end_time": "2025-03-29T01:03:52.626984",
+        "logs": [
+            [
+                "2025-03-29T01:03:44.814222",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:03:44.818573",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:45.794322",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:46.794978",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:46.819846",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:47.795384",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:47.819995",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:48.795787",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:48.820700",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:49.796034",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:49.820871",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:03:50.796616",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:50.821182",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:03:52.626984",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "asd23dsadas",
+        "start_time": "2025-03-29T01:05:28.617163",
+        "end_time": "2025-03-29T01:05:41.550668",
+        "logs": [
+            [
+                "2025-03-29T01:05:28.617163",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:05:28.621834",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:05:28.745707",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:05:33.625135",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:05:33.748876",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:05:36.626201",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:05:36.749819",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:05:40.628482",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:05:40.752654",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:05:41.550668",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "7564gfdfgd",
+        "start_time": "2025-03-29T01:09:38.854400",
+        "end_time": "2025-03-29T01:09:51.581313",
+        "logs": [
+            [
+                "2025-03-29T01:09:38.854400",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:09:38.857012",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:39.293808",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:40.294340",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:40.858756",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:44.295726",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:44.860376",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:47.861772",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:48.298324",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:49.862744",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:50.299020",
+                "Aktív ablak: ChatGPT → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:09:50.862884",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:51.299603",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:09:51.581313",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "12123 Gyors feladat",
+        "description": "asdasd",
+        "start_time": "2025-03-29T01:15:45.242146",
+        "end_time": "2025-03-29T01:15:58.792393",
+        "logs": [
+            [
+                "2025-03-29T01:15:45.242146",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:15:45.246134",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:15:45.886540",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:15:46.246734",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:15:48.887828",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:15:49.248160",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:15:52.889186",
+                "Aktív ablak: #kisállat-posting | Lilycrian - Discord → szünet"
+            ],
+            [
+                "2025-03-29T01:15:53.249150",
+                "Aktív ablak: #kisállat-posting | Lilycrian - Discord → szünet"
+            ],
+            [
+                "2025-03-29T01:15:55.890399",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:15:56.250690",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:15:58.792393",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "888 Gyors feladat",
+        "description": "asdasd",
+        "start_time": "2025-03-29T01:17:28.741635",
+        "end_time": "2025-03-29T01:17:43.867509",
+        "logs": [
+            [
+                "2025-03-29T01:17:28.741635",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:17:28.745241",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:29.192832",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:31.746527",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:32.194862",
+                "Aktív ablak: Letöltések – Fájlkezelő → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:32.746823",
+                "Aktív ablak: Letöltések – Fájlkezelő → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:34.195548",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:34.747725",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:35.196266",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:35.748195",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:36.748541",
+                "Aktív ablak: Riot Client → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:37.197092",
+                "Aktív ablak: Riot Client → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:39.198058",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:39.749812",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:40.198769",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:17:40.750247",
+                "Aktív ablak: Csevegés | Fischer Péter | PerfectGroup Ügyfélszolgálati Kft. | info@ssolution.hu | Microsoft Teams → adminisztráció"
+            ],
+            [
+                "2025-03-29T01:17:41.199235",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:41.750846",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:17:43.867509",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "123 Munka: main.py - TimeMeter - Visual Studio Code",
+        "description": "asdasd",
+        "start_time": "2025-03-29T01:27:55.498346",
+        "end_time": "2025-03-29T01:28:18.007685",
+        "logs": [
+            [
+                "2025-03-29T01:27:55.498346",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T01:27:55.513085",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:27:55.984100",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:27:56.514048",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:27:58.514475",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:27:58.985833",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:05.988575",
+                "Aktív ablak: #kisállat-posting | Lilycrian - Discord → szünet"
+            ],
+            [
+                "2025-03-29T01:28:06.517346",
+                "Aktív ablak: #kisállat-posting | Lilycrian - Discord → szünet"
+            ],
+            [
+                "2025-03-29T01:28:07.517991",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:07.989755",
+                "Aktív ablak: Riot Client → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:08.518470",
+                "Aktív ablak: Riot Client → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:08.990283",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:09.519080",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:09.990715",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:10.519413",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:13.992019",
+                "Aktív ablak: unpkg.com/frappe-gantt@0.6.1/dist/frappe-gantt.css és 11 további lap – Személyes – Microsoft​ Edge → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:14.520418",
+                "Aktív ablak: unpkg.com/frappe-gantt@0.6.1/dist/frappe-gantt.css és 11 további lap – Személyes – Microsoft​ Edge → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:16.520786",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:16.993227",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T01:28:17.993664",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T01:28:18.007685",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "23423",
+        "start_time": "2025-03-29T23:54:57.763165",
+        "end_time": "2025-03-29T23:55:10.057136",
+        "logs": [
+            [
+                "2025-03-29T23:54:57.763165",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T23:54:57.767255",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:54:57.801973",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:54:59.768958",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:54:59.803312",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:55:07.771816",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:55:07.806103",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:55:08.772411",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:55:08.806631",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:55:10.057136",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sdf",
+        "start_time": "2025-03-29T23:56:29.383474",
+        "end_time": "2025-03-29T23:56:54.540188",
+        "logs": [
+            [
+                "2025-03-29T23:56:29.383474",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-29T23:56:29.387102",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:56:30.314395",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:30.387764",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:41.319044",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:56:41.392348",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-29T23:56:45.320503",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:45.395232",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:49.322336",
+                "Aktív ablak: Csevegés | Fischer Péter | PerfectGroup Ügyfélszolgálati Kft. | info@ssolution.hu | Microsoft Teams → adminisztráció"
+            ],
+            [
+                "2025-03-29T23:56:49.396584",
+                "Aktív ablak: Csevegés | Fischer Péter | PerfectGroup Ügyfélszolgálati Kft. | info@ssolution.hu | Microsoft Teams → adminisztráció"
+            ],
+            [
+                "2025-03-29T23:56:53.323125",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:53.397745",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-29T23:56:54.540188",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sadfsdf",
+        "start_time": "2025-03-30T00:04:18.325811",
+        "end_time": "2025-03-30T00:04:24.917568",
+        "logs": [
+            [
+                "2025-03-30T00:04:18.325811",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:04:18.329625",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:04:18.485198",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:04:19.330146",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:04:19.485832",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:04:23.331072",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:04:23.487299",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:04:24.917568",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sdfsdf",
+        "start_time": "2025-03-30T00:11:12.071975",
+        "end_time": "2025-03-30T00:11:17.149539",
+        "logs": [
+            [
+                "2025-03-30T00:11:12.071975",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:11:12.074924",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:11:12.898107",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:11:15.899889",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:11:16.077595",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:11:17.078150",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:11:17.149539",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "0000 Gyors feladat",
+        "description": "sdsd",
+        "start_time": "2025-03-30T00:12:47.092480",
+        "end_time": "2025-03-30T00:12:57.290100",
+        "logs": [
+            [
+                "2025-03-30T00:12:47.092480",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:12:47.097672",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:12:47.301267",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:12:48.098052",
+                "Aktív ablak:  → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:12:48.301920",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:12:49.098646",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:12:56.100820",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:12:56.304661",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:12:57.290100",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sdfsd",
+        "start_time": "2025-03-30T00:18:49.990420",
+        "end_time": "2025-03-30T00:18:54.013223",
+        "logs": [
+            [
+                "2025-03-30T00:18:49.990420",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:18:49.994334",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:18:50.149048",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:18:50.995029",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:18:51.149309",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:18:53.996151",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:18:54.013223",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sdfsd",
+        "start_time": "2025-03-30T00:24:34.821777",
+        "end_time": "2025-03-30T00:24:44.716753",
+        "logs": [
+            [
+                "2025-03-30T00:24:34.821777",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:24:34.825769",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:24:35.040876",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:24:35.826451",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:36.041675",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:38.827558",
+                "Aktív ablak: tasks.json - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:39.043224",
+                "Aktív ablak: tasks.json - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:40.043631",
+                "Aktív ablak: Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:40.827902",
+                "Aktív ablak: Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:41.828546",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:42.044454",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:24:44.716753",
+                "Feladat lezárva"
+            ]
+        ]
+    },
+    {
+        "title": "Gyors feladat",
+        "description": "sdfdsf",
+        "start_time": "2025-03-30T00:45:02.909231",
+        "end_time": "2025-03-30T00:45:05.290475",
+        "logs": [
+            [
+                "2025-03-30T00:45:02.909231",
+                "Feladat indítva"
+            ],
+            [
+                "2025-03-30T00:45:02.912374",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:45:03.593536",
+                "Aktív ablak: python → inaktivitás"
+            ],
+            [
+                "2025-03-30T00:45:03.912738",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:45:04.594266",
+                "Aktív ablak: main.py - TimeMeter - Visual Studio Code → fejlesztés"
+            ],
+            [
+                "2025-03-30T00:45:05.290475",
+                "Feladat lezárva"
+            ]
+        ]
     }
 ]
