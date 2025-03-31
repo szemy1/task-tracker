@@ -92,8 +92,9 @@ def test_task_duration_field():
     client.post(f"/tasks/{task_id}/stop")
 
     all_tasks = client.get("/tasks/").json()
-    target = next((t for t in all_tasks if t["id"] == task_id), None)
-    assert target is not None
+    matching = [t for t in all_tasks if t["id"] == task_id]
+    assert len(matching) == 1, f"Nem található a task ID: {task_id}, tasks: {all_tasks}"
+    target = matching[0]
     assert "duration" in target
 
 

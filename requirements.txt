@@ -18,3 +18,4 @@ uvicorn
 PySide6
 openpyxl
 pytest
+requests

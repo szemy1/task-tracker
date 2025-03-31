@@ -3,6 +3,9 @@ from ..services.api_client import APIClient
 from .new_task_dialog import NewTaskDialog
 from .edit_task_dialog import EditTaskDialog
 from .log_window import LogWindow
+from ..components.floating_control_window import FloatingControlWindow
+from ..core.task_timer_manager import TaskTimerManager
+from PySide6.QtCore import Qt
 import sys
 
 
@@ -13,6 +16,19 @@ class MainWindow(QWidget):
         super().__init__()
         self.api_client = APIClient()
         self.init_ui()
+        
+        # Időmérés logika
+        self.task_timer = TaskTimerManager()
+
+        # Lebegő vezérlőablak
+        self.floating_control = FloatingControlWindow(
+            timer_manager=self.task_timer,
+            bring_main_window_callback=self.bring_to_front,
+            api_client=self.api_client
+        )
+
+        self.floating_control.refresh_task_list_callback = self.load_tasks
+        self.floating_control.show()
         self.load_tasks()
 
     def init_ui(self):
@@ -51,8 +67,12 @@ class MainWindow(QWidget):
             self.task_list_widget.clear()
             for task in self.tasks:
                 self.task_list_widget.addItem(f"{task['id']}: {task['name']} ({task['status']})")
+            if hasattr(self, "floating_control"):
+                self.floating_control.update_task_list(self.tasks)
         except Exception as e:
             QMessageBox.critical(self, "API hiba", f"Hiba történt: {e}")
+
+
 
 
     def open_new_task_dialog(self):
@@ -98,6 +118,22 @@ class MainWindow(QWidget):
         self.log_window = LogWindow()
         self.log_window.show()
 
+    def bring_to_front(self):
+        # Először visszahozzuk a minimalizálásból
+        self.setWindowState((self.windowState() & ~Qt.WindowMinimized) | Qt.WindowActive)
+
+        # Biztosítjuk, hogy teljesen látható legyen
+        self.show()
+        self.raise_()
+        self.activateWindow()
+
+
+
+
+    def closeEvent(self, event):
+        if hasattr(self, 'floating_control'):
+            self.floating_control.close()
+        event.accept()
         
 
 if __name__ == "__main__":
