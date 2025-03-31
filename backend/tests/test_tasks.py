@@ -3,6 +3,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from backend.main import app
+from datetime import timedelta
 
 client = TestClient(app)
 
@@ -83,19 +84,27 @@ def test_suggest_task():
     assert "Swagger" in data["description"]
     assert data["status"] == "planned"
 
+
+
 def test_task_duration_field():
-    # Létrehozunk és leállítunk egy feladatot
     task = {"name": "Időtartam Teszt", "description": "Mérjük az időtartamot", "status": "open"}
     create = client.post("/tasks/", json=task)
     task_id = create.json()["id"]
+
     client.post(f"/tasks/{task_id}/start")
     client.post(f"/tasks/{task_id}/stop")
 
     all_tasks = client.get("/tasks/").json()
     matching = [t for t in all_tasks if t["id"] == task_id]
+
     assert len(matching) == 1, f"Nem található a task ID: {task_id}, tasks: {all_tasks}"
-    target = matching[0]
-    assert "duration" in target
+    assert "duration" in matching[0]
+
+    # 🔄 Convert str -> timedelta
+    time_parts = matching[0]["duration"].split(":")
+    seconds = float(time_parts[-1]) + int(time_parts[-2]) * 60 + int(time_parts[-3]) * 3600
+
+    assert seconds > 0
 
 
 # backend/tests/test_tasks.py

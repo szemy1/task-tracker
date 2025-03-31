@@ -4,6 +4,8 @@ from backend.api.schemas import TaskSchema, Task
 from typing import List, Optional
 from backend.core.task_manager import get_shared_task_manager
 from backend.api.schemas import TaskTemplateSchema
+from backend.core.task_storage import task_storage
+
 
 router = APIRouter()
 task_manager = get_shared_task_manager()
@@ -36,6 +38,17 @@ def get_tasks(status: Optional[str] = None, search: Optional[str] = None):
         tasks = [task for task in tasks if search.lower() in task["name"].lower() or search.lower() in task["description"].lower()]
 
     return tasks
+
+
+# backend/api/tasks.py vagy ahol a routered van
+
+@router.get("/tasks/{task_id}")
+def get_task_by_id(task_id: int):
+    task = task_storage.get_task_by_id(task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task
+
 
 
 @router.post("/", response_model=Task)
