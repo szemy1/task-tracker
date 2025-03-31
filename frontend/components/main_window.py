@@ -1,8 +1,11 @@
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QListWidget, QMessageBox
-from services.api_client import APIClient
-from components.new_task_dialog import NewTaskDialog
-from components.edit_task_dialog import EditTaskDialog
-from components.log_window import LogWindow 
+from ..services.api_client import APIClient
+from .new_task_dialog import NewTaskDialog
+from .edit_task_dialog import EditTaskDialog
+from .log_window import LogWindow
+import sys
+
+
 
 
 class MainWindow(QWidget):
@@ -51,10 +54,16 @@ class MainWindow(QWidget):
         except Exception as e:
             QMessageBox.critical(self, "API hiba", f"Hiba történt: {e}")
 
+
     def open_new_task_dialog(self):
         dialog = NewTaskDialog(self.api_client, self)
-        if dialog.exec():
-            self.load_tasks()
+        if is_running_test():
+            dialog.show()
+            self.current_dialog = dialog  # teszteléshez elérhetővé tesszük
+        else:
+            if dialog.exec():
+                self.load_tasks()
+
 
     def delete_selected_task(self):
         selected_item = self.task_list_widget.currentItem()
@@ -89,9 +98,15 @@ class MainWindow(QWidget):
         self.log_window = LogWindow()
         self.log_window.show()
 
+        
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
+
+
+def is_running_test():
+    return "pytest" in sys.modules

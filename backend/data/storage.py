@@ -4,9 +4,10 @@ from datetime import datetime
 import json
 
 class Storage:
-    def __init__(self, file_path=os.path.join(os.path.dirname(__file__), "tasks.json")):
-        self.file_path = file_path
+    def __init__(self, filepath=os.path.join(os.path.dirname(__file__), "tasks.json")):
+        self.file_path = filepath
         self.archive_folder = os.path.join(os.path.dirname(__file__), "archive")
+
 
     def load_tasks(self):
         if not os.path.exists(self.file_path) or os.path.getsize(self.file_path) == 0:
