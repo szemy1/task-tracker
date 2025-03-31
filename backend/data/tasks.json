@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "234234",
+        "description": "234234",
+        "status": "open"
+    },
+    {
+        "name": "777788",
+        "description": "8888888",
+        "status": "open",
+        "id": 3
+    },
+    {
+        "name": "32333666",
+        "description": "3333666",
+        "status": "open",
+        "id": 4
+    },
+    {
+        "name": "456456",
+        "description": "456456",
+        "status": "open",
+        "id": 6
+    },
+    {
+        "name": "88778",
+        "description": "7878",
+        "status": "open",
+        "id": 7
+    },
+    {
+        "name": "56456",
+        "description": "456456",
+        "status": "open",
+        "id": 8
+    },
+    {
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "id": 9
+    },
+    {
+        "name": "Frissített Feladat",
+        "description": "Frissített leírás",
+        "status": "closed",
+        "id": 10
+    },
+    {
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "id": 11
+    },
+    {
+        "name": "Frissített Feladat",
+        "description": "Frissített leírás",
+        "status": "closed",
+        "id": 12
+    }
+]
