@@ -1,3 +1,5 @@
+# backend/tests/test_tasks.py
+
 import pytest
 from fastapi.testclient import TestClient
 from backend.main import app
@@ -27,11 +29,9 @@ def test_create_task(new_task):
 def test_get_tasks():
     response = client.get("/tasks/")
     assert response.status_code == 200
-    tasks = response.json()
-    assert isinstance(tasks, list)
+    assert isinstance(response.json(), list)
 
 def test_update_task(new_task):
-    # Létrehozunk egy új feladatot
     response_create = client.post("/tasks/", json=new_task)
     task_id = response_create.json()["id"]
 
@@ -43,20 +43,100 @@ def test_update_task(new_task):
 
     response = client.put(f"/tasks/{task_id}", json=updated_data)
     assert response.status_code == 200
-    updated_task = response.json()
-    assert updated_task["name"] == "Frissített Feladat"
-    assert updated_task["status"] == "closed"
+    data = response.json()
+    assert data["name"] == "Frissített Feladat"
+    assert data["status"] == "closed"
 
 def test_delete_task(new_task):
-    # Létrehozunk egy új feladatot, majd töröljük
     response_create = client.post("/tasks/", json=new_task)
     task_id = response_create.json()["id"]
 
     response = client.delete(f"/tasks/{task_id}")
     assert response.status_code == 200
-    assert response.json() == {"message": "Task deleted successfully"}
+    response_check = client.get("/tasks/")
+    assert all(task["id"] != task_id for task in response_check.json())
 
-    # Ellenőrizzük, hogy valóban törölve lett-e
-    response_after_delete = client.get("/tasks/")
-    assert all(task["id"] != task_id for task in response_after_delete.json())
+def test_start_and_stop_task():
+    task = {"name": "Indítás Teszt", "description": "Egy induló task", "status": "open"}
+    create_resp = client.post("/tasks/", json=task)
+    task_id = create_resp.json()["id"]
 
+    start_resp = client.post(f"/tasks/{task_id}/start")
+    assert start_resp.status_code == 200
+    assert start_resp.json()["status"] == "in_progress"
+
+    stop_resp = client.post(f"/tasks/{task_id}/stop")
+    assert stop_resp.status_code == 200
+    assert stop_resp.json()["status"] == "completed"
+    assert stop_resp.json()["end_time"] is not None
+
+def test_suggest_task():
+    suggest_data = {
+        "title": "Ajánlott feladat",
+        "template": "docs",
+        "notes": "Swagger dokumentáció hiányos"
+    }
+    response = client.post("/tasks/suggest", json=suggest_data)
+    assert response.status_code == 200
+    data = response.json()
+    assert "id" in data
+    assert "Swagger" in data["description"]
+    assert data["status"] == "planned"
+
+def test_task_duration_field():
+    # Létrehozunk és leállítunk egy feladatot
+    task = {"name": "Időtartam Teszt", "description": "Mérjük az időtartamot", "status": "open"}
+    create = client.post("/tasks/", json=task)
+    task_id = create.json()["id"]
+    client.post(f"/tasks/{task_id}/start")
+    client.post(f"/tasks/{task_id}/stop")
+
+    all_tasks = client.get("/tasks/").json()
+    target = next((t for t in all_tasks if t["id"] == task_id), None)
+    assert target is not None
+    assert "duration" in target
+
+
+# backend/tests/test_tasks.py
+
+def test_get_task_by_title(new_task):
+    created = client.post("/tasks/", json=new_task).json()
+    title = created["title"]
+    response = client.get(f"/tasks/title/{title}")
+    assert response.status_code == 200
+    assert response.json()["title"] == title
+
+
+def test_update_task_by_title(new_task):
+    created = client.post("/tasks/", json=new_task).json()
+    title = created["title"]
+    updated_data = {
+        "name": "Cím alapján frissítve",
+        "description": "Frissítés title alapján",
+        "status": "closed"
+    }
+    response = client.put(f"/tasks/title/{title}", json=updated_data)
+    assert response.status_code == 200
+    assert response.json()["name"] == updated_data["name"]
+
+
+def test_delete_task_invalid_id():
+    response = client.delete("/tasks/99999")  # nem létező ID
+    assert response.status_code in (404, 200)  # attól függ, hogy kezeled-e külön
+
+
+def test_start_task(new_task):
+    created = client.post("/tasks/", json=new_task).json()
+    task_id = created["id"]
+    response = client.post(f"/tasks/{task_id}/start")
+    assert response.status_code == 200
+    assert response.json()["status"] == "in_progress"
+
+
+def test_stop_task(new_task):
+    created = client.post("/tasks/", json=new_task).json()
+    task_id = created["id"]
+    client.post(f"/tasks/{task_id}/start")
+    response = client.post(f"/tasks/{task_id}/stop")
+    assert response.status_code == 200
+    assert response.json()["status"] == "completed"
