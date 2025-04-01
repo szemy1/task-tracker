@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TimeTracker – Teljes rendszer</title>
-  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js"></script>
+  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js">architecture.on('tap', 'node', evt => {
+  const id = evt.target.id();
+  const flow = logicFlows[id];
+
+  logic.elements().remove();
+  if (flow) {
+    logic.add(flow);
+    logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
+  }
+
+  // Kiemelés reset és új kiemelés
+  logic.nodes().removeClass('highlight');
+  logic.edges().removeClass('highlight');
+  if (flow) {
+    const nodesInFlow = flow.filter(e => e.data && e.data.source === id);
+    nodesInFlow.forEach(n => logic.getElementById(n.data.id).addClass('highlight'));
+  }
+
+  document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${descMap[id] || 'Részlet ehhez a komponenshez.'}`;
+});
+</script>
   <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
   <style>
+    .highlighted {
+      border: 3px solid red !important;
+    }
     html, body { margin: 0; font-family: sans-serif; height: 100%; background: #f4f4f4; }
     h1, h2 { margin: 1rem; }
     .cy-container { height: 40vh; width: 100%; border-bottom: 1px solid #ccc; }
@@ -84,6 +107,48 @@
       ],
       layout: { name: 'dagre', rankDir: 'LR' },
       style: [
+        {
+  selector: 'node.highlight',
+  style: {
+    'border-width': 8,
+    'border-color': '#ff0000',
+    'background-color': '#ffe6e6',
+    'color': '#ff0000',
+    'font-weight': 'bold'
+  }
+},
+{
+  selector: 'edge.highlight',
+  style: {
+    'width': 4,
+    'line-color': '#ff0000',
+    'target-arrow-color': '#ff0000'
+  }
+},
+        {
+          selector: 'node.highlight',
+          style: {
+            'border-color': '#f00',
+            'border-width': 4,
+            'background-color': '#ffe6e6'
+          }
+        },
+        {
+          selector: 'edge.highlight',
+          style: {
+            'line-color': '#f00',
+            'target-arrow-color': '#f00',
+            'width': 4
+          }
+        },
+        {
+          selector: '.highlight',
+          style: {
+            'border-color': '#f00',
+            'line-color': '#f00',
+            'target-arrow-color': '#f00'
+          }
+        },
         {
           selector: 'node',
           style: {
@@ -247,25 +312,45 @@
   ]
 };
 
-    architecture.on('tap', 'node', evt => {
-      const id = evt.target.id();
-      const desc = descMap[id] || 'Nincs leírás.';
-      document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${desc}`;
-
-      logic.elements().remove();
-      if (logicFlows[id]) {
-        logic.add(logicFlows[id]);
-        logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
-      }
-    });
+    
 
     logic.on('tap', 'node', evt => {
-      const source = evt.target.data('source');
-      const archNode = architecture.getElementById(source);
-      architecture.nodes().unselect();
-      if (archNode) archNode.select();
-      document.getElementById('details').innerHTML = `<strong>${source}</strong>: ${descMap[source] || 'Részlet ehhez a metódushoz.'}`;
+  const source = evt.target.data('source');
+  const archNode = architecture.getElementById(source);
+
+  architecture.nodes().removeClass('highlight');
+  architecture.edges().removeClass('highlight');
+
+  if (archNode && archNode.length > 0) {
+    archNode.addClass('highlight');
+
+    const connectedEdges = architecture.edges().filter(edge =>
+      edge.data('source') === source || edge.data('target') === source
+    );
+
+    connectedEdges.forEach(edge => {
+      edge.addClass('highlight');
+      architecture.getElementById(edge.data('source')).addClass('highlight');
+      architecture.getElementById(edge.data('target')).addClass('highlight');
     });
-  </script>
+  } else {
+    console.warn('Nem található architektúra node ehhez:', source);
+  }
+
+  document.getElementById('details').innerHTML = `<strong>${source}</strong>: ${descMap[source] || 'Részlet ehhez a metódushoz.'}`;
+});
+architecture.on('tap', 'node', evt => {
+  const id = evt.target.id();
+  const flow = logicFlows[id];
+
+  if (flow) {
+    logic.elements().remove();
+    logic.add(flow);
+    logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
+  } else {
+    console.warn('Nincs logikai ábra ehhez:', id);
+  }
+});
+</script>
 </body>
 </html>
