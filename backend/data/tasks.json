@@ -508,5 +508,366 @@
                 "message": "Feladat leállítva"
             }
         ]
+    },
+    {
+        "id": 27,
+        "title": "Task_20250401_022141",
+        "name": "Popup Teszt Feladat",
+        "description": "Popupból indított teszt",
+        "status": "in_progress",
+        "start_time": "2025-04-01T02:21:41.153809",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:41.153809",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:41.174208",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Task_20250401_022143",
+        "name": "Cím alapján frissítve",
+        "description": "Frissítés title alapján",
+        "status": "closed",
+        "start_time": "2025-04-01T02:21:43.498050",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.498050",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.870384",
+                "message": "Feladat frissítve (cím alapján)"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "title": "Task_20250401_022143",
+        "name": "Frissített Feladat",
+        "description": "Frissített leírás",
+        "status": "closed",
+        "start_time": "2025-04-01T02:21:43.553774",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.553774",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.572842",
+                "message": "Feladat frissítve"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Task_20250401_022143",
+        "name": "Indítás Teszt",
+        "description": "Egy induló task",
+        "status": "completed",
+        "start_time": "2025-04-01T02:21:43.667584",
+        "end_time": "2025-04-01T02:21:43.712667",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.667584",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.688747",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.712667",
+                "message": "Feladat leállítva"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "title": "Task_20250401_022143",
+        "name": "Ajánlott feladat",
+        "description": "Dokumentáció frissítése\n\nJegyzet: Swagger dokumentáció hiányos",
+        "status": "planned",
+        "start_time": "2025-04-01T02:21:43.737206",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.737206",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Task_20250401_022143",
+        "name": "Időtartam Teszt",
+        "description": "Mérjük az időtartamot",
+        "status": "completed",
+        "start_time": "2025-04-01T02:21:43.763303",
+        "end_time": "2025-04-01T02:21:43.801431",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.763303",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.780832",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.801431",
+                "message": "Feladat leállítva"
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Task_20250401_022143",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "start_time": "2025-04-01T02:21:43.828928",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.828928",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Task_20250401_022143",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "start_time": "2025-04-01T02:21:43.852880",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.852880",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "title": "Task_20250401_022143",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "in_progress",
+        "start_time": "2025-04-01T02:21:43.897636",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.897636",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.916889",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Task_20250401_022143",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "completed",
+        "start_time": "2025-04-01T02:21:43.937416",
+        "end_time": "2025-04-01T02:21:43.972344",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:21:43.937416",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.954766",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:21:43.972344",
+                "message": "Feladat leállítva"
+            }
+        ]
+    },
+    {
+        "id": 37,
+        "title": "Task_20250401_022457",
+        "name": "Cím alapján frissítve",
+        "description": "Frissítés title alapján",
+        "status": "closed",
+        "start_time": "2025-04-01T02:24:57.579526",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.579526",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.900342",
+                "message": "Feladat frissítve (cím alapján)"
+            }
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Task_20250401_022457",
+        "name": "Frissített Feladat",
+        "description": "Frissített leírás",
+        "status": "closed",
+        "start_time": "2025-04-01T02:24:57.617124",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.617124",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.637848",
+                "message": "Feladat frissítve"
+            }
+        ]
+    },
+    {
+        "id": 39,
+        "title": "Task_20250401_022457",
+        "name": "Indítás Teszt",
+        "description": "Egy induló task",
+        "status": "completed",
+        "start_time": "2025-04-01T02:24:57.707620",
+        "end_time": "2025-04-01T02:24:57.744666",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.707620",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.726784",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.744666",
+                "message": "Feladat leállítva"
+            }
+        ]
+    },
+    {
+        "id": 40,
+        "title": "Task_20250401_022457",
+        "name": "Ajánlott feladat",
+        "description": "Dokumentáció frissítése\n\nJegyzet: Swagger dokumentáció hiányos",
+        "status": "planned",
+        "start_time": "2025-04-01T02:24:57.763854",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.763854",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 41,
+        "title": "Task_20250401_022457",
+        "name": "Időtartam Teszt",
+        "description": "Mérjük az időtartamot",
+        "status": "completed",
+        "start_time": "2025-04-01T02:24:57.784148",
+        "end_time": "2025-04-01T02:24:57.820096",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.784148",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.802282",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.820096",
+                "message": "Feladat leállítva"
+            }
+        ]
+    },
+    {
+        "id": 42,
+        "title": "Task_20250401_022457",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "start_time": "2025-04-01T02:24:57.846480",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.846480",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 43,
+        "title": "Task_20250401_022457",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "open",
+        "start_time": "2025-04-01T02:24:57.872263",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.872263",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Task_20250401_022457",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "in_progress",
+        "start_time": "2025-04-01T02:24:57.947797",
+        "end_time": null,
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:57.947797",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:57.976575",
+                "message": "Feladat elindítva"
+            }
+        ]
+    },
+    {
+        "id": 45,
+        "title": "Task_20250401_022458",
+        "name": "Teszt Feladat",
+        "description": "Teszt leírás",
+        "status": "completed",
+        "start_time": "2025-04-01T02:24:58.008892",
+        "end_time": "2025-04-01T02:24:58.048686",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:24:58.008892",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:58.029895",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:24:58.048686",
+                "message": "Feladat leállítva"
+            }
+        ]
     }
 ]
