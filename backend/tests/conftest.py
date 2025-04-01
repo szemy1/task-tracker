@@ -1,14 +1,11 @@
-# backend/tests/conftest.py
-
-import sys
 import pytest
 from PySide6.QtWidgets import QApplication
+from frontend.main import MainWindow
 
-@pytest.fixture(scope="session", autouse=True)
-def app():
-    """Egyszeri QApplication példány a teljes tesztszekcióhoz"""
-    app = QApplication.instance()
-    if app is None:
-        app = QApplication(sys.argv)
-    yield app
-    app.quit()
+@pytest.fixture
+def main_window(qtbot):
+    app = QApplication.instance() or QApplication([])
+    window = MainWindow()
+    qtbot.addWidget(window)
+    window.show()
+    return window

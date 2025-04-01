@@ -1,16 +1,16 @@
 from PySide6.QtWidgets import QDialog, QLabel, QVBoxLayout, QPushButton, QInputDialog, QLineEdit
 from PySide6.QtCore import Qt, QDateTime
-from PySide6.QtWidgets import QApplication
 
 
 class SuggestTaskPopup(QDialog):
-    def __init__(self, api_client, task_timer, window_title, parent=None):
+    def __init__(self, api_client, task_timer, window_title, floating_control=None, parent=None):
         super().__init__(parent)
         self.setWindowFlags(Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint)
         self.setWindowTitle("🕵️ Task javaslat")
         self.api_client = api_client
         self.task_timer = task_timer
         self.window_title = window_title
+        self.floating_control = floating_control  # 👈 új argumentum
 
         suggested_title = f"{window_title} ({QDateTime.currentDateTime().toString('hh:mm')})"
 
@@ -38,7 +38,6 @@ class SuggestTaskPopup(QDialog):
         self.show()
         self.exec()
 
-
     def create_and_start_task(self, title, desc):
         try:
             task = self.api_client.create_task(title, desc)
@@ -49,7 +48,6 @@ class SuggestTaskPopup(QDialog):
             print(f"[HIBA] Task létrehozás sikertelen: {e}")
             return None
 
-
     def accept(self):
         title = self.title_input.text()
         desc, ok = QInputDialog.getMultiLineText(
@@ -59,5 +57,10 @@ class SuggestTaskPopup(QDialog):
             super().reject()
             return
 
-        self.create_and_start_task(title, desc)
+        task = self.create_and_start_task(title, desc)
+        if task:
+            if self.floating_control:
+                self.floating_control.update_after_external_start(task["id"])
+
         super().accept()
+

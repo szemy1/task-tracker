@@ -20,33 +20,38 @@ def app_instance():
     return app
 
 
-def test_suggest_task_popup_creates_and_starts_task(qtbot, app_instance):
+# 📄 backend/tests/test_suggest_popup.py
+
+def test_suggest_popup_updates_floating_button(qtbot):
+    from frontend.main import MainWindow
+    from PySide6.QtWidgets import QInputDialog
+
     window = MainWindow()
     qtbot.addWidget(window)
     window.show()
 
-    mock_title = "Test Suggest Task"
-    mock_desc = "Leírás automatikus teszthez"
+    task_title = "Popup Teszt Feladat"
+    task_desc = "Popupból indított teszt"
 
-    popup = SuggestTaskPopup(
-        api_client=window.api_client,
-        task_timer=window.task_timer,
-        window_title=mock_title
-    )
-    qtbot.addWidget(popup)
-
-    popup.title_input.setText(mock_title)
-
-    with patch("PySide6.QtWidgets.QInputDialog.getMultiLineText", return_value=(mock_desc, True)):
+    with patch.object(QInputDialog, "getMultiLineText", return_value=(task_desc, True)):
+        popup = SuggestTaskPopup(
+            api_client=window.api_client,
+            task_timer=window.task_timer,
+            window_title=task_title,
+            parent=window
+        )
+        qtbot.addWidget(popup)
+        popup.title_input.setText(task_title)
         popup.accept()
-        qtbot.wait(300)
 
-    tasks = window.api_client.get_tasks()
-    found = [t for t in tasks if t["name"] == mock_title]
-    assert found, "A létrehozott feladat nem található"
+        floating = window.floating_control
+        qtbot.waitUntil(lambda: floating.is_running, timeout=2000)
+        assert floating.toggle_button.text() == "⏸️ Stop"
+        assert task_title in floating.task_selector.currentText()
 
-    task = found[0]
-    assert task["status"] == "in_progress"
+        task = next(t for t in window.api_client.get_tasks() if t["name"] == task_title)
+        window.api_client.stop_task(task["id"])
+        window.api_client.delete_task(task["id"])
 
-    # 🧹 Cleanup
-    window.api_client.delete_task(task["id"])
+
+

@@ -29,6 +29,7 @@ class MainWindow(QWidget):
         all_tasks = self.api_client.get_tasks()
         task_storage.set_tasks(all_tasks)
 
+
         self.floating_control = FloatingControlWindow(
             timer_manager=self.task_timer,
             bring_main_window_callback=self.bring_to_front,
@@ -36,13 +37,19 @@ class MainWindow(QWidget):
         )
         self.floating_control.show()
         self.floating_control.refresh_task_list_callback = self.load_tasks
-
+        self.load_tasks()
 
         self.setup_tray_icon()
 
         if suggestion_settings.is_enabled():
-            self.window_watcher = WindowTitleWatcher(self.api_client, self.task_timer)
-            self.window_watcher.setParent(self)
+            self.window_watcher = WindowTitleWatcher(
+                api_client=self.api_client,
+                task_timer=self.task_timer,
+                floating_control=self.floating_control  # ✅ fontos!
+            )
+            
+
+
 
     def init_ui(self):
         self.setWindowTitle("TimeTracker GUI")
@@ -106,14 +113,15 @@ class MainWindow(QWidget):
     def load_tasks(self):
         try:
             self.tasks = self.api_client.get_tasks()
-            task_storage.set_tasks(self.tasks)  # ⬅️ frissítjük a globális storage-ot
             self.task_list_widget.clear()
             for task in self.tasks:
                 self.task_list_widget.addItem(f"{task['id']}: {task['name']} ({task['status']})")
             if hasattr(self, "floating_control"):
                 self.floating_control.update_task_list(self.tasks)
+                self.floating_control.refresh_task_list_callback = self.load_tasks  # 🆕 EZ HIÁNYZOTT
         except Exception as e:
             QMessageBox.critical(self, "API hiba", f"Hiba történt: {e}")
+
 
     def open_new_task_dialog(self):
         dialog = NewTaskDialog(self.api_client, self)

@@ -60,25 +60,27 @@ class FloatingControlWindow(QDialog):
         self.task_selector.blockSignals(True)
         self.task_selector.clear()
         self.task_selector.addItem("🆕 Új feladat létrehozása", None)
-        
+
         if tasks:
             for task in tasks:
                 name = task.get("name") or task.get("title", "Ismeretlen")
                 label = f"{name} ({task['id']})"
                 self.task_selector.addItem(label, task["id"])
-        
-        self.task_selector.setCurrentIndex(0)
+
+        if self.current_task_id:
+            index = self.task_selector.findData(self.current_task_id)
+            if index != -1:
+                self.task_selector.setCurrentIndex(index)
+            else:
+                self.task_selector.setCurrentIndex(0)
+        else:
+            self.task_selector.setCurrentIndex(0)
+
         self.task_selector.blockSignals(False)
-
-
 
     def select_task(self, index):
         task_id = self.task_selector.itemData(index)
-        if task_id:
-            self.current_task_id = task_id
-        else:
-            self.current_task_id = None
-
+        self.current_task_id = task_id
 
     def toggle_timer(self):
         if self.is_running:
@@ -96,39 +98,32 @@ class FloatingControlWindow(QDialog):
                 print(f"[HIBA] Stop API hívás sikertelen: {e}")
             self.toggle_button.setText("▶️ Start")
             self.is_running = False
-            self.current_task_id = None
-            self.task_selector.setCurrentIndex(0)
             self.update_display()
             return
 
-        else:
-            try:
-                if not self.current_task_id:
-                    title, ok1 = QInputDialog.getText(self, "Új feladat", "Add meg a feladat nevét:")
-                    if not ok1 or not title.strip():
-                        return
-                    desc, ok2 = QInputDialog.getMultiLineText(self, "Leírás", "Jegyzet vagy részletek:")
-                    if not ok2:
-                        return
-                    new_task = self.api_client.create_task(title, desc)
-                    if not new_task or "id" not in new_task:
-                        print("[HIBA] Nem sikerült létrehozni a feladatot.")
-                        return
-                    self.current_task_id = new_task["id"]
-                    if hasattr(self, "refresh_task_list_callback"):
-                        self.refresh_task_list_callback()
-                    self.update_task_list(self.api_client.get_tasks())
-                    for i in range(self.task_selector.count()):
-                        if self.task_selector.itemData(i) == self.current_task_id:
-                            self.task_selector.setCurrentIndex(i)
-                            break
-                self.api_client.start_task(self.current_task_id)
-                self.timer_manager.start_task(self.current_task_id)
-                self.toggle_button.setText("⏸️ Stop")
-                self.is_running = True
-            except Exception as e:
-                print(f"[HIBA] Start API hívás sikertelen: {e}")
-                return
+        try:
+            if not self.current_task_id:
+                title, ok1 = QInputDialog.getText(self, "Új feladat", "Add meg a feladat nevét:")
+                if not ok1 or not title.strip():
+                    return
+                desc, ok2 = QInputDialog.getMultiLineText(self, "Leírás", "Jegyzet vagy részletek:")
+                if not ok2:
+                    return
+                new_task = self.api_client.create_task(title, desc)
+                if not new_task or "id" not in new_task:
+                    print("[HIBA] Nem sikerült létrehozni a feladatot.")
+                    return
+                self.current_task_id = new_task["id"]
+                if hasattr(self, "refresh_task_list_callback"):
+                    self.refresh_task_list_callback()
+                self.update_task_list(self.api_client.get_tasks())
+
+            self.api_client.start_task(self.current_task_id)
+            self.timer_manager.start_task(self.current_task_id)
+            self.toggle_button.setText("⏸️ Stop")
+            self.is_running = True
+        except Exception as e:
+            print(f"[HIBA] Start API hívás sikertelen: {e}")
 
         self.update_display()
 
@@ -159,4 +154,18 @@ class FloatingControlWindow(QDialog):
         self.current_task_id = task_id
         self.is_running = True
         self.toggle_button.setText("⏸️ Stop")
+
+        # ⏬ Frissítsük a task selector listát és állítsuk be az új taskot
+        if hasattr(self, "refresh_task_list_callback"):
+            self.refresh_task_list_callback()
+
+        all_tasks = self.api_client.get_tasks()
+        self.update_task_list(all_tasks)
+        for i in range(self.task_selector.count()):
+            if self.task_selector.itemData(i) == self.current_task_id:
+                self.task_selector.setCurrentIndex(i)
+                break
+
         self.update_display()
+
+

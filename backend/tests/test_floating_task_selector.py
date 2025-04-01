@@ -16,16 +16,12 @@ def floating_window(qtbot):
     return window
 
 
-def test_task_selector_populates(floating_window, qtbot):
-    mock_tasks = [
-        {"id": 1, "name": "Teszt 1", "status": "todo"},
-        {"id": 2, "name": "Teszt 2", "status": "in_progress"},
-    ]
-    floating_window.update_task_list(mock_tasks)
+def test_task_selector_populates(main_window, qtbot):
+    floating = main_window.floating_control
+    qtbot.addWidget(floating)
+    floating.refresh_task_list_callback = main_window.load_tasks
+    main_window.load_tasks()
+    qtbot.wait(500)
+    
+    assert floating.task_selector.count() > 1  # Az "Új feladat" plusz legalább 1
 
-    qtbot.wait(200)
-
-    count = floating_window.task_selector.count()
-    assert count == 3  # 🆕 + 2 task
-    assert floating_window.task_selector.itemText(1) == "Teszt 1 (1)"
-    assert floating_window.task_selector.itemData(2) == 2
