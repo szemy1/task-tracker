@@ -4,27 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TimeTracker – Teljes rendszer</title>
-  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js">architecture.on('tap', 'node', evt => {
-  const id = evt.target.id();
-  const flow = logicFlows[id];
-
-  logic.elements().remove();
-  if (flow) {
-    logic.add(flow);
-    logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
-  }
-
-  // Kiemelés reset és új kiemelés
-  logic.nodes().removeClass('highlight');
-  logic.edges().removeClass('highlight');
-  if (flow) {
-    const nodesInFlow = flow.filter(e => e.data && e.data.source === id);
-    nodesInFlow.forEach(n => logic.getElementById(n.data.id).addClass('highlight'));
-  }
-
-  document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${descMap[id] || 'Részlet ehhez a komponenshez.'}`;
-});
-</script>
+  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
   <style>
@@ -48,6 +28,7 @@
     cytoscape.use(cytoscapeDagre);
 
     const descMap = {
+      WindowWatcher: "Ablakváltás figyelő, frissíti a kontroll UI-t.",
       MainWindow: "Frontend főablak, UI vezérlés.",
       APIClient: "HTTP kliens a frontendben.",
       FloatingControl: "Kis vezérlő UI.",
@@ -68,6 +49,7 @@
       container: document.getElementById('arch'),
       elements: [
         // Frontend
+        { data: { id: 'WindowWatcher', label: 'WindowWatcher', type: 'frontend' } },
         { data: { id: 'MainWindow', label: 'MainWindow', type: 'frontend' } },
         { data: { id: 'APIClient', label: 'APIClient', type: 'frontend' } },
         { data: { id: 'FloatingControl', label: 'FloatingControl', type: 'frontend' } },
@@ -88,6 +70,7 @@
         { data: { id: 'ArchiveJSON', label: 'tasks_*.json', type: 'file' } },
 
         // Kapcsolatok
+        { data: { source: 'WindowWatcher', target: 'FloatingControl', label: 'updates' } },
         { data: { source: 'MainWindow', target: 'APIClient', label: 'uses' } },
         { data: { source: 'APIClient', target: 'Router', label: 'calls' } },
         { data: { source: 'Router', target: 'TaskManager', label: 'calls' } },
@@ -231,29 +214,41 @@
   ],
   MainWindow: [
     { data: { id: 'mw1', label: 'init()', source: 'MainWindow' } },
+    { data: { id: 'mw1a', label: 'check_user_logged_in()', source: 'MainWindow' } },
+    { data: { id: 'mw1b', label: 'show_login()', source: 'MainWindow' } },
     { data: { id: 'mw2', label: 'load_tasks()', source: 'MainWindow' } },
     { data: { id: 'mw3', label: 'APIClient.get_tasks()', source: 'APIClient' } },
+    { data: { id: 'mw3a', label: 'if no_tasks → show_empty_state()', source: 'MainWindow' } },
     { data: { id: 'mw4', label: 'render()', source: 'MainWindow' } },
-    { data: { source: 'mw1', target: 'mw2' } },
+    { data: { source: 'mw1', target: 'mw1a' } },
+    { data: { source: 'mw1a', target: 'mw1b', label: 'if not logged in' } },
+    { data: { source: 'mw1a', target: 'mw2', label: 'if logged in' } },
     { data: { source: 'mw2', target: 'mw3' } },
-    { data: { source: 'mw3', target: 'mw4' } }
+    { data: { source: 'mw3', target: 'mw3a', label: 'if empty' } },
+    { data: { source: 'mw3', target: 'mw4', label: 'if tasks exist' } }
   ],
   APIClient: [
     { data: { id: 'ap1', label: 'get_tasks()', source: 'APIClient' } },
     { data: { id: 'ap2', label: 'send GET /tasks', source: 'APIClient' } },
     { data: { id: 'ap3', label: 'parse response', source: 'APIClient' } },
+    { data: { id: 'ap4', label: 'if error → notify()', source: 'APIClient' } },
+    { data: { id: 'ap5', label: 'return data', source: 'APIClient' } },
     { data: { source: 'ap1', target: 'ap2' } },
-    { data: { source: 'ap2', target: 'ap3' } }
+    { data: { source: 'ap2', target: 'ap3' } },
+    { data: { source: 'ap3', target: 'ap4', label: 'if error' } },
+    { data: { source: 'ap3', target: 'ap5', label: 'if ok' } }
   ],
   FloatingControl: [
     { data: { id: 'fc1', label: 'on_click()', source: 'FloatingControl' } },
     { data: { id: 'fc2', label: 'check timer state', source: 'FloatingControl' } },
+    { data: { id: 'fc2a', label: 'check_permissions()', source: 'FloatingControl' } },
     { data: { id: 'fc3', label: 'TimerMgr.start()', source: 'TimerMgr' } },
     { data: { id: 'fc4', label: 'TimerMgr.stop()', source: 'TimerMgr' } },
     { data: { id: 'fc5', label: 'update UI', source: 'FloatingControl' } },
     { data: { source: 'fc1', target: 'fc2' } },
-    { data: { source: 'fc2', target: 'fc3', label: 'if stopped' } },
-    { data: { source: 'fc2', target: 'fc4', label: 'if running' } },
+    { data: { source: 'fc2', target: 'fc2a' } },
+    { data: { source: 'fc2a', target: 'fc3', label: 'if permitted & stopped' } },
+    { data: { source: 'fc2a', target: 'fc4', label: 'if permitted & running' } },
     { data: { source: 'fc3', target: 'fc5' } },
     { data: { source: 'fc4', target: 'fc5' } }
   ],
@@ -265,11 +260,16 @@
     { data: { source: 'callMgr', target: 'load' } }
   ],
   TaskManager: [
-    { data: { id: 'getTasks', label: 'get_all_tasks()', source: 'TaskManager' } },
-    { data: { id: 'read', label: 'Storage.read()', source: 'Storage' } },
-    { data: { id: 'log', label: 'write backend.log', source: 'BackendLog' } },
-    { data: { source: 'getTasks', target: 'read' } },
-    { data: { source: 'getTasks', target: 'log' } }
+    { data: { id: 'tmgr1', label: 'get_all_tasks()', source: 'TaskManager' } },
+    { data: { id: 'tmgr2', label: 'check_cache()', source: 'TaskManager' } },
+    { data: { id: 'tmgr3', label: 'if not cached → Storage.read()', source: 'Storage' } },
+    { data: { id: 'tmgr4', label: 'log access', source: 'BackendLog' } },
+    { data: { id: 'tmgr5', label: 'return tasks', source: 'TaskManager' } },
+    { data: { source: 'tmgr1', target: 'tmgr2' } },
+    { data: { source: 'tmgr2', target: 'tmgr3', label: 'if cache miss' } },
+    { data: { source: 'tmgr2', target: 'tmgr5', label: 'if cache hit' } },
+    { data: { source: 'tmgr3', target: 'tmgr4' } },
+    { data: { source: 'tmgr4', target: 'tmgr5' } }
   ],
   EditDialog: [
     { data: { id: 'ed1', label: 'open()', source: 'EditDialog' } },
@@ -295,20 +295,30 @@
   ],
   WindowWatcher: [
     { data: { id: 'ww1', label: 'detect window change', source: 'WindowWatcher' } },
-    { data: { id: 'ww2', label: 'match task title', source: 'WindowWatcher' } },
-    { data: { id: 'ww3', label: 'update FloatingControl', source: 'FloatingControl' } },
+    { data: { id: 'ww2', label: 'match active window title', source: 'WindowWatcher' } },
+    { data: { id: 'ww3', label: 'if matched → update FloatingControl', source: 'FloatingControl' } },
+    { data: { id: 'ww4', label: 'log window change', source: 'BackendLog' } },
     { data: { source: 'ww1', target: 'ww2' } },
-    { data: { source: 'ww2', target: 'ww3' } }
+    { data: { source: 'ww2', target: 'ww3' } },
+    { data: { source: 'ww2', target: 'ww4', label: 'always' } }
   ],
   FastAPIApp: [
     { data: { id: 'fa1', label: 'startup()', source: 'FastAPIApp' } },
-    { data: { id: 'fa2', label: 'include router', source: 'Router' } },
-    { data: { source: 'fa1', target: 'fa2' } }
+    { data: { id: 'fa2', label: 'load config', source: 'FastAPIApp' } },
+    { data: { id: 'fa3', label: 'include router()', source: 'Router' } },
+    { data: { id: 'fa4', label: 'log startup', source: 'BackendLog' } },
+    { data: { source: 'fa1', target: 'fa2' } },
+    { data: { source: 'fa2', target: 'fa3' } },
+    { data: { source: 'fa3', target: 'fa4' } }
   ],
   Uvicorn: [
     { data: { id: 'uv1', label: 'launch process', source: 'Uvicorn' } },
-    { data: { id: 'uv2', label: 'run FastAPI app', source: 'FastAPIApp' } },
-    { data: { source: 'uv1', target: 'uv2' } }
+    { data: { id: 'uv2', label: 'initialize config', source: 'Uvicorn' } },
+    { data: { id: 'uv3', label: 'run FastAPI app', source: 'FastAPIApp' } },
+    { data: { id: 'uv4', label: 'write startup log', source: 'BackendLog' } },
+    { data: { source: 'uv1', target: 'uv2' } },
+    { data: { source: 'uv2', target: 'uv3' } },
+    { data: { source: 'uv3', target: 'uv4' } }
   ]
 };
 
@@ -339,17 +349,27 @@
 
   document.getElementById('details').innerHTML = `<strong>${source}</strong>: ${descMap[source] || 'Részlet ehhez a metódushoz.'}`;
 });
+
 architecture.on('tap', 'node', evt => {
   const id = evt.target.id();
   const flow = logicFlows[id];
 
+  logic.elements().remove();
+  logic.nodes().removeClass('highlight');
+  logic.edges().removeClass('highlight');
+
   if (flow) {
-    logic.elements().remove();
     logic.add(flow);
     logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
+
+    flow
+      .filter(e => e.data?.source === id && e.data?.id)
+      .forEach(e => logic.getElementById(e.data.id).addClass('highlight'));
   } else {
     console.warn('Nincs logikai ábra ehhez:', id);
   }
+
+  document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${descMap[id] || 'Részlet ehhez a komponenshez.'}`;
 });
 </script>
 </body>
