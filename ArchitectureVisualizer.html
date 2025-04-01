@@ -1,171 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TimeTracker Architektúra – Interaktív csoportos nézet</title>
-  <style>
-    html, body { margin: 0; height: 100%; font-family: sans-serif; }
-    #container { display: flex; height: 100%; }
-    #cy { flex: 3; height: 100%; border-right: 1px solid #ccc; }
-    #info-panel {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      background: #fafafa;
-    }
-    .info-box {
-      border-left: 4px solid #888;
-      padding-left: 1rem;
-    }
-    .title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; }
-    .tag { font-size: 0.8rem; background: #ddd; padding: 0.2rem 0.5rem; border-radius: 5px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeTracker – Teljes rendszer</title>
   <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js"></script>
-  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
-  <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
+  <style>
+    html, body { margin: 0; font-family: sans-serif; height: 100%; background: #f4f4f4; }
+    h1, h2 { margin: 1rem; }
+    .cy-container { height: 40vh; width: 100%; border-bottom: 1px solid #ccc; }
+    #details { padding: 1rem; background: #fff; min-height: 10vh; }
+  </style>
 </head>
 <body>
-<div id="container">
-  <div id="cy"></div>
-  <div id="info-panel">
-    <div class="info-box" id="info">
-      <div class="title">Kattints egy elemre a részletekhez</div>
-    </div>
-  </div>
-</div>
-<script>
-  cytoscape.use(window.cytoscapeDagre);
+  <h1>TimeTracker – Teljes rendszer (Frontend + Backend + API)</h1>
+  <div id="arch" class="cy-container"></div>
+  <h2>Működés – Kiválasztott komponens logikája</h2>
+  <div id="logic" class="cy-container"></div>
+  <div id="details"><strong>Kattints egy elemre a részletekhez...</strong></div>
 
-  const nodeInfo = {
-    QApplication: { title: 'QApplication', type: 'process', description: 'PySide6 fő GUI loop' },
-    StartApp: { title: 'start_app.py', type: 'process', description: 'Alkalmazásindító script' },
-    MainWindow: { title: 'MainWindow', type: 'frontend', description: 'Fő GUI vezérlő' },
-    APIClient: { title: 'APIClient', type: 'frontend', description: 'HTTP kommunikációs réteg' },
-    FloatingControl: { title: 'FloatingControl', type: 'frontend', description: 'Feladatvezérlő UI' },
-    TaskTimerManager: { title: 'TaskTimerManager', type: 'frontend', description: 'Feladat időmérés' },
-    EditTaskDialog: { title: 'EditTaskDialog', type: 'frontend', description: 'Feladat szerkesztő ablak' },
-    NewTaskDialog: { title: 'NewTaskDialog', type: 'frontend', description: 'Új feladat létrehozása' },
-    WindowWatcher: { title: 'WindowTitleWatcher', type: 'frontend', description: 'Ablakfigyelő (aktív ablak változás)' },
-    LogWindow: { title: 'LogWindow', type: 'frontend', description: 'Logok megjelenítése a felhasználónak' },
-    TasksAPI: { title: 'TasksAPI', type: 'backend', description: 'REST API interfész' },
-    TaskManager: { title: 'TaskManager', type: 'backend', description: 'Logika: betöltés, mentés, frissítés' },
-    Storage: { title: 'Storage', type: 'backend', description: 'tasks.json mentése/archiválása' },
-    TaskSchema: { title: 'TaskSchema', type: 'backend', description: 'Adatmodell séma' },
-    BackendLog: { title: 'backend.log', type: 'io', description: 'Naplózás fájlba' }
-  };
+  <script>
+    cytoscape.use(cytoscapeDagre);
 
-  const cy = cytoscape({
-    container: document.getElementById('cy'),
-    elements: [
-      { data: { id: 'OS', label: 'Operating System Process' }, classes: 'group' },
-      { data: { id: 'ThreadMain', label: 'Main GUI Thread' }, classes: 'group' },
-      { data: { id: 'ThreadBg', label: 'Background Thread' }, classes: 'group' },
+    const descMap = {
+      MainWindow: "Frontend főablak, UI vezérlés.",
+      APIClient: "HTTP kliens a frontendben.",
+      FloatingControl: "Kis vezérlő UI.",
+      TimerMgr: "Időzítő logika a frontendben.",
+      NewDialog: "Új feladat ablak.",
+      EditDialog: "Feladat szerkesztő ablak.",
+      TaskManager: "Backend logikai réteg, vezérli a storage-t.",
+      Storage: "Fájlalapú JSON tárolás, archívum.",
+      Router: "FastAPI router, útválasztja az endpointokat.",
+      FastAPIApp: "FastAPI alkalmazás objektum.",
+      Uvicorn: "Uvicorn szerver (háttér szál).",
+      BackendLog: "Log fájl (írás/olvasás).",
+      TasksJSON: "Feladatokat tartalmazó JSON fájl.",
+      ArchiveJSON: "Archív fájlok (tasks_*.json)."
+    };
 
-      { data: { id: 'StartApp', parent: 'OS' } },
-      { data: { id: 'QApplication', parent: 'ThreadMain' } },
+    const architecture = cytoscape({
+      container: document.getElementById('arch'),
+      elements: [
+        // Frontend
+        { data: { id: 'MainWindow', label: 'MainWindow', type: 'frontend' } },
+        { data: { id: 'APIClient', label: 'APIClient', type: 'frontend' } },
+        { data: { id: 'FloatingControl', label: 'FloatingControl', type: 'frontend' } },
+        { data: { id: 'TimerMgr', label: 'TaskTimerManager', type: 'frontend' } },
+        { data: { id: 'NewDialog', label: 'NewTaskDialog', type: 'frontend' } },
+        { data: { id: 'EditDialog', label: 'EditTaskDialog', type: 'frontend' } },
 
-      { data: { id: 'MainWindow', parent: 'ThreadMain' } },
-      { data: { id: 'APIClient', parent: 'ThreadMain' } },
-      { data: { id: 'FloatingControl', parent: 'ThreadMain' } },
-      { data: { id: 'TaskTimerManager', parent: 'ThreadMain' } },
-      { data: { id: 'EditTaskDialog', parent: 'ThreadMain' } },
-      { data: { id: 'NewTaskDialog', parent: 'ThreadMain' } },
-      { data: { id: 'WindowWatcher', parent: 'ThreadMain' } },
-      { data: { id: 'LogWindow', parent: 'ThreadMain' } },
+        // Backend
+        { data: { id: 'TaskManager', label: 'TaskManager', type: 'backend' } },
+        { data: { id: 'Storage', label: 'Storage', type: 'backend' } },
+        { data: { id: 'Router', label: 'API Router', type: 'backend' } },
+        { data: { id: 'FastAPIApp', label: 'FastAPI App', type: 'backend' } },
+        { data: { id: 'Uvicorn', label: 'Uvicorn Server', type: 'process' } },
 
-      { data: { id: 'TasksAPI', parent: 'ThreadBg' } },
-      { data: { id: 'TaskManager', parent: 'ThreadBg' } },
-      { data: { id: 'Storage', parent: 'ThreadBg' } },
-      { data: { id: 'TaskSchema', parent: 'ThreadBg' } },
-      { data: { id: 'BackendLog', parent: 'ThreadBg' } },
+        // Fájlok
+        { data: { id: 'BackendLog', label: 'backend.log', type: 'file' } },
+        { data: { id: 'TasksJSON', label: 'tasks.json', type: 'file' } },
+        { data: { id: 'ArchiveJSON', label: 'tasks_*.json', type: 'file' } },
 
-      { data: { source: 'StartApp', target: 'QApplication', label: 'Starts' } },
-      { data: { source: 'QApplication', target: 'MainWindow', label: 'Manages' } },
-      { data: { source: 'MainWindow', target: 'APIClient', label: 'Uses' } },
-      { data: { source: 'MainWindow', target: 'FloatingControl', label: 'Owns' } },
-      { data: { source: 'MainWindow', target: 'TaskTimerManager', label: 'Uses' } },
-      { data: { source: 'MainWindow', target: 'EditTaskDialog', label: 'Creates' } },
-      { data: { source: 'MainWindow', target: 'NewTaskDialog', label: 'Creates' } },
-      { data: { source: 'MainWindow', target: 'WindowWatcher', label: 'Owns' } },
-      { data: { source: 'MainWindow', target: 'LogWindow', label: 'Creates' } },
-
-      { data: { source: 'FloatingControl', target: 'APIClient', label: 'Uses' } },
-      { data: { source: 'FloatingControl', target: 'TaskTimerManager', label: 'Uses' } },
-      { data: { source: 'WindowWatcher', target: 'FloatingControl', label: 'Updates' } },
-
-      { data: { source: 'APIClient', target: 'TasksAPI', label: 'Calls API' } },
-      { data: { source: 'TasksAPI', target: 'TaskManager', label: 'Delegates' } },
-      { data: { source: 'TaskManager', target: 'Storage', label: 'Reads/Writes' } },
-      { data: { source: 'TasksAPI', target: 'TaskSchema', label: 'Uses Schema' } },
-      { data: { source: 'TaskManager', target: 'BackendLog', label: 'Writes Log' } },
-    ],
-    layout: {
-      name: 'dagre',
-      rankDir: 'TB',
-      nodeSep: 60,
-      rankSep: 80,
-      edgeSep: 20
-    },
-    style: [
-      {
-        selector: 'node',
-        style: {
-          'label': 'data(id)',
-          'background-color': ele => {
-            const type = nodeInfo[ele.id()]?.type;
-            if (type === 'frontend') return '#cfc';
-            if (type === 'backend') return '#ccf';
-            if (type === 'io') return '#f9d';
-            if (type === 'process') return '#eee';
-            return '#ddd';
-          },
-          'shape': 'roundrectangle',
-          'text-valign': 'center',
-          'text-halign': 'center',
-          'border-width': 2,
-          'border-color': '#333'
+        // Kapcsolatok
+        { data: { source: 'MainWindow', target: 'APIClient', label: 'uses' } },
+        { data: { source: 'APIClient', target: 'Router', label: 'calls' } },
+        { data: { source: 'Router', target: 'TaskManager', label: 'calls' } },
+        { data: { source: 'TaskManager', target: 'Storage', label: 'uses' } },
+        { data: { source: 'Storage', target: 'TasksJSON', label: 'reads/writes' } },
+        { data: { source: 'Storage', target: 'ArchiveJSON', label: 'moves' } },
+        { data: { source: 'TaskManager', target: 'BackendLog', label: 'writes' } },
+        { data: { source: 'EditDialog', target: 'APIClient', label: 'uses' } },
+        { data: { source: 'NewDialog', target: 'APIClient', label: 'uses' } },
+        { data: { source: 'FloatingControl', target: 'APIClient', label: 'uses' } },
+        { data: { source: 'FloatingControl', target: 'TimerMgr', label: 'controls' } },
+        { data: { source: 'MainWindow', target: 'FloatingControl', label: 'creates' } },
+        { data: { source: 'MainWindow', target: 'NewDialog', label: 'opens' } },
+        { data: { source: 'MainWindow', target: 'EditDialog', label: 'opens' } },
+        { data: { source: 'FastAPIApp', target: 'Router', label: 'includes' } },
+        { data: { source: 'Uvicorn', target: 'FastAPIApp', label: 'runs' } }
+      ],
+      layout: { name: 'dagre', rankDir: 'LR' },
+      style: [
+        {
+          selector: 'node',
+          style: {
+            label: 'data(label)',
+            'shape': 'roundrectangle',
+            'background-color': ele => {
+              const t = ele.data('type');
+              return t === 'frontend' ? '#cfc' : t === 'backend' ? '#ccf' : t === 'file' ? '#ffc' : '#eee';
+            },
+            'border-width': 2,
+            'border-color': '#333',
+            'text-valign': 'center',
+            'text-halign': 'center'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            width: 2,
+            'line-color': '#666',
+            'target-arrow-shape': 'triangle',
+            'target-arrow-color': '#666',
+            'curve-style': 'bezier',
+            label: 'data(label)',
+            'font-size': 10,
+            'text-rotation': 'autorotate'
+          }
         }
-      },
-      {
-        selector: 'node.group',
-        style: {
-          'text-valign': 'top',
-          'text-halign': 'center',
-          'background-opacity': 0.1,
-          'font-weight': 'bold',
-          'font-size': '14px'
+      ]
+    });
+
+    const logic = cytoscape({
+      container: document.getElementById('logic'),
+      elements: [],
+      layout: { name: 'dagre', rankDir: 'TB' },
+      style: [
+        {
+          selector: 'node',
+          style: {
+            label: 'data(label)',
+            'shape': 'roundrectangle',
+            'background-color': '#e0f7fa',
+            'border-width': 2,
+            'border-color': '#555',
+            'text-valign': 'center',
+            'text-halign': 'center'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            width: 2,
+            'line-color': '#555',
+            'target-arrow-shape': 'triangle',
+            'target-arrow-color': '#555',
+            'curve-style': 'bezier',
+            label: 'data(label)',
+            'font-size': 10,
+            'text-rotation': 'autorotate'
+          }
         }
-      },
-      {
-        selector: 'edge',
-        style: {
-          'width': 2,
-          'line-color': '#888',
-          'target-arrow-shape': 'triangle',
-          'target-arrow-color': '#888',
-          'curve-style': 'bezier',
-          'label': 'data(label)',
-          'font-size': 10,
-          'text-rotation': 'autorotate',
-          'text-margin-y': -8
-        }
+      ]
+    });
+
+    const logicFlows = {
+  TimerMgr: [
+    { data: { id: 'tm1', label: 'start()', source: 'TimerMgr' } },
+    { data: { id: 'tm2', label: 'write log', source: 'BackendLog' } },
+    { data: { id: 'tm3', label: 'update UI', source: 'FloatingControl' } },
+    { data: { source: 'tm1', target: 'tm2' } },
+    { data: { source: 'tm2', target: 'tm3' } }
+  ],
+  Storage: [
+    { data: { id: 'st1', label: 'load()', source: 'Storage' } },
+    { data: { id: 'st2', label: 'read tasks.json', source: 'TasksJSON' } },
+    { data: { id: 'st3', label: 'archive()', source: 'Storage' } },
+    { data: { id: 'st4', label: 'move to archive', source: 'ArchiveJSON' } },
+    { data: { source: 'st1', target: 'st2' } },
+    { data: { source: 'st3', target: 'st4' } }
+  ],
+  MainWindow: [
+    { data: { id: 'mw1', label: 'init()', source: 'MainWindow' } },
+    { data: { id: 'mw2', label: 'load_tasks()', source: 'MainWindow' } },
+    { data: { id: 'mw3', label: 'APIClient.get_tasks()', source: 'APIClient' } },
+    { data: { id: 'mw4', label: 'render()', source: 'MainWindow' } },
+    { data: { source: 'mw1', target: 'mw2' } },
+    { data: { source: 'mw2', target: 'mw3' } },
+    { data: { source: 'mw3', target: 'mw4' } }
+  ],
+  APIClient: [
+    { data: { id: 'ap1', label: 'get_tasks()', source: 'APIClient' } },
+    { data: { id: 'ap2', label: 'send GET /tasks', source: 'APIClient' } },
+    { data: { id: 'ap3', label: 'parse response', source: 'APIClient' } },
+    { data: { source: 'ap1', target: 'ap2' } },
+    { data: { source: 'ap2', target: 'ap3' } }
+  ],
+  FloatingControl: [
+    { data: { id: 'fc1', label: 'on_click()', source: 'FloatingControl' } },
+    { data: { id: 'fc2', label: 'check timer state', source: 'FloatingControl' } },
+    { data: { id: 'fc3', label: 'TimerMgr.start()', source: 'TimerMgr' } },
+    { data: { id: 'fc4', label: 'TimerMgr.stop()', source: 'TimerMgr' } },
+    { data: { id: 'fc5', label: 'update UI', source: 'FloatingControl' } },
+    { data: { source: 'fc1', target: 'fc2' } },
+    { data: { source: 'fc2', target: 'fc3', label: 'if stopped' } },
+    { data: { source: 'fc2', target: 'fc4', label: 'if running' } },
+    { data: { source: 'fc3', target: 'fc5' } },
+    { data: { source: 'fc4', target: 'fc5' } }
+  ],
+  Router: [
+    { data: { id: 'http', label: 'GET /tasks', source: 'Router' } },
+    { data: { id: 'callMgr', label: 'TaskManager.get_all_tasks()', source: 'TaskManager' } },
+    { data: { id: 'load', label: 'Storage.load()', source: 'Storage' } },
+    { data: { source: 'http', target: 'callMgr' } },
+    { data: { source: 'callMgr', target: 'load' } }
+  ],
+  TaskManager: [
+    { data: { id: 'getTasks', label: 'get_all_tasks()', source: 'TaskManager' } },
+    { data: { id: 'read', label: 'Storage.read()', source: 'Storage' } },
+    { data: { id: 'log', label: 'write backend.log', source: 'BackendLog' } },
+    { data: { source: 'getTasks', target: 'read' } },
+    { data: { source: 'getTasks', target: 'log' } }
+  ],
+  EditDialog: [
+    { data: { id: 'ed1', label: 'open()', source: 'EditDialog' } },
+    { data: { id: 'ed2', label: 'fill form', source: 'EditDialog' } },
+    { data: { id: 'ed3', label: 'validate()', source: 'EditDialog' } },
+    { data: { id: 'ed4', label: 'APIClient.update_task()', source: 'APIClient' } },
+    { data: { id: 'ed5', label: 'refresh MainWindow', source: 'MainWindow' } },
+    { data: { source: 'ed1', target: 'ed2' } },
+    { data: { source: 'ed2', target: 'ed3' } },
+    { data: { source: 'ed3', target: 'ed4', label: 'valid' } },
+    { data: { source: 'ed4', target: 'ed5' } }
+  ],
+  NewDialog: [
+    { data: { id: 'nd1', label: 'open()', source: 'NewDialog' } },
+    { data: { id: 'nd2', label: 'fill form', source: 'NewDialog' } },
+    { data: { id: 'nd3', label: 'validate()', source: 'NewDialog' } },
+    { data: { id: 'nd4', label: 'APIClient.create_task()', source: 'APIClient' } },
+    { data: { id: 'nd5', label: 'refresh MainWindow', source: 'MainWindow' } },
+    { data: { source: 'nd1', target: 'nd2' } },
+    { data: { source: 'nd2', target: 'nd3' } },
+    { data: { source: 'nd3', target: 'nd4', label: 'valid' } },
+    { data: { source: 'nd4', target: 'nd5' } }
+  ],
+  WindowWatcher: [
+    { data: { id: 'ww1', label: 'detect window change', source: 'WindowWatcher' } },
+    { data: { id: 'ww2', label: 'match task title', source: 'WindowWatcher' } },
+    { data: { id: 'ww3', label: 'update FloatingControl', source: 'FloatingControl' } },
+    { data: { source: 'ww1', target: 'ww2' } },
+    { data: { source: 'ww2', target: 'ww3' } }
+  ],
+  FastAPIApp: [
+    { data: { id: 'fa1', label: 'startup()', source: 'FastAPIApp' } },
+    { data: { id: 'fa2', label: 'include router', source: 'Router' } },
+    { data: { source: 'fa1', target: 'fa2' } }
+  ],
+  Uvicorn: [
+    { data: { id: 'uv1', label: 'launch process', source: 'Uvicorn' } },
+    { data: { id: 'uv2', label: 'run FastAPI app', source: 'FastAPIApp' } },
+    { data: { source: 'uv1', target: 'uv2' } }
+  ]
+};
+
+    architecture.on('tap', 'node', evt => {
+      const id = evt.target.id();
+      const desc = descMap[id] || 'Nincs leírás.';
+      document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${desc}`;
+
+      logic.elements().remove();
+      if (logicFlows[id]) {
+        logic.add(logicFlows[id]);
+        logic.layout({ name: 'dagre', rankDir: 'TB' }).run();
       }
-    ]
-  });
+    });
 
-  cy.on('tap', 'node', evt => {
-    const id = evt.target.id();
-    const info = nodeInfo[id];
-    const html = `
-      <div class="info-box">
-        <div class="title">${info?.title || id}</div>
-        <div class="tag">Típus: ${info?.type || 'n/a'}</div>
-        <p style="margin-top: 1rem">${info?.description || 'Nincs leírás'}</p>
-      </div>
-    `;
-    document.getElementById('info').innerHTML = html;
-  });
-</script>
+    logic.on('tap', 'node', evt => {
+      const source = evt.target.data('source');
+      const archNode = architecture.getElementById(source);
+      architecture.nodes().unselect();
+      if (archNode) archNode.select();
+      document.getElementById('details').innerHTML = `<strong>${source}</strong>: ${descMap[source] || 'Részlet ehhez a metódushoz.'}`;
+    });
+  </script>
 </body>
 </html>
