@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeTracker Architektúra – Interaktív csoportos nézet</title>
+  <style>
+    html, body { margin: 0; height: 100%; font-family: sans-serif; }
+    #container { display: flex; height: 100%; }
+    #cy { flex: 3; height: 100%; border-right: 1px solid #ccc; }
+    #info-panel {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .info-box {
+      border-left: 4px solid #888;
+      padding-left: 1rem;
+    }
+    .title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; }
+    .tag { font-size: 0.8rem; background: #ddd; padding: 0.2rem 0.5rem; border-radius: 5px; }
+  </style>
+  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js"></script>
+  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+  <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+</head>
+<body>
+<div id="container">
+  <div id="cy"></div>
+  <div id="info-panel">
+    <div class="info-box" id="info">
+      <div class="title">Kattints egy elemre a részletekhez</div>
+    </div>
+  </div>
+</div>
+<script>
+  cytoscape.use(window.cytoscapeDagre);
+
+  const nodeInfo = {
+    QApplication: { title: 'QApplication', type: 'process', description: 'PySide6 fő GUI loop' },
+    StartApp: { title: 'start_app.py', type: 'process', description: 'Alkalmazásindító script' },
+    MainWindow: { title: 'MainWindow', type: 'frontend', description: 'Fő GUI vezérlő' },
+    APIClient: { title: 'APIClient', type: 'frontend', description: 'HTTP kommunikációs réteg' },
+    FloatingControl: { title: 'FloatingControl', type: 'frontend', description: 'Feladatvezérlő UI' },
+    TaskTimerManager: { title: 'TaskTimerManager', type: 'frontend', description: 'Feladat időmérés' },
+    EditTaskDialog: { title: 'EditTaskDialog', type: 'frontend', description: 'Feladat szerkesztő ablak' },
+    NewTaskDialog: { title: 'NewTaskDialog', type: 'frontend', description: 'Új feladat létrehozása' },
+    WindowWatcher: { title: 'WindowTitleWatcher', type: 'frontend', description: 'Ablakfigyelő (aktív ablak változás)' },
+    LogWindow: { title: 'LogWindow', type: 'frontend', description: 'Logok megjelenítése a felhasználónak' },
+    TasksAPI: { title: 'TasksAPI', type: 'backend', description: 'REST API interfész' },
+    TaskManager: { title: 'TaskManager', type: 'backend', description: 'Logika: betöltés, mentés, frissítés' },
+    Storage: { title: 'Storage', type: 'backend', description: 'tasks.json mentése/archiválása' },
+    TaskSchema: { title: 'TaskSchema', type: 'backend', description: 'Adatmodell séma' },
+    BackendLog: { title: 'backend.log', type: 'io', description: 'Naplózás fájlba' }
+  };
+
+  const cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements: [
+      { data: { id: 'OS', label: 'Operating System Process' }, classes: 'group' },
+      { data: { id: 'ThreadMain', label: 'Main GUI Thread' }, classes: 'group' },
+      { data: { id: 'ThreadBg', label: 'Background Thread' }, classes: 'group' },
+
+      { data: { id: 'StartApp', parent: 'OS' } },
+      { data: { id: 'QApplication', parent: 'ThreadMain' } },
+
+      { data: { id: 'MainWindow', parent: 'ThreadMain' } },
+      { data: { id: 'APIClient', parent: 'ThreadMain' } },
+      { data: { id: 'FloatingControl', parent: 'ThreadMain' } },
+      { data: { id: 'TaskTimerManager', parent: 'ThreadMain' } },
+      { data: { id: 'EditTaskDialog', parent: 'ThreadMain' } },
+      { data: { id: 'NewTaskDialog', parent: 'ThreadMain' } },
+      { data: { id: 'WindowWatcher', parent: 'ThreadMain' } },
+      { data: { id: 'LogWindow', parent: 'ThreadMain' } },
+
+      { data: { id: 'TasksAPI', parent: 'ThreadBg' } },
+      { data: { id: 'TaskManager', parent: 'ThreadBg' } },
+      { data: { id: 'Storage', parent: 'ThreadBg' } },
+      { data: { id: 'TaskSchema', parent: 'ThreadBg' } },
+      { data: { id: 'BackendLog', parent: 'ThreadBg' } },
+
+      { data: { source: 'StartApp', target: 'QApplication', label: 'Starts' } },
+      { data: { source: 'QApplication', target: 'MainWindow', label: 'Manages' } },
+      { data: { source: 'MainWindow', target: 'APIClient', label: 'Uses' } },
+      { data: { source: 'MainWindow', target: 'FloatingControl', label: 'Owns' } },
+      { data: { source: 'MainWindow', target: 'TaskTimerManager', label: 'Uses' } },
+      { data: { source: 'MainWindow', target: 'EditTaskDialog', label: 'Creates' } },
+      { data: { source: 'MainWindow', target: 'NewTaskDialog', label: 'Creates' } },
+      { data: { source: 'MainWindow', target: 'WindowWatcher', label: 'Owns' } },
+      { data: { source: 'MainWindow', target: 'LogWindow', label: 'Creates' } },
+
+      { data: { source: 'FloatingControl', target: 'APIClient', label: 'Uses' } },
+      { data: { source: 'FloatingControl', target: 'TaskTimerManager', label: 'Uses' } },
+      { data: { source: 'WindowWatcher', target: 'FloatingControl', label: 'Updates' } },
+
+      { data: { source: 'APIClient', target: 'TasksAPI', label: 'Calls API' } },
+      { data: { source: 'TasksAPI', target: 'TaskManager', label: 'Delegates' } },
+      { data: { source: 'TaskManager', target: 'Storage', label: 'Reads/Writes' } },
+      { data: { source: 'TasksAPI', target: 'TaskSchema', label: 'Uses Schema' } },
+      { data: { source: 'TaskManager', target: 'BackendLog', label: 'Writes Log' } },
+    ],
+    layout: {
+      name: 'dagre',
+      rankDir: 'TB',
+      nodeSep: 60,
+      rankSep: 80,
+      edgeSep: 20
+    },
+    style: [
+      {
+        selector: 'node',
+        style: {
+          'label': 'data(id)',
+          'background-color': ele => {
+            const type = nodeInfo[ele.id()]?.type;
+            if (type === 'frontend') return '#cfc';
+            if (type === 'backend') return '#ccf';
+            if (type === 'io') return '#f9d';
+            if (type === 'process') return '#eee';
+            return '#ddd';
+          },
+          'shape': 'roundrectangle',
+          'text-valign': 'center',
+          'text-halign': 'center',
+          'border-width': 2,
+          'border-color': '#333'
+        }
+      },
+      {
+        selector: 'node.group',
+        style: {
+          'text-valign': 'top',
+          'text-halign': 'center',
+          'background-opacity': 0.1,
+          'font-weight': 'bold',
+          'font-size': '14px'
+        }
+      },
+      {
+        selector: 'edge',
+        style: {
+          'width': 2,
+          'line-color': '#888',
+          'target-arrow-shape': 'triangle',
+          'target-arrow-color': '#888',
+          'curve-style': 'bezier',
+          'label': 'data(label)',
+          'font-size': 10,
+          'text-rotation': 'autorotate',
+          'text-margin-y': -8
+        }
+      }
+    ]
+  });
+
+  cy.on('tap', 'node', evt => {
+    const id = evt.target.id();
+    const info = nodeInfo[id];
+    const html = `
+      <div class="info-box">
+        <div class="title">${info?.title || id}</div>
+        <div class="tag">Típus: ${info?.type || 'n/a'}</div>
+        <p style="margin-top: 1rem">${info?.description || 'Nincs leírás'}</p>
+      </div>
+    `;
+    document.getElementById('info').innerHTML = html;
+  });
+</script>
+</body>
+</html>
