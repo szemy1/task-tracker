@@ -869,5 +869,28 @@
                 "message": "Feladat leállítva"
             }
         ]
+    },
+    {
+        "id": 46,
+        "title": "Task_20250401_022904",
+        "name": "Google Chrome (02:29)",
+        "description": "sdfsdf",
+        "status": "completed",
+        "start_time": "2025-04-01T02:29:04.668171",
+        "end_time": "2025-04-01T02:29:10.583946",
+        "logs": [
+            {
+                "timestamp": "2025-04-01T02:29:04.668171",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:29:04.687178",
+                "message": "Feladat elindítva"
+            },
+            {
+                "timestamp": "2025-04-01T02:29:10.583946",
+                "message": "Feladat leállítva"
+            }
+        ]
     }
 ]
