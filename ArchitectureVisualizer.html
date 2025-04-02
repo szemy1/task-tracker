@@ -4,7 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TimeTracker – Teljes rendszer</title>
-  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js"></script>
+  <script src="https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js">function filterByType(type) {
+  architecture.nodes().forEach(n => {
+    const match = n.data('type') === type;
+    n.style('display', match ? 'element' : 'none');
+  });
+  architecture.edges().forEach(e => {
+    const srcVisible = architecture.getElementById(e.data('source')).style('display') !== 'none';
+    const tgtVisible = architecture.getElementById(e.data('target')).style('display') !== 'none';
+    e.style('display', srcVisible && tgtVisible ? 'element' : 'none');
+  });
+}
+
+function resetFilter() {
+  architecture.elements().forEach(e => e.style('display', 'element'));
+}
+</script>
   <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
   <style>
@@ -18,6 +33,7 @@
   </style>
 </head>
 <body>
+  <input id="search" placeholder="🔍 Keresés komponensre vagy metódusra..." style="margin: 1rem; padding: 0.5rem; width: 60%; font-size: 1rem;" />
   <h1>TimeTracker – Teljes rendszer (Frontend + Backend + API)</h1>
   <div id="arch" class="cy-container"></div>
   <h2>Működés – Kiválasztott komponens logikája</h2>
@@ -197,6 +213,15 @@
     });
 
     const logicFlows = {
+  BackendLog: [
+    { data: { id: 'bl1', label: 'log_startup()', source: 'BackendLog' } },
+    { data: { id: 'bl2', label: 'log_task_access()', source: 'BackendLog' } },
+    { data: { id: 'bl3', label: 'log_error()', source: 'BackendLog' } },
+    { data: { id: 'bl4', label: 'write to file', source: 'BackendLog' } },
+    { data: { source: 'bl1', target: 'bl4' } },
+    { data: { source: 'bl2', target: 'bl4' } },
+    { data: { source: 'bl3', target: 'bl4' } }
+  ],
   TimerMgr: [
     { data: { id: 'tm1', label: 'start()', source: 'TimerMgr' } },
     { data: { id: 'tm2', label: 'write log', source: 'BackendLog' } },
@@ -208,8 +233,14 @@
     { data: { id: 'st1', label: 'load()', source: 'Storage' } },
     { data: { id: 'st2', label: 'read tasks.json', source: 'TasksJSON' } },
     { data: { id: 'st3', label: 'archive()', source: 'Storage' } },
+    { data: { id: 'st3a', label: 'create archive filename', source: 'Storage' } },
+    { data: { id: 'st3b', label: 'move tasks.json → archive', source: 'ArchiveJSON' } },
+    { data: { id: 'st3c', label: 'clear tasks.json', source: 'TasksJSON' } },
     { data: { id: 'st4', label: 'move to archive', source: 'ArchiveJSON' } },
     { data: { source: 'st1', target: 'st2' } },
+    { data: { source: 'st3', target: 'st3a' } },
+    { data: { source: 'st3a', target: 'st3b' } },
+    { data: { source: 'st3b', target: 'st3c' } },
     { data: { source: 'st3', target: 'st4' } }
   ],
   MainWindow: [
@@ -302,6 +333,20 @@
     { data: { source: 'ww2', target: 'ww3' } },
     { data: { source: 'ww2', target: 'ww4', label: 'always' } }
   ],
+  TasksJSON: [
+    { data: { id: 'tjson1', label: 'open file', source: 'TasksJSON' } },
+    { data: { id: 'tjson2', label: 'deserialize JSON', source: 'TasksJSON' } },
+    { data: { id: 'tjson3', label: 'return task list', source: 'TasksJSON' } },
+    { data: { source: 'tjson1', target: 'tjson2' } },
+    { data: { source: 'tjson2', target: 'tjson3' } }
+  ],
+  ArchiveJSON: [
+    { data: { id: 'a1', label: 'generate filename', source: 'ArchiveJSON' } },
+    { data: { id: 'a2', label: 'write backup file', source: 'ArchiveJSON' } },
+    { data: { id: 'a3', label: 'confirm archive created', source: 'ArchiveJSON' } },
+    { data: { source: 'a1', target: 'a2' } },
+    { data: { source: 'a2', target: 'a3' } }
+  ],
   FastAPIApp: [
     { data: { id: 'fa1', label: 'startup()', source: 'FastAPIApp' } },
     { data: { id: 'fa2', label: 'load config', source: 'FastAPIApp' } },
@@ -350,6 +395,25 @@
   document.getElementById('details').innerHTML = `<strong>${source}</strong>: ${descMap[source] || 'Részlet ehhez a metódushoz.'}`;
 });
 
+architecture.on('mouseover', 'node', evt => {
+  const tooltip = document.getElementById('tooltip');
+  const id = evt.target.id();
+  const description = descMap[id] || 'Nincs részletes leírás.';
+  tooltip.innerHTML = `<strong>${id}</strong><br>${description}`;
+  tooltip.style.display = 'block';
+});
+
+architecture.on('mouseout', 'node', () => {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.style.display = 'none';
+});
+
+architecture.on('mousemove', evt => {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.style.left = (evt.originalEvent.pageX + 10) + 'px';
+  tooltip.style.top = (evt.originalEvent.pageY + 10) + 'px';
+});
+
 architecture.on('tap', 'node', evt => {
   const id = evt.target.id();
   const flow = logicFlows[id];
@@ -371,6 +435,47 @@ architecture.on('tap', 'node', evt => {
 
   document.getElementById('details').innerHTML = `<strong>${id}</strong>: ${descMap[id] || 'Részlet ehhez a komponenshez.'}`;
 });
+document.getElementById('search').addEventListener('input', e => {
+  const query = e.target.value.toLowerCase();
+  const allNodes = [...architecture.nodes(), ...logic.nodes()];
+  allNodes.forEach(n => {
+    const label = n.data('label')?.toLowerCase() || '';
+    if (query && label.includes(query)) {
+      n.style('opacity', 1);
+      n.addClass('highlight');
+    } else if (query) {
+      n.style('opacity', 0.1);
+      n.removeClass('highlight');
+    } else {
+      n.style('opacity', 1);
+      n.removeClass('highlight');
+    }
+  });
+});
+
+function filterByType(type) {
+  architecture.nodes().forEach(n => {
+    const match = n.data('type') === type;
+    n.style('display', match ? 'element' : 'none');
+  });
+  architecture.edges().forEach(e => {
+    const srcVisible = architecture.getElementById(e.data('source')).style('display') !== 'none';
+    const tgtVisible = architecture.getElementById(e.data('target')).style('display') !== 'none';
+    e.style('display', srcVisible && tgtVisible ? 'element' : 'none');
+  });
+}
+
+function resetFilter() {
+  architecture.elements().forEach(e => e.style('display', 'element'));
+}
+;
 </script>
+<div style="margin: 1rem;">
+  <button onclick="filterByType('frontend')">Frontend</button>
+  <button onclick="filterByType('backend')">Backend</button>
+  <button onclick="filterByType('file')">Fájl</button>
+  <button onclick="resetFilter()">Összes mutatása</button>
+</div>
+<div id="tooltip" style="position: absolute; background: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 12px; display: none; pointer-events: none; z-index: 1000;"></div>
 </body>
 </html>
